@@ -1,3 +1,3 @@
 # CapstoneProject
 
-Description of Project: TBD
+Description of Project: TBD soon
