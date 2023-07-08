@@ -1,34 +1,51 @@
-/* using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
-    public GameObject cmr;
     public Animator animator;
     public float speed = 2f;
-    public Transform movePoint;
-    public Tilemap obs1;
-    public Tilemap obs2;
 
     public LayerMask grassLayer;
     public LayerMask solidObjectsLayer;
     private bool isMoving;
     private Vector2 input; 
 
+    public VectorValue startingPosition;
+    public bool canMove = false;
+    public SpriteRenderer sr;
+    bool inSpawnTrans = false;
+    public float tranSpeed;
+    float transitionProg = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        movePoint.parent = null;
+        transitionProg = 1f;
+        inSpawnTrans = true;
+        sr.material.SetFloat("_CutOff", transitionProg);
+        //----------------------------------------------//
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (!isMoving)
-        {
+        if (inSpawnTrans) {
+            animator.SetFloat("vertical", 0f);
+            animator.SetFloat("horizontal", 0f);
+            transitionProg -= Time.deltaTime * tranSpeed;
+            sr.material.SetFloat("_CutOff", transitionProg);
+            if (transitionProg <= 0f) {
+                inSpawnTrans = false;
+                canMove = true;
+            }
+        } else if (!canMove) {
+            animator.SetFloat("vertical", 0f);
+            animator.SetFloat("horizontal", 0f);
+        } else if (!isMoving) {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
@@ -93,4 +110,3 @@ public class Player : MonoBehaviour
         }
     }
 }
- */

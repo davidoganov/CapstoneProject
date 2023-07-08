@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - stops
-  - Grass
-  - SolidObjects
+  - grass
+  - 
   - 
   - 
   - 
@@ -40,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 1216260551
     locked: 0
