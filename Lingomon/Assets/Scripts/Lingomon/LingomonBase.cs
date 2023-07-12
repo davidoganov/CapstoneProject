@@ -18,6 +18,8 @@ public class LingomonBase : ScriptableObject
     [SerializeField] int maxHP;
     [SerializeField] int attack;
 
+    [SerializeField] List<PossibleAnswer> possibleAnswers;
+
     public string Name {
         get { return name; }
     }
@@ -41,8 +43,21 @@ public class LingomonBase : ScriptableObject
     public int MaxHP {
         get { return maxHP; }
     }
+
+    public List<PossibleAnswer> PossibleAnswers {
+        get { return possibleAnswers; }
+    }
 }
 
+[System.Serializable]
+public class PossibleAnswer
+{
+    [SerializeField] AnswerBase answerBase;
+
+    public AnswerBase Base {
+        get { return answerBase; }
+    }
+}
 
 public enum LingomonType
 {
