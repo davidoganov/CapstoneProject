@@ -11,15 +11,16 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask grassLayer;
     public LayerMask solidObjectsLayer;
+    public LayerMask interactablesLayer;
     private bool isMoving;
     private Vector2 input; 
 
     public VectorValue startingPosition;
     public bool canMove = false;
     public SpriteRenderer sr;
-    bool inSpawnTrans = false;
     public float tranSpeed;
-    float transitionProg = 0;
+    float vert = -1f;
+    float hori = 0f;
 
     public event Action OnEncountered;
 
@@ -31,26 +32,28 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transitionProg = 1f;
-        inSpawnTrans = true;
-        sr.material.SetFloat("_CutOff", transitionProg);
+        StartCoroutine(playerSpawning());
         //----------------------------------------------//
         transform.position = startingPosition.initialValue;
+    }
+
+    IEnumerator playerSpawning() {
+        canMove = false;
+        float transitionProg = 1.1f;
+        sr.material.SetFloat("_CutOff", transitionProg);
+        while (sr.material.GetFloat("_CutOff") > 0f) {
+            transitionProg -= .01f;
+            sr.material.SetFloat("_CutOff", transitionProg);
+            yield return new WaitForSeconds(.05f / tranSpeed);
+        }
+        canMove = true;
     }
 
     // Update is called once per frame
     public void HandleUpdate()
     {
-        if (inSpawnTrans) {
-            animator.SetFloat("vertical", 0f);
-            animator.SetFloat("horizontal", 0f);
-            transitionProg -= Time.deltaTime * tranSpeed;
-            sr.material.SetFloat("_CutOff", transitionProg);
-            if (transitionProg <= 0f) {
-                inSpawnTrans = false;
-                canMove = true;
-            }
-        } else if (!canMove) {
+
+        if (!canMove) {
             animator.SetFloat("vertical", 0f);
             animator.SetFloat("horizontal", 0f);
         } else if (!isMoving) {
@@ -68,6 +71,8 @@ public class PlayerController : MonoBehaviour
 
                 animator.SetFloat("vertical", input.y);
                 animator.SetFloat("horizontal", input.x);
+                hori = input.x;
+                vert = input.y;
 
                 if (isWalkable(targetPos))
                     StartCoroutine(Move(targetPos));
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetFloat("horizontal", 0);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Z)) Interact();
 
     }
 
@@ -99,12 +105,25 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactablesLayer) != null)
         {
             return false;
         }
 
         return true;
+    }
+
+    void Interact()
+    {
+        Vector3 playerDir = new Vector3(hori, vert);
+        print(playerDir);
+        Vector3 interactPos = transform.position + playerDir;
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactablesLayer);
+        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
+        if (collider != null) {
+            collider.GetComponent<Interactable>()?.Interact();
+            canMove = !DialogManager.Instance.inDialog;
+        }
     }
 
     private void CheckForEncounters()
@@ -113,7 +132,7 @@ public class PlayerController : MonoBehaviour
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                animator.SetBool("isMoving", false);
+                canMove = false;
                 OnEncountered();
             }
         }

@@ -82,6 +82,7 @@ public class BattleSystem : MonoBehaviour
         else //IF INCORRECT
         {
             //StartCoroutine(EnemyMove());
+            PlayerAction();
         }
     }
 
