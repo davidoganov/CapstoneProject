@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
@@ -16,13 +17,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 input; 
 
     public VectorValue startingPosition;
-    public bool canMove = false;
     public SpriteRenderer sr;
     public float tranSpeed;
     float vert = -1f;
     float hori = 0f;
 
     public event Action OnEncountered;
+    public event Action inTranstion;
+    public event Action transitionDone;
 
     private void Awake()
     {
@@ -38,7 +40,9 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator playerSpawning() {
-        canMove = false;
+        inTranstion();
+        animator.SetFloat("vertical", 0f);
+        animator.SetFloat("horizontal", 0f);
         float transitionProg = 1.1f;
         sr.material.SetFloat("_CutOff", transitionProg);
         while (sr.material.GetFloat("_CutOff") > 0f) {
@@ -46,17 +50,32 @@ public class PlayerController : MonoBehaviour
             sr.material.SetFloat("_CutOff", transitionProg);
             yield return new WaitForSeconds(.05f / tranSpeed);
         }
-        canMove = true;
+        transitionDone();
+    }
+
+    public IEnumerator enteringHouse(string sceneName, Vector2 playerPosition, VectorValue playerStorage)
+    {
+        inTranstion();
+        animator.SetFloat("vertical", 0f);
+        animator.SetFloat("horizontal", 0f);
+        float transitionProg = 0f;
+        sr.material.SetFloat("_CutOff", transitionProg);
+        while (sr.material.GetFloat("_CutOff") < 1f)
+        {
+            transitionProg += .01f;
+            sr.material.SetFloat("_CutOff", transitionProg);
+            yield return new WaitForSeconds(.05f / speed);
+        }
+        Debug.Log("ending transition...");
+        playerStorage.initialValue = playerPosition;
+        SceneManager.LoadScene(sceneName);
+        transitionDone();
     }
 
     // Update is called once per frame
     public void HandleUpdate()
     {
-
-        if (!canMove) {
-            animator.SetFloat("vertical", 0f);
-            animator.SetFloat("horizontal", 0f);
-        } else if (!isMoving) {
+        if (!isMoving) {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
@@ -122,7 +141,6 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
         if (collider != null) {
             collider.GetComponent<Interactable>()?.Interact();
-            canMove = !DialogManager.Instance.inDialog;
         }
     }
 
@@ -132,7 +150,6 @@ public class PlayerController : MonoBehaviour
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                canMove = false;
                 OnEncountered();
             }
         }

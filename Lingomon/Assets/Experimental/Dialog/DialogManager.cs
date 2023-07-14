@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,30 +17,19 @@ public class DialogManager : MonoBehaviour
     int currentLine = 0;
     bool printing = false;
 
+    public event Action OnDialogOpen;
+    public event Action OnDialogClose;
+
     private void Awake() {
         Instance = this;
     }
 
     public void ShowDialog(Dialog dialog) {
+        OnDialogOpen();
         inDialog = true;
         dialogBox.SetActive(true);
         this.dialog = dialog;
         StartCoroutine(TypeDialog(dialog.Lines[0]));
-    }
-
-    public void NextInDialog() {
-        if (!printing) {
-            ++currentLine;
-            print("pot next");
-            if (currentLine < dialog.Lines.Count) {
-                print("next");
-                StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
-            } else {
-                inDialog = false;
-                currentLine = 0;
-                dialogBox.SetActive(false);
-            }
-        }
     }
 
     public IEnumerator TypeDialog(string line) {
@@ -51,5 +41,26 @@ public class DialogManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         printing = false;
+    }
+
+    public void HandleUpdate()
+    {
+        if (!printing && Input.GetKeyDown(KeyCode.Z))
+        {
+            ++currentLine;
+            print("pot next");
+            if (currentLine < dialog.Lines.Count)
+            {
+                print("next");
+                StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
+            }
+            else
+            {
+                OnDialogClose();
+                inDialog = false;
+                currentLine = 0;
+                dialogBox.SetActive(false);
+            }
+        }
     }
 }
