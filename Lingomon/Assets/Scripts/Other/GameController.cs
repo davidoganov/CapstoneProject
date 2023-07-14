@@ -9,14 +9,26 @@ public class GameController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
-    [SerializeField] DialogManager dialogManager;
 
     GameState state;
 
+    public static GameController Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
-        dialogManager.OnDialogOpen += StartDialog;
-        dialogManager.OnDialogClose += EndDialog;
+        DialogManager.Instance.OnDialogOpen += () => 
+        { 
+            state = GameState.Dialog;
+        };
+        DialogManager.Instance.OnDialogClose += () =>
+        {
+            if (state == GameState.Dialog)
+                state = GameState.FreeRoam;
+        };
         playerController.OnEncountered += StartBattle;
         playerController.inTranstion += startTransition;
         playerController.transitionDone += endTransition;
@@ -37,7 +49,22 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-        battleSystem.StartBattle();
+        var playerParty = playerController.GetComponent<LingomonParty>();
+        var wildLingomon = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildLingomon();
+
+        battleSystem.StartBattle(playerParty, wildLingomon);
+    }
+
+    public void StartTrainerBattle(TrainerController trainer)
+    {
+        state = GameState.Battle;
+        battleSystem.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(false);
+
+        var playerParty = playerController.GetComponent<LingomonParty>();
+        var trainerParty = trainer.GetComponent<LingomonParty>();
+
+        battleSystem.StartTrainerBattle(playerParty, trainerParty);
     }
 
     void EndBattle(bool won)
@@ -59,7 +86,7 @@ public class GameController : MonoBehaviour
         }
         else if (state == GameState.Dialog)
         {
-            dialogManager.HandleUpdate();
+            DialogManager.Instance.HandleUpdate();
         }
     }
 }

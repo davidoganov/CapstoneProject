@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Lingomon
 {
-    public LingomonBase Base { get; set; }
+    [SerializeField] LingomonBase _base;
+
+    public LingomonBase Base { 
+        get { 
+            return _base;
+        }    
+    }
 
     public int HP { get; set; }
     /* public int maxHP { get; set; } */
 
     public List<Answer> Answers { get; set; }
 
-    public Lingomon(LingomonBase lBase)
+    public void Init()
     {
-        Base = lBase;
-        HP = lBase.MaxHP;
+        HP = MaxHP;
 
         Answers = new List<Answer>();
         foreach (var answer in Base.PossibleAnswers)
@@ -27,11 +33,11 @@ public class Lingomon
         /* maxHP = lBase.MaxHP; */
     }
 
-    /* public int MaxHP {
+    public int MaxHP {
         get {
-            return maxHP;
+            return _base.MaxHP;
         }
-    } */
+    } 
 
     public bool TakeDamage(Answer answer, int damage)
     {

@@ -7,6 +7,9 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] string name;
+    [SerializeField] Sprite sprite;
+
     public Animator animator;
     public float speed = 2f;
 
@@ -153,5 +156,15 @@ public class PlayerController : MonoBehaviour
                 OnEncountered();
             }
         }
+    }
+
+    public string Name
+    {
+        get => Name;
+    }
+
+    public Sprite Sprite
+    {
+        get => sprite;
     }
 }

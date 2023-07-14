@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.UI;
 
-public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy}
+public enum BattleState { Start, ActionSelection, MoveSelection, PerformMove
+        , Busy, RunningTurn, BattleOver}
 
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleUnit enemyUnit;
-    [SerializeField] BattleHud playerHud;
-    [SerializeField] BattleHud enemyHud;
     [SerializeField] BattleDialogueBox battleDialogueBox;
     [SerializeField] PromptDialogueBox promptDialogueBox;
+    [SerializeField] Image playerImage;
+    [SerializeField] Image trainerImage;
 
     public event Action<bool> OnBattleOver;
 
@@ -20,103 +23,178 @@ public class BattleSystem : MonoBehaviour
     int currentAction;
     int currentMove;
 
-    public void StartBattle()
+    LingomonParty playerParty;
+    LingomonParty trainerParty;
+    Lingomon wildLingomon;
+
+    bool isTrainerBattle = false;
+    PlayerController player;
+    TrainerController trainer;
+
+    public void StartBattle( LingomonParty playerParty,  Lingomon wildLingomon)
     {
+        this.playerParty = playerParty;
+        this.wildLingomon = wildLingomon;
+        StartCoroutine(SetupBattle());
+    }
+
+    public void StartTrainerBattle(LingomonParty playerParty, LingomonParty trainerParty)
+    {
+        this.playerParty = playerParty;
+        this.trainerParty = trainerParty;
+
+        isTrainerBattle = true;
+        player = playerParty.GetComponent<PlayerController>();
+        trainer = trainerParty.GetComponent<TrainerController>();
+
         StartCoroutine(SetupBattle());
     }
 
     public IEnumerator SetupBattle()
     {
-        playerUnit.Setup();
-        enemyUnit.Setup();
-        playerHud.SetData(playerUnit.Lingomon);
-        enemyHud.SetData(enemyUnit.Lingomon);
+        playerUnit.Clear();
+        enemyUnit.Clear();
+        promptDialogueBox.EnablePromptBox(false);
+        if (!isTrainerBattle)
+        {
+            //Wild lingomon battle
+            playerUnit.Setup(playerParty.GetHealthyLingomon()); 
+            enemyUnit.Setup(wildLingomon);
 
-        battleDialogueBox.SetAnswerNames(playerUnit.Lingomon.Answers);
+            battleDialogueBox.SetAnswerNames(playerUnit.Lingomon.Answers);
+            yield return battleDialogueBox.TypeDialogue($"A wild {enemyUnit.Lingomon.Base.Name} appeared.");
+        }
+        else
+        {
+            //trainer battle
+            //show player and trainer sprites
+            playerUnit.gameObject.SetActive(false);
+            enemyUnit.gameObject.SetActive(false);
 
-        yield return battleDialogueBox.TypeDialogue($"A wild {enemyUnit.Lingomon.Base.Name} appeared.");
+            playerImage.gameObject.SetActive(true);
+            trainerImage.gameObject.SetActive(true);
+            playerImage.sprite = player.Sprite;
+            trainerImage.sprite = trainer.Sprite;
+
+            yield return battleDialogueBox.TypeDialogue($"{trainer.Name} wants to battle");
+            yield return new WaitForSeconds(1.5f);
+
+            // send out first trainer lingomon
+            trainerImage.gameObject.SetActive(false);
+            enemyUnit.gameObject.SetActive(true);
+            var enemyLingomon = trainerParty.GetHealthyLingomon();
+            enemyUnit.Setup(enemyLingomon);
+            yield return battleDialogueBox.TypeDialogue($"{trainer.Name} sent out {enemyLingomon.Base.Name}");
+            yield return new WaitForSeconds(1.5f);
+
+            //send out players lingomon
+            playerImage.gameObject.SetActive(false);
+            playerUnit.gameObject.SetActive(true);
+            var playerLingomon = playerParty.GetHealthyLingomon();
+            playerUnit.Setup(playerLingomon);
+            yield return battleDialogueBox.TypeDialogue($"Go {playerLingomon.Base.Name}!");
+            battleDialogueBox.SetAnswerNames(playerUnit.Lingomon.Answers);
+        }
+
         yield return new WaitForSeconds(1f);
         promptDialogueBox.EnablePromptBox(true);
         promptDialogueBox.SetDialogue($"No way the text box works :O.");
 
-        PlayerAction();
+        ActionSelection();
     }
 
-    void PlayerAction()
+    void BattleOver(bool won)
     {
-        state = BattleState.PlayerAction;
+        state = BattleState.BattleOver;
+        OnBattleOver(won);
+    }
+
+    void ActionSelection()
+    {
+        state = BattleState.ActionSelection;
         StartCoroutine(battleDialogueBox.TypeDialogue("Choose an action"));
         battleDialogueBox.EnableActionSelector(true);
     }
 
-    void PlayerMove()
+    void MoveSelection()
     {
-        state = BattleState.PlayerMove;
+        state = BattleState.MoveSelection;
         battleDialogueBox.EnableActionSelector(false);
         battleDialogueBox.EnableDialogueText(false);
         battleDialogueBox.EnableMoveSelector(true);
     }
 
-    IEnumerator PerformPlayerMove()
+    IEnumerator PlayerMove()
     {
         //CHECK IF ANSWER IS CORRECT
         //IF SO DEAL DAMAGE, IF NOT TAKE DAMAGE
-        state = BattleState.Busy;
+        state = BattleState.PerformMove;
 
         var answer = playerUnit.Lingomon.Answers[currentMove];
         yield return battleDialogueBox.TypeDialogue(/*if answer is correct or not*/ $"Answer Correct?");
+
+        yield return RunMove(playerUnit, enemyUnit, answer);
+        //IF INCORRECT
+        if (state == BattleState.PerformMove)
+            StartCoroutine(EnemyMove(true));
+        /*else
+            ActionSelection();*/
+    }
+
+    IEnumerator EnemyMove(bool isCorrectAnswer)
+    {
+        if (!isCorrectAnswer)
+        {
+            state = BattleState.PerformMove;
+            var answer = playerUnit.Lingomon.Answers[currentMove]; //UNNCESSSARAYRY
+            yield return battleDialogueBox.TypeDialogue("Incorrect answer");
+
+            yield return new WaitForSeconds(1f);
+
+            yield return RunMove(enemyUnit, playerUnit, answer);
+        }
+
+        // if the battle stat was not changed then go next
+        if(state == BattleState.PerformMove)
+            ActionSelection();
+    }
+
+    IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Answer answer)
+    {
         
+        //yield return battleDialogueBox.TypeDialogue(/*if answer is correct or not*/ $"Answer Correct?");
+
         yield return new WaitForSeconds(1f);
 
         //if (CORRECT)
-        bool isFainted = enemyUnit.Lingomon.TakeDamage(answer, 30);
-        yield return enemyHud.UpdateHP();
+        bool isFainted = targetUnit.Lingomon.TakeDamage(answer, 30);
+        yield return targetUnit.Hud.UpdateHP();
 
-        if(isFainted)
+        if (isFainted)
         {
             yield return battleDialogueBox.TypeDialogue("Enemy Fainted");
 
             yield return new WaitForSeconds(2f); //play animation here
-            OnBattleOver(true);
+            if(!isTrainerBattle)
+                BattleOver(true);
+            else
+            {
+                var nextLingomon = trainerParty.GetHealthyLingomon();
+                if (nextLingomon != null)
+                    StartCoroutine(SendNextTrainerLingomon(nextLingomon));
+                else
+                    BattleOver(true);
+            }
         }
-        else //IF INCORRECT
-        {
-            //StartCoroutine(EnemyMove());
-            PlayerAction();
-        }
-    }
-
-    IEnumerator EnemyMove()
-    {
-        state = BattleState.EnemyMove;
-        var answer = playerUnit.Lingomon.Answers[currentMove]; //UNNCESSSARAYRY
-        yield return battleDialogueBox.TypeDialogue("Incorrect answer");
-
-        yield return new WaitForSeconds(1f);
-
-        bool isFainted = playerUnit.Lingomon.TakeDamage(answer, 30);
-        yield return playerHud.UpdateHP();
-
-        if(isFainted)
-        {
-            yield return battleDialogueBox.TypeDialogue("Enemy Fainted"); //play animation here
-
-            yield return new WaitForSeconds(2f);
-            OnBattleOver(false);
-        }
-        else 
-        {
-            PlayerAction();
-        }   
     }
 
     public void HandleUpdate()
     {
-        if (state == BattleState.PlayerAction)
+        if (state == BattleState.ActionSelection)
         {
             HandleActionSelection();
         }
-        else if (state == BattleState.PlayerMove)
+        else if (state == BattleState.MoveSelection)
         {
             HandleMoveSelection();
         }
@@ -142,7 +220,7 @@ public class BattleSystem : MonoBehaviour
             if (currentAction == 0)
             {
                 //Fight
-                PlayerMove();
+                MoveSelection();
             }
             else if (currentAction == 1)
             {
@@ -180,7 +258,17 @@ public class BattleSystem : MonoBehaviour
         {
             battleDialogueBox.EnableMoveSelector(false);
             battleDialogueBox.EnableDialogueText(true);
-            StartCoroutine(PerformPlayerMove());
+            StartCoroutine(PlayerMove());
         }
+    }
+
+    IEnumerator SendNextTrainerLingomon(Lingomon nextLingomon)
+    {
+        state = BattleState.Busy;
+
+        enemyUnit.Setup(nextLingomon);
+        yield return battleDialogueBox.TypeDialogue($"{trainer.Name} sent out {nextLingomon.Base.Name}!");
+
+        state = BattleState.RunningTurn;
     }
 }

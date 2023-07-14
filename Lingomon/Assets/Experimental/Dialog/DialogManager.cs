@@ -7,13 +7,14 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public GameObject dialogBox;
+    [SerializeField] GameObject dialogBox;
     public TextMeshProUGUI dialogText;
-    public int lettersPerSecond;
+    [SerializeField] int lettersPerSecond;
     public bool inDialog = false;
 
     public static DialogManager Instance { get; private set; }
     Dialog dialog;
+    Action onDialogFinished;
     int currentLine = 0;
     bool printing = false;
 
@@ -24,11 +25,14 @@ public class DialogManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ShowDialog(Dialog dialog) {
-        OnDialogOpen();
+    public IEnumerator ShowDialog(Dialog dialog, Action onFinished = null) {
+        yield return new WaitForEndOfFrame();
+
+        OnDialogOpen?.Invoke();
         inDialog = true;
         dialogBox.SetActive(true);
         this.dialog = dialog;
+        onDialogFinished = onFinished;
         StartCoroutine(TypeDialog(dialog.Lines[0]));
     }
 
@@ -39,7 +43,7 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         printing = false;
     }
 
@@ -60,6 +64,7 @@ public class DialogManager : MonoBehaviour
                 inDialog = false;
                 currentLine = 0;
                 dialogBox.SetActive(false);
+                onDialogFinished?.Invoke();
             }
         }
     }
