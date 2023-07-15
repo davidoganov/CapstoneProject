@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
-public enum BattleState { Start, ActionSelection, MoveSelection, PerformMove
-        , Busy, RunningTurn, BattleOver}
+public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn
+        , Busy, BattleOver}
+
+public enum BattleAction { Move, Run }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -20,8 +22,10 @@ public class BattleSystem : MonoBehaviour
     public event Action<bool> OnBattleOver;
 
     BattleState state;
+    Question currentQuestion;
     int currentAction;
     int currentMove;
+    List<int> randomIndexes;
 
     LingomonParty playerParty;
     LingomonParty trainerParty;
@@ -55,13 +59,13 @@ public class BattleSystem : MonoBehaviour
         playerUnit.Clear();
         enemyUnit.Clear();
         promptDialogueBox.EnablePromptBox(false);
+        
         if (!isTrainerBattle)
         {
             //Wild lingomon battle
             playerUnit.Setup(playerParty.GetHealthyLingomon()); 
             enemyUnit.Setup(wildLingomon);
 
-            battleDialogueBox.SetAnswerNames(playerUnit.Lingomon.Answers);
             yield return battleDialogueBox.TypeDialogue($"A wild {enemyUnit.Lingomon.Base.Name} appeared.");
         }
         else
@@ -93,12 +97,14 @@ public class BattleSystem : MonoBehaviour
             var playerLingomon = playerParty.GetHealthyLingomon();
             playerUnit.Setup(playerLingomon);
             yield return battleDialogueBox.TypeDialogue($"Go {playerLingomon.Base.Name}!");
-            battleDialogueBox.SetAnswerNames(playerUnit.Lingomon.Answers);
         }
+
+        currentQuestion = enemyUnit.Lingomon.GenerateQuestion();
+        randomIndexes = battleDialogueBox.SetAnswerNames(currentQuestion);
 
         yield return new WaitForSeconds(1f);
         promptDialogueBox.EnablePromptBox(true);
-        promptDialogueBox.SetDialogue($"No way the text box works :O.");
+        promptDialogueBox.SetDialogue($"{currentQuestion.Base.Prompt}");
 
         ActionSelection();
     }
@@ -106,6 +112,8 @@ public class BattleSystem : MonoBehaviour
     void BattleOver(bool won)
     {
         state = BattleState.BattleOver;
+        promptDialogueBox.EnablePromptBox(false);
+        isTrainerBattle = false;
         OnBattleOver(won);
     }
 
@@ -124,69 +132,85 @@ public class BattleSystem : MonoBehaviour
         battleDialogueBox.EnableMoveSelector(true);
     }
 
-    IEnumerator PlayerMove()
+    IEnumerator RunTurns(BattleAction playerAction)
     {
-        //CHECK IF ANSWER IS CORRECT
-        //IF SO DEAL DAMAGE, IF NOT TAKE DAMAGE
-        state = BattleState.PerformMove;
+        state = BattleState.RunningTurn;
 
-        var answer = playerUnit.Lingomon.Answers[currentMove];
-        yield return battleDialogueBox.TypeDialogue(/*if answer is correct or not*/ $"Answer Correct?");
-
-        yield return RunMove(playerUnit, enemyUnit, answer);
-        //IF INCORRECT
-        if (state == BattleState.PerformMove)
-            StartCoroutine(EnemyMove(true));
-        /*else
-            ActionSelection();*/
-    }
-
-    IEnumerator EnemyMove(bool isCorrectAnswer)
-    {
-        if (!isCorrectAnswer)
+        if (playerAction == BattleAction.Move)
         {
-            state = BattleState.PerformMove;
-            var answer = playerUnit.Lingomon.Answers[currentMove]; //UNNCESSSARAYRY
-            yield return battleDialogueBox.TypeDialogue("Incorrect answer");
+            string answer = currentQuestion.Base.Answers[randomIndexes[currentMove]];
+            bool correct = enemyUnit.Lingomon.CorrectAnswer(currentQuestion, answer);
 
-            yield return new WaitForSeconds(1f);
-
-            yield return RunMove(enemyUnit, playerUnit, answer);
+            yield return RunMove(correct);
+            //yield return RunAfterTurn()
+            if (state == BattleState.BattleOver) yield break;
+            currentQuestion = enemyUnit.Lingomon.GenerateQuestion();
+            promptDialogueBox.SetDialogue($"{currentQuestion.Base.Prompt}");
+            randomIndexes = battleDialogueBox.SetAnswerNames(currentQuestion);
         }
+        else if (playerAction == BattleAction.Run)
+        {
 
-        // if the battle stat was not changed then go next
-        if(state == BattleState.PerformMove)
-            ActionSelection();
+        }
     }
 
-    IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Answer answer)
+    IEnumerator RunMove(bool correct)
     {
-        
-        //yield return battleDialogueBox.TypeDialogue(/*if answer is correct or not*/ $"Answer Correct?");
+        //yield return battleDialogueBox.TypeDialogue(/*if answer is correct or not $"Answer Correct?");
+
+        //yield return new WaitForSeconds(1f);
+
+        if (correct)
+        {
+            yield return battleDialogueBox.TypeDialogue($"Answer Correct");
+            yield return RunAfterTurn(enemyUnit);
+        }
+        else
+        {
+            yield return battleDialogueBox.TypeDialogue($"Answer Incorrect");
+            yield return RunAfterTurn(playerUnit);
+        }
+    }
+
+    IEnumerator RunAfterTurn(BattleUnit sourceUnit)
+    {
+        if (state == BattleState.BattleOver) yield break;
+
 
         yield return new WaitForSeconds(1f);
 
-        //if (CORRECT)
-        bool isFainted = targetUnit.Lingomon.TakeDamage(answer, 30);
-        yield return targetUnit.Hud.UpdateHP();
-
+        bool isFainted = sourceUnit.Lingomon.TakeDamage(30);
+        yield return sourceUnit.Hud.UpdateHP();
         if (isFainted)
         {
-            yield return battleDialogueBox.TypeDialogue("Enemy Fainted");
+            yield return battleDialogueBox.TypeDialogue($"{sourceUnit.Lingomon.Base.Name} Fainted");
+            //sourceUnit.PlayFaintAnimation();
+            yield return new WaitForSeconds(2f);
 
-            yield return new WaitForSeconds(2f); //play animation here
-            if(!isTrainerBattle)
-                BattleOver(true);
+            //CheckForBattleOver(sourceUnit);
+            if (!isTrainerBattle)
+                if (sourceUnit == playerUnit)
+                    BattleOver(false);
+                else
+                    BattleOver(true);
             else
             {
                 var nextLingomon = trainerParty.GetHealthyLingomon();
                 if (nextLingomon != null)
-                    StartCoroutine(SendNextTrainerLingomon(nextLingomon));
+                    yield return StartCoroutine(SendNextTrainerLingomon(nextLingomon));
                 else
                     BattleOver(true);
             }
         }
+
+        //yield return new WaitForSeconds(0.5f);
+        ActionSelection();
     }
+
+   /* void CheckForBattleOver(BattleUnit sourceUnit)
+    {
+
+    }*/
 
     public void HandleUpdate()
     {
@@ -225,6 +249,7 @@ public class BattleSystem : MonoBehaviour
             else if (currentAction == 1)
             {
                 //Run
+                StartCoroutine(RunTurns(BattleAction.Run));
             }
         }
     }
@@ -258,7 +283,7 @@ public class BattleSystem : MonoBehaviour
         {
             battleDialogueBox.EnableMoveSelector(false);
             battleDialogueBox.EnableDialogueText(true);
-            StartCoroutine(PlayerMove());
+            StartCoroutine(RunTurns(BattleAction.Move));
         }
     }
 

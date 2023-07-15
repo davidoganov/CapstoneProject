@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf89c8f9662450b4bad28e99539b848b, type: 3}
-  m_Name: Bulbasaur
+  m_Name: Rosalina
   m_EditorClassIdentifier: 
-  name: Bulbasaur
+  name: Rosalina
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type: 1
-  maxHP: 40
-  attack: 40
+  type: 0
+  maxHP: 80
+  attack: 0
   possibleAnswers:
-  - answerBase: {fileID: 11400000, guid: fa27410f1424f5d4f89604310f3430be, type: 2}
-  - answerBase: {fileID: 11400000, guid: 5a3ddad7021ef784684d836c61bc1e94, type: 2}
   - answerBase: {fileID: 11400000, guid: 827f9e99e9378a140a37f977fecfc6c3, type: 2}
-  - answerBase: {fileID: 11400000, guid: 0b338e8df58dd664c8c7d099a2444313, type: 2}
   possibleQuestions:
   - questionBase: {fileID: 11400000, guid: 884cc5a53bb2b474d88d639edf704709, type: 2}
+  - questionBase: {fileID: 11400000, guid: 40aa8f0e0966f784797dce4d40ae1861, type: 2}

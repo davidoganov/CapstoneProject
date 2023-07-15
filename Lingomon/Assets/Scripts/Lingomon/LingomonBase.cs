@@ -19,6 +19,7 @@ public class LingomonBase : ScriptableObject
     [SerializeField] int attack;
 
     [SerializeField] List<PossibleAnswer> possibleAnswers;
+    [SerializeField] List<PossibleQuestion> possibleQuestions;
 
     public string Name {
         get { return name; }
@@ -47,6 +48,11 @@ public class LingomonBase : ScriptableObject
     public List<PossibleAnswer> PossibleAnswers {
         get { return possibleAnswers; }
     }
+
+    public List<PossibleQuestion> PossibleQuestions
+    {
+        get { return possibleQuestions; }
+    }
 }
 
 [System.Serializable]
@@ -56,6 +62,17 @@ public class PossibleAnswer
 
     public AnswerBase Base {
         get { return answerBase; }
+    }
+}
+
+[System.Serializable]
+public class PossibleQuestion
+{
+    [SerializeField] QuestionBase questionBase;
+
+    public QuestionBase Base
+    {
+        get { return questionBase; }
     }
 }
 

@@ -18,6 +18,8 @@ public class Lingomon
 
     public List<Answer> Answers { get; set; }
 
+    public List<Question> Questions { get; set; }
+
     public void Init()
     {
         HP = MaxHP;
@@ -30,6 +32,15 @@ public class Lingomon
             if (Answers.Count >= 4)
                 break;
         }
+
+        Questions = new List<Question>();
+        foreach (var question in Base.PossibleQuestions)
+        {
+            Questions.Add(new Question(question.Base));
+
+            if (Questions.Count >= 4)
+                break;
+        }
         /* maxHP = lBase.MaxHP; */
     }
 
@@ -39,7 +50,7 @@ public class Lingomon
         }
     } 
 
-    public bool TakeDamage(Answer answer, int damage)
+    public bool TakeDamage(int damage)
     {
         HP -= damage;
         if (HP <= 0)
@@ -49,5 +60,25 @@ public class Lingomon
         }
 
         return false;
+    }
+
+    public bool CorrectAnswer(Question question, string answer)
+    {
+        return answer == question.Base.Answers[0];
+    }
+
+    public Question GenerateQuestion()
+    {
+        foreach (Question question in Questions)
+        {
+            if (!question.IsActive)
+            {
+                question.IsActive = true;
+                return question;
+            }
+        }
+        Questions.ForEach(question => question.IsActive = false);
+        Questions[0].IsActive = true;
+        return Questions[0];
     }
 }

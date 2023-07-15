@@ -28857,7 +28857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildLingomons:
-  - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: 209f1218f1572874fafdce99ec8359a3, type: 2}
+  - _base: {fileID: 11400000, guid: 209f1218f1572874fafdce99ec8359a3, type: 2}
 --- !u!1 &1036149054
 GameObject:
   m_ObjectHideFlags: 0
@@ -35074,6 +35075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lingomons:
   - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: 209f1218f1572874fafdce99ec8359a3, type: 2}
 --- !u!114 &1670412765 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 669454187648786491, guid: f067d23326904cc4aa59b89148be6382, type: 3}
