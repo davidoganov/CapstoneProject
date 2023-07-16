@@ -189,14 +189,16 @@ public class BattleSystem : MonoBehaviour
 
             //CheckForBattleOver(sourceUnit);
             if (!isTrainerBattle)
+            {
                 if (sourceUnit == playerUnit)
                     BattleOver(false);
                 else
                     BattleOver(true);
+            }
             else
             {
                 var nextLingomon = trainerParty.GetHealthyLingomon();
-                if (nextLingomon != null)
+                if (sourceUnit != playerUnit && nextLingomon != null)
                     yield return StartCoroutine(SendNextTrainerLingomon(nextLingomon));
                 else
                     BattleOver(true);
@@ -204,7 +206,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //yield return new WaitForSeconds(0.5f);
-        ActionSelection();
+        if (state != BattleState.BattleOver) ActionSelection();
     }
 
    /* void CheckForBattleOver(BattleUnit sourceUnit)

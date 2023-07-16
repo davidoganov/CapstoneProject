@@ -245,6 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5608899426933291922, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
+    - {fileID: 2111508673006851805, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5924422844416299550, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
@@ -280,6 +281,7 @@ MonoBehaviour:
   sceneToLoad: 0
   destinationPortal: 1
   spawnPoint: {fileID: 913696886}
+  speed: 10
 --- !u!1 &644249237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5608899426933291922, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
+    - {fileID: 2111508673006851805, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5924422844416299550, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
@@ -1917,6 +1920,7 @@ MonoBehaviour:
   sceneToLoad: 0
   destinationPortal: 2
   spawnPoint: {fileID: 1729800625}
+  speed: 10
 --- !u!1 &913696885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5608899426933291922, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
+    - {fileID: 2111508673006851805, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5924422844416299550, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
@@ -5892,6 +5897,7 @@ MonoBehaviour:
   sceneToLoad: 0
   destinationPortal: 0
   spawnPoint: {fileID: 2057403989}
+  speed: 10
 --- !u!1 &1176174657
 GameObject:
   m_ObjectHideFlags: 0

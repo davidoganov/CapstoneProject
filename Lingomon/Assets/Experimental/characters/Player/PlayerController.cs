@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartCoroutine(playerSpawning());
+        QuestManager.Instance.addTask(1);
+        QuestManager.Instance.addTask(2);
         //----------------------------------------------//
-        transform.position = startingPosition.initialValue;
     }
 
     IEnumerator playerSpawning() {
@@ -53,26 +54,14 @@ public class PlayerController : MonoBehaviour
             sr.material.SetFloat("_CutOff", transitionProg);
             yield return new WaitForSeconds(.05f / tranSpeed);
         }
+        transform.position = startingPosition.initialValue;
         transitionDone();
     }
 
-    public IEnumerator enteringHouse(string sceneName, Vector2 playerPosition, VectorValue playerStorage)
+    public void pauseMovement()
     {
-        inTranstion();
-        animator.SetFloat("vertical", 0f);
-        animator.SetFloat("horizontal", 0f);
-        float transitionProg = 0f;
-        sr.material.SetFloat("_CutOff", transitionProg);
-        while (sr.material.GetFloat("_CutOff") < 1f)
-        {
-            transitionProg += .01f;
-            sr.material.SetFloat("_CutOff", transitionProg);
-            yield return new WaitForSeconds(.05f / speed);
-        }
-        Debug.Log("ending transition...");
-        playerStorage.initialValue = playerPosition;
-        SceneManager.LoadSceneAsync(sceneName);
-        transitionDone();
+        animator.SetFloat("vertical", 0);
+        animator.SetFloat("horizontal", 0);
     }
 
     // Update is called once per frame
@@ -101,8 +90,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                animator.SetFloat("vertical", 0);
-                animator.SetFloat("horizontal", 0);
+                pauseMovement();
             }
         }
         if (Input.GetKeyDown(KeyCode.Z)) Interact();

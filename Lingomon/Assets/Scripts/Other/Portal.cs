@@ -9,6 +9,8 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
     [SerializeField] int sceneToLoad = -1;
     [SerializeField] DestinationIdentifier destinationPortal;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] float speed;
+    SpriteRenderer sr;
 
     PlayerController player;
 
@@ -24,10 +26,29 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
 
         GameController.Instance.PauseGame(true);
 
-        yield return SceneManager.LoadSceneAsync(sceneToLoad);
+        sr = GameObject.FindWithTag("Transition").GetComponent<SpriteRenderer>();
+        //load first half trans
+        float transitionProg = 0f;
+        sr.material.SetFloat("_CutOff", transitionProg);
+        while (sr.material.GetFloat("_CutOff") < 1.2f)
+        {
+            transitionProg += .01f;
+            sr.material.SetFloat("_CutOff", transitionProg);
+            yield return new WaitForSeconds(.05f / speed);
+        }
 
+        yield return SceneManager.LoadSceneAsync(sceneToLoad);
+        
         var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
         player.transform.position = destPortal.spawnPoint.position;
+
+        //load second half trans
+        while (sr.material.GetFloat("_CutOff") > 0f)
+        {
+            transitionProg -= .01f;
+            sr.material.SetFloat("_CutOff", transitionProg);
+            yield return new WaitForSeconds(.05f / speed);
+        }
 
         GameController.Instance.PauseGame(false);
 

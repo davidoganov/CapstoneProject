@@ -23,13 +23,17 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         DialogManager.Instance.OnDialogOpen += () => 
-        { 
+        {
+            //QuestManager.Instance.hideQuests();
             state = GameState.Dialog;
         };
         DialogManager.Instance.OnDialogClose += () =>
         {
             if (state == GameState.Dialog)
+            {
+                //QuestManager.Instance.revealQuests();
                 state = GameState.FreeRoam;
+            }
         };
         playerController.OnEncountered += StartBattle;
         playerController.inTranstion += startTransition;
@@ -37,9 +41,9 @@ public class GameController : MonoBehaviour
         battleSystem.OnBattleOver += EndBattle;
     }
 
-    void StartDialog() { state = GameState.Dialog; }
+    void StartDialog() { QuestManager.Instance.hideQuests(); state = GameState.Dialog; }
 
-    void EndDialog() { state = GameState.FreeRoam; }
+    void EndDialog() { QuestManager.Instance.revealQuests(); state = GameState.FreeRoam; }
 
     void startTransition() { state = GameState.Transition; }
 
@@ -49,17 +53,22 @@ public class GameController : MonoBehaviour
     {
         if (pause)
         {
+            QuestManager.Instance.hideQuests();
+            playerController.pauseMovement();
             stateBeforePause = state;
             state = GameState.Paused;
         }
         else
         {
+            QuestManager.Instance.revealQuests();
             state = stateBeforePause;
         }
     }
 
     public void StartBattle()
     {
+        QuestManager.Instance.progressTask(1);
+        QuestManager.Instance.hideQuests();
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
@@ -72,6 +81,8 @@ public class GameController : MonoBehaviour
 
     public void StartTrainerBattle(TrainerController trainer)
     {
+        QuestManager.Instance.progressTask(2);
+        QuestManager.Instance.hideQuests();
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
@@ -84,6 +95,7 @@ public class GameController : MonoBehaviour
 
     void EndBattle(bool won)
     {
+        QuestManager.Instance.revealQuests();
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
@@ -94,6 +106,7 @@ public class GameController : MonoBehaviour
         if (state == GameState.FreeRoam)
         {
             playerController.HandleUpdate();
+            QuestManager.Instance.HandleUpdate();
         }
         else if (state == GameState.Battle)
         {
