@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("ending transition...");
         playerStorage.initialValue = playerPosition;
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadSceneAsync(sceneName);
         transitionDone();
     }
 
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
         isMoving = false;
 
-        CheckForEncounters();
+        OnMoveOver();
     }
 
     private bool isWalkable(Vector3 targetPos)
@@ -147,13 +147,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CheckForEncounters()
+    private void OnMoveOver()
     {
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+        var colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.i.TriggerableLayers);
+
+        foreach (var collider in colliders)
         {
-            if (UnityEngine.Random.Range(1, 101) <= 10)
+            var triggerable = collider.GetComponent<IPlayerTriggerable>();
+            if (triggerable != null)
             {
-                OnEncountered();
+                triggerable.OnPlayerTriggered(this);
+                break;
             }
         }
     }

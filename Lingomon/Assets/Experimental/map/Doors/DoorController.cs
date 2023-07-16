@@ -12,11 +12,12 @@ public class DoorController : MonoBehaviour
     public Vector2 playerPosition;
     public VectorValue playerStorage;
     public SpriteRenderer sr;
-    [SerializeField] PlayerController playerController;
+    PlayerController playerController;
 
     private void OnTriggerEnter2D(Collider2D player) {
         if (player.tag == "Player") { 
             Debug.Log("starting transition...");
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             StartCoroutine(playerController.enteringHouse(sceneName, playerPosition, playerStorage));
         }   
     }
