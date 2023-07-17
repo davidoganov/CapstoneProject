@@ -1142,6 +1142,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lingomons:
   - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
+  - _base: {fileID: 11400000, guid: d2ec64336843d64428a264492fe3e5eb, type: 2}
 --- !u!114 &3736516702302866435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6052558129806300284, guid: 59b143e6fc6645747b66e6a6713c82ed, type: 3}
@@ -1192,15 +1196,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.26759258
+      value: 0.3425926
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.30416667
+      value: 0.18333334
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.3785185
+      value: 0.22814813
       objectReference: {fileID: 0}
     - target: {fileID: 2123535999753193745, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_Name
