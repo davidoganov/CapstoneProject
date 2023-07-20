@@ -150,7 +150,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (playerAction == BattleAction.Run)
         {
-
+            yield return TryToEscape();
         }
     }
 
@@ -163,11 +163,15 @@ public class BattleSystem : MonoBehaviour
         if (correct)
         {
             yield return battleDialogueBox.TypeDialogue($"Answer Correct");
+            yield return new WaitForSeconds(0.5f);
+            playerUnit.PlayAttackAnimation();
             yield return RunAfterTurn(enemyUnit);
         }
         else
         {
             yield return battleDialogueBox.TypeDialogue($"Answer Incorrect");
+            yield return new WaitForSeconds(0.5f);
+            enemyUnit.PlayAttackAnimation();
             yield return RunAfterTurn(playerUnit);
         }
     }
@@ -179,12 +183,13 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        sourceUnit.PlayHitAnimation();
         bool isFainted = sourceUnit.Lingomon.TakeDamage(30);
         yield return sourceUnit.Hud.UpdateHP();
         if (isFainted)
         {
             yield return battleDialogueBox.TypeDialogue($"{sourceUnit.Lingomon.Base.Name} Fainted");
-            //sourceUnit.PlayFaintAnimation();
+            sourceUnit.PlayFaintAnimation();
             yield return new WaitForSeconds(2f);
 
             //CheckForBattleOver(sourceUnit);
@@ -297,5 +302,31 @@ public class BattleSystem : MonoBehaviour
         yield return battleDialogueBox.TypeDialogue($"{trainer.Name} sent out {nextLingomon.Base.Name}!");
 
         state = BattleState.RunningTurn;
+    }
+
+    IEnumerator TryToEscape()
+    {
+        state = BattleState.Busy;
+
+        if (isTrainerBattle)
+        {
+            yield return battleDialogueBox.TypeDialogue($"You can't run from trainer battles!");
+            state = BattleState.RunningTurn;
+            yield return new WaitForSeconds(1f);
+            yield break;
+        }
+
+        if (UnityEngine.Random.Range(1, 101) <= 90)
+        {
+            yield return battleDialogueBox.TypeDialogue($"Ran away safely!");
+            yield return new WaitForSeconds(1f);
+            BattleOver(true);
+        }
+        else
+        {
+            yield return battleDialogueBox.TypeDialogue($"Can't escape!");
+            yield return new WaitForSeconds(1f);
+            state = BattleState.RunningTurn;
+        }
     }
 }

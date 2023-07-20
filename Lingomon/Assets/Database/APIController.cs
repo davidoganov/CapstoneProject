@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class APIController : MonoBehaviour
 {
@@ -78,7 +79,7 @@ public class APIController : MonoBehaviour
         form.AddField("ClassId", 2);
         // Add other fields as necessary
 
-        using (UnityWebRequest www = UnityWebRequest.Put(url, form))
+        using (UnityWebRequest www = UnityWebRequest.Put(url, form.data))
         {
             yield return www.SendWebRequest();
 
