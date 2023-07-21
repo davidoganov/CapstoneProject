@@ -26,31 +26,26 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
 
         GameController.Instance.PauseGame(true);
 
-        sr = GameObject.FindWithTag("Transition").GetComponent<SpriteRenderer>();
-        //load first half trans
-        float transitionProg = 0f;
-        sr.material.SetFloat("_CutOff", transitionProg);
-        while (sr.material.GetFloat("_CutOff") < 1.2f)
-        {
-            transitionProg += .01f;
-            sr.material.SetFloat("_CutOff", transitionProg);
-            yield return new WaitForSeconds(.05f / speed);
-        }
+        yield return TransitionManager.Instance.enteringHouse();
 
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
         
         var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
         player.transform.position = destPortal.spawnPoint.position;
 
-        //load second half trans
-        while (sr.material.GetFloat("_CutOff") > 0f)
-        {
-            transitionProg -= .01f;
-            sr.material.SetFloat("_CutOff", transitionProg);
-            yield return new WaitForSeconds(.05f / speed);
-        }
+        yield return TransitionManager.Instance.playerSpawning();
 
         GameController.Instance.PauseGame(false);
+
+        Debug.Log("loading scene: " + sceneToLoad);
+        if (sceneToLoad == 1)
+        {
+            MapController.Instance.hideMap();
+        }
+        else
+        {
+            MapController.Instance.revealMap();
+        }
 
         Destroy(gameObject);
     }

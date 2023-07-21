@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     float hori = 0f;
 
     public event Action OnEncountered;
-    public event Action inTranstion;
-    public event Action transitionDone;
+    //public event Action inTranstion;
+    //public event Action transitionDone;
 
     private void Awake()
     {
@@ -37,25 +37,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(playerSpawning());
+        StartCoroutine(spawnPlayer());
         QuestManager.Instance.addTask(1);
         QuestManager.Instance.addTask(2);
         //----------------------------------------------//
     }
 
-    IEnumerator playerSpawning() {
-        inTranstion();
-        animator.SetFloat("vertical", 0f);
-        animator.SetFloat("horizontal", 0f);
-        float transitionProg = 1.1f;
-        sr.material.SetFloat("_CutOff", transitionProg);
-        while (sr.material.GetFloat("_CutOff") > 0f) {
-            transitionProg -= .01f;
-            sr.material.SetFloat("_CutOff", transitionProg);
-            yield return new WaitForSeconds(.05f / tranSpeed);
-        }
-        transform.position = startingPosition.initialValue;
-        transitionDone();
+    IEnumerator spawnPlayer()
+    {
+        GameController.Instance.PauseGame(true);
+        yield return StartCoroutine(TransitionManager.Instance.playerSpawning());
+        GameController.Instance.PauseGame(false);
     }
 
     public void pauseMovement()

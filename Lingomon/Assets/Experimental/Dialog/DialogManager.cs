@@ -121,10 +121,19 @@ public class DialogManager : MonoBehaviour
             dialogBox.SetActive(false);
             if (currentAction == 0)
             {
-                onDialogFinished?.Invoke();
+                StartCoroutine(startTrainerBattle());
+                
             }
         }
         //check for z input choice
+    }
+    IEnumerator startTrainerBattle()
+    {
+        GameController.Instance.PauseGame(true);
+        yield return StartCoroutine(TransitionManager.Instance.lingomonBattle1());
+        StartCoroutine(TransitionManager.Instance.lingomonBattle2());
+        GameController.Instance.PauseGame(false);
+        onDialogFinished?.Invoke();
     }
 
     void updateSelections(int selection)

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused }
+public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu}
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
+    [SerializeField] MenuManager menuManager;
 
     GameState state;
 
@@ -36,23 +37,27 @@ public class GameController : MonoBehaviour
             }
         };
         playerController.OnEncountered += StartBattle;
-        playerController.inTranstion += startTransition;
-        playerController.transitionDone += endTransition;
         battleSystem.OnBattleOver += EndBattle;
     }
 
-    void StartDialog() { QuestManager.Instance.hideQuests(); state = GameState.Dialog; }
+    public void enterMenu() {
+        MapController.Instance.hideMap();
+        QuestManager.Instance.hideQuests();
+        stateBeforePause = state;
+        state = GameState.Menu;
+    }
 
-    void EndDialog() { QuestManager.Instance.revealQuests(); state = GameState.FreeRoam; }
-
-    void startTransition() { state = GameState.Transition; }
-
-    void endTransition() { state = GameState.FreeRoam; }
+    public void leaveMenu() {
+        MapController.Instance.revealMap();
+        QuestManager.Instance.revealQuests();
+        state = stateBeforePause;
+    }
 
     public void PauseGame(bool pause)
     {
         if (pause)
         {
+            MapController.Instance.hideMap();
             QuestManager.Instance.hideQuests();
             playerController.pauseMovement();
             stateBeforePause = state;
@@ -60,6 +65,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            MapController.Instance.revealMap();
             QuestManager.Instance.revealQuests();
             state = stateBeforePause;
         }
@@ -68,11 +74,11 @@ public class GameController : MonoBehaviour
     public void StartBattle()
     {
         QuestManager.Instance.progressTask(1);
+        MapController.Instance.hideMap();
         QuestManager.Instance.hideQuests();
-        state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
-
+        state = GameState.Battle;
         var playerParty = playerController.GetComponent<LingomonParty>();
         var wildLingomon = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildLingomon();
 
@@ -83,6 +89,7 @@ public class GameController : MonoBehaviour
     {
         QuestManager.Instance.progressTask(2);
         QuestManager.Instance.hideQuests();
+        
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
@@ -96,6 +103,7 @@ public class GameController : MonoBehaviour
     void EndBattle(bool won)
     {
         QuestManager.Instance.revealQuests();
+        MapController.Instance.revealMap();
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
@@ -106,6 +114,7 @@ public class GameController : MonoBehaviour
         if (state == GameState.FreeRoam)
         {
             playerController.HandleUpdate();
+            MapController.Instance.HandleUpdate();
             QuestManager.Instance.HandleUpdate();
         }
         else if (state == GameState.Battle)
@@ -116,5 +125,8 @@ public class GameController : MonoBehaviour
         {
             DialogManager.Instance.HandleUpdate();
         }
+
+        if (state != GameState.Paused) menuManager.HandleUpdate();
+
     }
 }
