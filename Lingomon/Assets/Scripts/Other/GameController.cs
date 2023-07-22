@@ -89,7 +89,8 @@ public class GameController : MonoBehaviour
     {
         QuestManager.Instance.progressTask(2);
         QuestManager.Instance.hideQuests();
-        
+        MapController.Instance.hideMap();
+
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
