@@ -9,19 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] string name;
     [SerializeField] Sprite sprite;
-
-    public Animator animator;
-    public float speed = 2f;
-
-    public LayerMask grassLayer;
-    public LayerMask solidObjectsLayer;
-    public LayerMask interactablesLayer;
-    private bool isMoving;
     private Vector2 input; 
 
-    public VectorValue startingPosition;
-    public SpriteRenderer sr;
-    public float tranSpeed;
+    private Character character;
     float vert = -1f;
     float hori = 0f;
 
@@ -31,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        character = GetComponent<Character>();
     }
 
     // Start is called before the first frame update
@@ -52,14 +42,14 @@ public class PlayerController : MonoBehaviour
 
     public void pauseMovement()
     {
-        animator.SetFloat("vertical", 0);
-        animator.SetFloat("horizontal", 0);
+        character.Animator.MoveX = 0f;
+        character.Animator.MoveY = 0f;
     }
 
     // Update is called once per frame
     public void HandleUpdate()
     {
-        if (!isMoving) {
+        if (!character.Animator.IsMoving) {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
@@ -68,17 +58,9 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
-
-                animator.SetFloat("vertical", input.y);
-                animator.SetFloat("horizontal", input.x);
-                hori = input.x;
+                StartCoroutine(character.Move(input, OnMoveOver));
                 vert = input.y;
-
-                if (isWalkable(targetPos))
-                    StartCoroutine(Move(targetPos));
+                hori = input.x;
             }
             else
             {
@@ -89,38 +71,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    IEnumerator Move(Vector3 targetPos)
-    {
-        isMoving = true;
-
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
-
-        isMoving = false;
-
-        OnMoveOver();
-    }
-
-    private bool isWalkable(Vector3 targetPos)
-    {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactablesLayer) != null)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
     void Interact()
     {
         Vector3 playerDir = new Vector3(hori, vert);
         print(playerDir);
         Vector3 interactPos = transform.position + playerDir;
-        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactablesLayer);
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractableLayer);
         Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
         if (collider != null) {
             collider.GetComponent<Interactable>()?.Interact();
