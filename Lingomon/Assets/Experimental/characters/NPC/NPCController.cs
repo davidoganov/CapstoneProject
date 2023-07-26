@@ -5,10 +5,21 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, Interactable
 {
     public Dialog dialog;
+    [SerializeField] bool hasDialog;
+    Character character;
 
-    public void Interact() {
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
-        Debug.Log("get ready for trouble!");
+    void Awake()
+    { 
+        character = GetComponent<Character>();
+    }
+
+    void Update() { 
+        character.HandleUpdate();
+    }
+
+    public void Interact(Transform initiator) {
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator));
+        character.LookTowards(initiator.position);
     }
 }
 

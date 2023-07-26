@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: 190}
+  m_AnchoredPosition: {x: -0.000011444, y: 74}
   m_SizeDelta: {x: 455.2981, y: 125.1919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3747625988012051884
@@ -308,12 +308,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 35
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 65
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -512,7 +512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0.000016689}
+  m_AnchoredPosition: {x: -0.000030518, y: -20}
   m_SizeDelta: {x: 272.93, y: 136.4674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4489923947073791451
@@ -572,12 +572,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 65
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -649,7 +649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000056267, y: -199}
+  m_AnchoredPosition: {x: 0.000006253, y: -109.76}
   m_SizeDelta: {x: 250.4393, y: 131.6638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1397419099597028471
@@ -709,12 +709,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 65
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -1000,8 +1000,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000027657, y: -0.000011444}
-  m_SizeDelta: {x: 574.6754, y: 697.5856}
+  m_AnchoredPosition: {x: 0, y: -9}
+  m_SizeDelta: {x: 289.3123, y: 351.1897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3931098135863142715
 CanvasRenderer:
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2116,7 +2116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8325322451611735202, guid: 7d90152f19eea134aa2093949eb420c6, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 21.8
       objectReference: {fileID: 0}
     - target: {fileID: 8325322451611735202, guid: 7d90152f19eea134aa2093949eb420c6, type: 3}
       propertyPath: m_fontSizeMin
@@ -2655,7 +2655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992a603dcfe597b4eb28a4f9dbf96ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
 --- !u!114 &8619541185387564835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2688,6 +2688,7 @@ MonoBehaviour:
   - {fileID: 135530507, guid: 5aeee33697e23dc4a9d14e92d1934cc6, type: 3}
   - {fileID: -277193583, guid: 5aeee33697e23dc4a9d14e92d1934cc6, type: 3}
   - {fileID: 556233212, guid: 5aeee33697e23dc4a9d14e92d1934cc6, type: 3}
+  defaultDirection: 0
 --- !u!1001 &5226633672161306296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2722,15 +2723,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.63066953
+      value: 0.501139
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.6998785
+      value: 1.0012804
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8708423
+      value: 1.2469248
       objectReference: {fileID: 0}
     - target: {fileID: 2123535999753193745, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_Name

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite sprite;
     private Vector2 input; 
 
-    private Character character;
+    public Character character;
     float vert = -1f;
     float hori = 0f;
 
@@ -19,8 +19,11 @@ public class PlayerController : MonoBehaviour
     //public event Action inTranstion;
     //public event Action transitionDone;
 
+    public static PlayerController i { get; private set; }
+
     private void Awake()
     {
+        i = this;
         character = GetComponent<Character>();
     }
 
@@ -42,14 +45,14 @@ public class PlayerController : MonoBehaviour
 
     public void pauseMovement()
     {
-        character.Animator.MoveX = 0f;
-        character.Animator.MoveY = 0f;
+        character.IsMoving = false;
+        character.HandleUpdate();
     }
 
     // Update is called once per frame
     public void HandleUpdate()
     {
-        if (!character.Animator.IsMoving) {
+        if (!character.IsMoving) {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
@@ -67,6 +70,9 @@ public class PlayerController : MonoBehaviour
                 pauseMovement();
             }
         }
+
+        character.HandleUpdate();
+
         if (Input.GetKeyDown(KeyCode.Z)) Interact();
 
     }
@@ -74,12 +80,10 @@ public class PlayerController : MonoBehaviour
     void Interact()
     {
         Vector3 playerDir = new Vector3(hori, vert);
-        print(playerDir);
         Vector3 interactPos = transform.position + playerDir;
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractableLayer);
-        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
         if (collider != null) {
-            collider.GetComponent<Interactable>()?.Interact();
+            collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
 
