@@ -9,14 +9,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - world camera
   - Water
   - UI
   - stops
   - grass
   - interactable
   - Portal
-  - 
+  - minimap camera
   - 
   - 
   - 

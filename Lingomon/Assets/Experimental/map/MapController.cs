@@ -42,6 +42,7 @@ public class MapController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M)) miniMap.SetActive(!miniMap.activeSelf);
 
+        /*
         if (miniMap.activeSelf)
         {
             float xPos = player.transform.position.x;
@@ -55,6 +56,7 @@ public class MapController : MonoBehaviour
 
             miniMapCamera.transform.position = new Vector3(xPos, yPos, miniMapCamera.transform.position.z);
         }
+        */
     }
 }
 
