@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Rendering;
 
 public enum DialogState { normal, battleOption }
 
@@ -24,6 +25,8 @@ public class DialogManager : MonoBehaviour
     int currentLine = 0;
     int currentAction = 0;
     bool printing = false;
+    CharacterAnimator npc;
+    bool isCutscene;
 
     public event Action OnDialogOpen;
     public event Action OnDialogClose;
@@ -33,7 +36,7 @@ public class DialogManager : MonoBehaviour
         state = DialogState.normal;
     }
 
-    public IEnumerator ShowDialog(Dialog dialog, Action onFinished = null) {
+    public IEnumerator ShowDialog(Dialog dialog, CharacterAnimator character=null, Action onFinished = null, bool isCutscene=false) {
         yield return new WaitForEndOfFrame();
 
         OnDialogOpen?.Invoke();
@@ -41,7 +44,9 @@ public class DialogManager : MonoBehaviour
         dialogBox.SetActive(true);
         this.dialog = dialog;
         onDialogFinished = onFinished;
-        StartCoroutine(TypeDialog(dialog.Lines[0]));
+        this.isCutscene = isCutscene;
+        yield return TypeDialog(dialog.Lines[0]);
+        npc = character;
     }
 
     public IEnumerator TypeDialog(string line) {
@@ -51,8 +56,14 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
-        //yield return new WaitForSeconds(1f);
         printing = false;
+        if (isCutscene)
+        {
+            yield return new WaitForSeconds(.5f);
+            inDialog = false;
+            currentLine = 0;
+            dialogBox.SetActive(false);
+        }
     }
 
     public void HandleUpdate()
@@ -92,6 +103,7 @@ public class DialogManager : MonoBehaviour
                 inDialog = false;
                 currentLine = 0;
                 dialogBox.SetActive(false);
+                resetNPCDirection();
                 //onDialogFinished?.Invoke();
             }
         }
@@ -122,10 +134,12 @@ public class DialogManager : MonoBehaviour
             if (currentAction == 0)
             {
                 StartCoroutine(startTrainerBattle());
-                
+            }
+            else 
+            {
+                resetNPCDirection();
             }
         }
-        //check for z input choice
     }
     IEnumerator startTrainerBattle()
     {
@@ -133,7 +147,13 @@ public class DialogManager : MonoBehaviour
         yield return StartCoroutine(TransitionManager.Instance.lingomonBattle1());
         StartCoroutine(TransitionManager.Instance.lingomonBattle2());
         GameController.Instance.PauseGame(false);
+        resetNPCDirection();
         onDialogFinished?.Invoke();
+    }
+
+    void resetNPCDirection()
+    {
+        if (npc != null) npc.SetFacingDirection(npc.DefaultDirection);
     }
 
     void updateSelections(int selection)

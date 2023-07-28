@@ -7,25 +7,28 @@ using UnityEngine.Windows;
 public class Character : MonoBehaviour
 {
     CharacterAnimator animator;
+
+    public bool IsMoving { get; set; }
+
     [SerializeField] float speed;
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
     }
 
-    public IEnumerator Move(Vector2 moveVec, Action OnMoveOver = null)
+    public IEnumerator Move(Vector2 moveVec, Action OnMoveOver=null, bool checkCollisions=true)
     {
-        animator.MoveX = moveVec.x;
-        animator.MoveY = moveVec.y;
+        animator.MoveX = Mathf.Clamp(moveVec.x, -1f, 1f);
+        animator.MoveY = Mathf.Clamp(moveVec.y, -1f, 1f);
 
         var targetPos = transform.position;
         targetPos.x += moveVec.x;
         targetPos.y += moveVec.y;
 
-        if (!isWalkable(targetPos))
+        if (checkCollisions && !isWalkable(targetPos))
             yield break;
 
-        animator.IsMoving = true;
+        IsMoving = true;
 
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
@@ -34,9 +37,14 @@ public class Character : MonoBehaviour
         }
         transform.position = targetPos;
 
-        animator.IsMoving = false;
+        IsMoving = false;
 
         OnMoveOver?.Invoke();
+    }
+
+    public void HandleUpdate()
+    {
+        animator.IsMoving = IsMoving;
     }
 
     private bool isWalkable(Vector3 targetPos)
@@ -47,6 +55,17 @@ public class Character : MonoBehaviour
         }
 
         return true;
+    }
+    public void LookTowards(Vector3 targetPos)
+    {
+        var xDiff = Mathf.Floor(targetPos.x) - Mathf.Floor(transform.position.x);
+        var yDiff = Mathf.Floor(targetPos.y) - Mathf.Floor(transform.position.y);
+
+        if (xDiff == 0 || yDiff == 0)
+        {
+            animator.MoveX = Mathf.Clamp(xDiff, -1f, 1f);
+            animator.MoveY = Mathf.Clamp(yDiff, -1f, 1f);
+        }
     }
 
     public CharacterAnimator Animator {

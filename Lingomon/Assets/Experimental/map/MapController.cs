@@ -13,7 +13,7 @@ public class MapController : MonoBehaviour
 
     float xMin = -4.5f;
     float xMax = 2.5f;
-    float yMin = -6.25f;
+    float yMin = -5.25f;
     float yMax = 13.75f;
 
     public static MapController Instance { get; private set; }

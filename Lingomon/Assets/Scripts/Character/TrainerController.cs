@@ -7,10 +7,17 @@ public class TrainerController : MonoBehaviour, Interactable
     [SerializeField] string name;
     [SerializeField] Sprite sprite;
     [SerializeField] Dialog dialog;
+    Character character;
 
-    public void Interact()
+    void Awake()
+    { 
+        character = GetComponent<Character>();
+    }
+
+    public void Interact(Transform initiator)
     {
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, () =>
+        character.LookTowards(initiator.position);
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator, onFinished:() =>
         {
             GameController.Instance.StartTrainerBattle(this);
         }));
@@ -19,7 +26,7 @@ public class TrainerController : MonoBehaviour, Interactable
     public IEnumerator TriggerTrainerBattle()
     {
         yield return new WaitForSeconds(1f);
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, () =>
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator, () =>
         {
             GameController.Instance.StartTrainerBattle(this);
         }));

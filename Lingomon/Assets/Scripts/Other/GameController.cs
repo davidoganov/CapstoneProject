@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu}
+public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu, Cutscene}
 
 public class GameController : MonoBehaviour
 {
@@ -25,15 +25,16 @@ public class GameController : MonoBehaviour
     {
         DialogManager.Instance.OnDialogOpen += () => 
         {
-            //QuestManager.Instance.hideQuests();
-            state = GameState.Dialog;
+            if (state != GameState.Cutscene)
+                state = GameState.Dialog;
         };
         DialogManager.Instance.OnDialogClose += () =>
         {
             if (state == GameState.Dialog)
             {
                 //QuestManager.Instance.revealQuests();
-                state = GameState.FreeRoam;
+                if (state != GameState.Cutscene)
+                    state = GameState.FreeRoam;
             }
         };
         playerController.OnEncountered += StartBattle;
@@ -51,6 +52,16 @@ public class GameController : MonoBehaviour
         MapController.Instance.revealMap();
         QuestManager.Instance.revealQuests();
         state = stateBeforePause;
+    }
+
+    public void StartCutsceneState() 
+    {
+        state = GameState.Cutscene;
+    }
+
+    public void StartFreeRoamState()
+    { 
+        state = GameState.FreeRoam;
     }
 
     public void PauseGame(bool pause)
@@ -117,6 +128,10 @@ public class GameController : MonoBehaviour
             playerController.HandleUpdate();
             MapController.Instance.HandleUpdate();
             QuestManager.Instance.HandleUpdate();
+        }
+        else if (state == GameState.Cutscene)
+        {
+            playerController.character.HandleUpdate();
         }
         else if (state == GameState.Battle)
         {
