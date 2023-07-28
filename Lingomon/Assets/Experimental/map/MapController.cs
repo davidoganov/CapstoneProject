@@ -10,11 +10,7 @@ public class MapController : MonoBehaviour
     [SerializeField] Camera miniMapCamera;
     [SerializeField] GameObject player;
     Stack<bool> wasOn = new Stack<bool>();
-
-    float xMin = -4.5f;
-    float xMax = 2.5f;
-    float yMin = -5.25f;
-    float yMax = 13.75f;
+    public bool inside = false;
 
     public static MapController Instance { get; private set; }
     private void Awake() { Instance = this; }
@@ -40,7 +36,7 @@ public class MapController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.M)) miniMap.SetActive(!miniMap.activeSelf);
+        if (!inside && Input.GetKeyDown(KeyCode.M)) miniMap.SetActive(!miniMap.activeSelf);
 
         /*
         if (miniMap.activeSelf)

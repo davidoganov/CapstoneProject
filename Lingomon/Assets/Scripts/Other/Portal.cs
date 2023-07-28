@@ -41,10 +41,12 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
         if (sceneToLoad == 1)
         {
             MapController.Instance.hideMap();
+            MapController.Instance.inside = true;
         }
         else
         {
             MapController.Instance.revealMap();
+            MapController.Instance.inside = false;
         }
 
         Destroy(gameObject);
