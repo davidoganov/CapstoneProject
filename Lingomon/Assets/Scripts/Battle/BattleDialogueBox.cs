@@ -67,26 +67,6 @@ public class BattleDialogueBox : MonoBehaviour
         }
     }
 
-    public void SetAnswerNames(List<Answer> answers)
-    {
-        List<int> randomIndexes = RandomNumberGenerator.GenerateUniqueRandomNumbers(0, 3);
-
-        for (int i = 0; i < moveText.Count; i++)
-        {
-            if (i < randomIndexes.Count)
-                moveText[i].text = answers[randomIndexes[i]].Base.Name;
-            else
-                moveText[i].text = "-";
-        }
-        /* for (int i = 0; i < moveText.Count; ++i)
-        {
-            if (i < answers.Count)
-                moveText[i].text = answers[i].Base.Name;
-            else
-                moveText[i].text = "-";
-        } */
-    }
-
     public List<int> SetAnswerNames(Question question)
     {
         List<string> answers = question.Base.Answers;

@@ -38,7 +38,7 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
         GameController.Instance.PauseGame(false);
 
         Debug.Log("loading scene: " + sceneToLoad);
-        if (sceneToLoad == 1)
+        if (sceneToLoad == 2)
         {
             MapController.Instance.hideMap();
             MapController.Instance.inside = true;

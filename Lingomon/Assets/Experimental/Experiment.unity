@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551469626eac84641842268f604ffb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 1
+  sceneToLoad: 2
   destinationPortal: 1
   spawnPoint: {fileID: 914111524}
   speed: 10
@@ -1042,6 +1042,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2111508673006851805, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
+      propertyPath: sceneToLoad
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5924422844416299550, guid: bd0e16c20ddadc14f98a54fa894556ad, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2516,7 +2520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551469626eac84641842268f604ffb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 1
+  sceneToLoad: 2
   destinationPortal: 2
   spawnPoint: {fileID: 1442324996}
   speed: 10

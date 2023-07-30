@@ -16,22 +16,11 @@ public class Lingomon
     public int HP { get; set; }
     /* public int maxHP { get; set; } */
 
-    public List<Answer> Answers { get; set; }
-
     public List<Question> Questions { get; set; }
 
     public void Init()
     {
         HP = MaxHP;
-
-        Answers = new List<Answer>();
-        foreach (var answer in Base.PossibleAnswers)
-        {
-            Answers.Add(new Answer(answer.Base));
-
-            if (Answers.Count >= 4)
-                break;
-        }
 
         Questions = new List<Question>();
         foreach (var question in Base.PossibleQuestions)

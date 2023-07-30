@@ -9,23 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Experimental/Intro.unity
+    guid: f5029036304c18a4e91b656f93a2bbcc
+  - enabled: 1
     path: Assets/Experimental/Experiment.unity
     guid: 5721c2e6b8213f440a3e325da049f317
   - enabled: 1
     path: Assets/Experimental/house.unity
     guid: 7924b0dc8660cd749a4d13460c4b61b0
+  - enabled: 0
+    path: Assets/Experimental/Battle Experiment.unity
+    guid: 31cd715ee15e1584182a6bb0c37bf958
   - enabled: 1
     path: Assets/Experimental/Menu Scenes/Login-Menu.unity
     guid: ebd8eace13987394fa70ae22d42e821f
-  - enabled: 0
-    path: Assets/Experimental/Menu Scenes/Create-Acc-Menu.unity
-    guid: 724e4cfb47f2b5e4993b9c1262c600c2
-  - enabled: 0
-    path: Assets/Experimental/Menu Scenes/Save-State-Menu.unity
-    guid: c865f960a8a8c4545b4278b7b63335ad
-  - enabled: 1
-    path: Assets/Experimental/Battle Experiment.unity
-    guid: 31cd715ee15e1584182a6bb0c37bf958
   - enabled: 1
     path: Assets/Experimental/Menu Scenes/Acc-Creation-Menu.unity
     guid: ab383ccc06f032d4f85f1d05cc3f638e

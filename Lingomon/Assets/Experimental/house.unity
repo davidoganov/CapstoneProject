@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551469626eac84641842268f604ffb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 1
   destinationPortal: 1
   spawnPoint: {fileID: 913696886}
   speed: 10
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551469626eac84641842268f604ffb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 1
   destinationPortal: 2
   spawnPoint: {fileID: 1729800625}
   speed: 10
@@ -5894,7 +5894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551469626eac84641842268f604ffb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 1
   destinationPortal: 0
   spawnPoint: {fileID: 2057403989}
   speed: 10

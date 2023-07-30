@@ -265,7 +265,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (currentMove < playerUnit.Lingomon.Answers.Count - 1)
+            if (currentMove < currentQuestion.Base.Answers.Count - 1)
                 ++currentMove;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -275,7 +275,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentMove < playerUnit.Lingomon.Answers.Count - 2)
+            if (currentMove < currentQuestion.Base.Answers.Count - 2)
                 currentMove += 2;
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
