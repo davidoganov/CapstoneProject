@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
     [SerializeReference]
     [SerializeField] List<CutsceneAction> actions;
     [SerializeField] bool repeatable;
+    [SerializeField] int minPhase;
+    [SerializeField] int maxPhase;
 
     public bool TriggerRepeatedly => repeatable;
 
@@ -29,7 +32,11 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
 
     public void OnPlayerTriggered(PlayerController player)
     {
-        player.character.IsMoving = false;
-        StartCoroutine(Play());
+        int currPhase = GamePhase.Instance.phase;
+        if (currPhase >= minPhase && currPhase <= maxPhase)
+        {
+            player.character.IsMoving = false;
+            StartCoroutine(Play());
+        }
     }
 }

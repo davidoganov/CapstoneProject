@@ -36,8 +36,6 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
         yield return TransitionManager.Instance.playerSpawning();
 
         GameController.Instance.PauseGame(false);
-
-        Debug.Log("loading scene: " + sceneToLoad);
         if (sceneToLoad == 3)
         {
             MapController.Instance.hideMap();

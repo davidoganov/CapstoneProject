@@ -6,7 +6,7 @@ public class LongGrass : MonoBehaviour, IPlayerTriggerable
 {
     public void OnPlayerTriggered(PlayerController player)
     {
-        if (UnityEngine.Random.Range(1, 101) <= 10)
+        if (GamePhase.Instance.phase > 0 && UnityEngine.Random.Range(1, 101) <= 10)
         {
             StartCoroutine(encounterTransition());
         }

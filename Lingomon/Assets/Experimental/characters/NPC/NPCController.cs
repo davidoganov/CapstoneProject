@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour, Interactable
 {
-    public Dialog dialog;
-    [SerializeField] bool hasDialog;
+    public List<Dialog> dialog;
     Character character;
 
     void Awake()
@@ -18,8 +17,11 @@ public class NPCController : MonoBehaviour, Interactable
     }
 
     public void Interact(Transform initiator) {
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator));
-        character.LookTowards(initiator.position);
+        if (dialog.Count > 0)
+        {
+            StartCoroutine(DialogManager.Instance.ShowDialog(dialog[Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase)], character));
+            character.LookTowards(initiator.position);
+        }
     }
 }
 

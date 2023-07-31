@@ -8,6 +8,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] Quest[] quests;
     [SerializeField] TextMeshProUGUI questUIList;
     [SerializeField] GameObject questUI;
+    int activeQuests = 0;
     bool wasOn = false;
 
     public static QuestManager Instance { get; private set; }
@@ -18,13 +19,15 @@ public class QuestManager : MonoBehaviour
 
     public void progressTask(int questIndex)
     {
-        quests[questIndex].updateTask();
+        if (quests[questIndex].updateTask()) activeQuests--;
+        if (activeQuests == 0) GamePhase.Instance.nextPhase();
         updateQuestUI();
     }
 
     public void addTask(int questIndex)
     {
         quests[questIndex].unlockTask();
+        activeQuests++;
         updateQuestUI();
     }
 

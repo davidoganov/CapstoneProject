@@ -6,7 +6,8 @@ public class TrainerController : MonoBehaviour, Interactable
 {
     [SerializeField] string name;
     [SerializeField] Sprite sprite;
-    [SerializeField] Dialog dialog;
+    [SerializeField] List<Dialog> dialog;
+    [SerializeField] public bool isSpecialist;
     Character character;
 
     void Awake()
@@ -17,7 +18,7 @@ public class TrainerController : MonoBehaviour, Interactable
     public void Interact(Transform initiator)
     {
         character.LookTowards(initiator.position);
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator, onFinished:() =>
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog[Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase)], character, onFinished:() =>
         {
             GameController.Instance.StartTrainerBattle(this);
         }));
@@ -26,7 +27,7 @@ public class TrainerController : MonoBehaviour, Interactable
     public IEnumerator TriggerTrainerBattle()
     {
         yield return new WaitForSeconds(1f);
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, character.Animator, () =>
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog[Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase)], character, () =>
         {
             GameController.Instance.StartTrainerBattle(this);
         }));

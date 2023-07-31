@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnPlayer());
-        QuestManager.Instance.addTask(1);
-        QuestManager.Instance.addTask(2);
         //----------------------------------------------//
     }
 

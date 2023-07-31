@@ -7,8 +7,10 @@ using UnityEngine.Windows;
 public class Character : MonoBehaviour
 {
     CharacterAnimator animator;
-
+    [SerializeField] string characterName;
     public bool IsMoving { get; set; }
+
+    public string CharacterName { get { return characterName; } }
 
     [SerializeField] float speed;
     private void Awake()

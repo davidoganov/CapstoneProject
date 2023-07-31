@@ -12,11 +12,13 @@ public class Quest
     int counter = 0;
     public int goal = 1;
 
-    public void updateTask()
+    public bool updateTask()
     {
         if (unlocked && !complete) {
             if (++counter == goal) complete = true;
+            return complete;
         }
+        return false;
     }
 
     public void unlockTask()

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Rendering;
+using UnityEngine.TextCore.Text;
 
 public enum DialogState { normal, battleOption }
 
@@ -25,7 +26,7 @@ public class DialogManager : MonoBehaviour
     int currentLine = 0;
     int currentAction = 0;
     bool printing = false;
-    CharacterAnimator npc;
+    Character npc;
     bool isCutscene;
 
     public event Action OnDialogOpen;
@@ -36,7 +37,7 @@ public class DialogManager : MonoBehaviour
         state = DialogState.normal;
     }
 
-    public IEnumerator ShowDialog(Dialog dialog, CharacterAnimator character=null, Action onFinished = null, bool isCutscene=false) {
+    public IEnumerator ShowDialog(Dialog dialog, Character character=null, Action onFinished = null, bool isCutscene=false) {
         yield return new WaitForEndOfFrame();
 
         OnDialogOpen?.Invoke();
@@ -83,10 +84,8 @@ public class DialogManager : MonoBehaviour
         if (!printing && Input.GetKeyDown(KeyCode.Z))
         {
             ++currentLine;
-            print("pot next");
             if (currentLine < dialog.Lines.Count)
             {
-                print("next");
                 StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
                 if (currentLine == dialog.Lines.Count - 1 && dialog.IsTrainer)
                 {
@@ -104,6 +103,12 @@ public class DialogManager : MonoBehaviour
                 currentLine = 0;
                 dialogBox.SetActive(false);
                 resetNPCDirection();
+                if (npc.CharacterName.Equals("Larry"))
+                {
+                    QuestManager.Instance.progressTask(0);
+                    QuestManager.Instance.progressTask(3);
+                    QuestManager.Instance.progressTask(5);
+                }
                 //onDialogFinished?.Invoke();
             }
         }
@@ -153,7 +158,7 @@ public class DialogManager : MonoBehaviour
 
     void resetNPCDirection()
     {
-        if (npc != null) npc.SetFacingDirection(npc.DefaultDirection);
+        if (npc != null) npc.Animator.SetFacingDirection(npc.Animator.DefaultDirection);
     }
 
     void updateSelections(int selection)

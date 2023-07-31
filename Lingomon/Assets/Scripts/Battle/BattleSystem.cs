@@ -322,6 +322,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return battleDialogueBox.TypeDialogue($"Ran away safely!");
             yield return new WaitForSeconds(1f);
+            GameController.Instance.ranAway = false;
             BattleOver(true);
         }
         else

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu, Cutscene}
-
+public enum BattleType { wild, trainer, specialist}
 public class GameController : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
     [SerializeField] MenuManager menuManager;
-
+    public bool ranAway;
+    BattleType currentBattle;
     GameState state;
 
     GameState stateBeforePause;
@@ -84,7 +85,7 @@ public class GameController : MonoBehaviour
 
     public void StartBattle()
     {
-        QuestManager.Instance.progressTask(1);
+        currentBattle = BattleType.wild;
         MapController.Instance.hideMap();
         QuestManager.Instance.hideQuests();
         battleSystem.gameObject.SetActive(true);
@@ -98,7 +99,7 @@ public class GameController : MonoBehaviour
 
     public void StartTrainerBattle(TrainerController trainer)
     {
-        QuestManager.Instance.progressTask(2);
+        currentBattle = trainer.isSpecialist ? BattleType.specialist : BattleType.trainer;
         QuestManager.Instance.hideQuests();
         MapController.Instance.hideMap();
 
@@ -114,6 +115,22 @@ public class GameController : MonoBehaviour
 
     void EndBattle(bool won)
     {
+        if (!ranAway)
+        {
+            switch (currentBattle)
+            {
+                case BattleType.wild:
+                    QuestManager.Instance.progressTask(1);
+                    break;
+                case BattleType.trainer:
+                    QuestManager.Instance.progressTask(2);
+                    break;
+                case BattleType.specialist:
+                    QuestManager.Instance.progressTask(4);
+                    break;
+            }
+            ranAway = false;
+        }
         QuestManager.Instance.revealQuests();
         MapController.Instance.revealMap();
         state = GameState.FreeRoam;
