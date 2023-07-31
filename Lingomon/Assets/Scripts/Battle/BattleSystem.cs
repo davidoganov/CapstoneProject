@@ -59,7 +59,8 @@ public class BattleSystem : MonoBehaviour
         playerUnit.Clear();
         enemyUnit.Clear();
         promptDialogueBox.EnablePromptBox(false);
-        
+        currentAction = currentMove = 0;
+
         if (!isTrainerBattle)
         {
             //Wild lingomon battle
@@ -185,6 +186,7 @@ public class BattleSystem : MonoBehaviour
 
         sourceUnit.PlayHitAnimation();
         bool isFainted = sourceUnit.Lingomon.TakeDamage(30);
+        currentMove = 0;
         yield return sourceUnit.Hud.UpdateHP();
         if (isFainted)
         {

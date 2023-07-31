@@ -1,0 +1,2164 @@
+fileFormatVersion: 2
+guid: fad8d3f13b1c7b04996d1479af3a325c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 212
+        width: 82
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f03e4a0b973304d90a695ce8b99687
+      internalID: -1695860564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 340
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc4738f017427b44ad7b4dfcb879435
+      internalID: 1267771744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 338
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36d794b56e584d429c34076688766fb
+      internalID: -1482337958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_3
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 340
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46af4b2c4452c143bf3dafca821a9d8
+      internalID: -1525593990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 338
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4dddcc146533a45951c441bbbd82c6
+      internalID: 1299305773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_5
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 340
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8e8bab600ef7749b4817412388861d
+      internalID: -774301259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 338
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fee50eb4d948334ab5ce18178cc51e5
+      internalID: -815974052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_7
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 204
+        width: 102
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30bcbe5f9d0b714db8a8b87edd88ca0
+      internalID: 246582300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_8
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 338
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857066c8ad1a8314dbd5c98281fff469
+      internalID: -2037496253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_9
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 292
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af53b15a1594e14cbe5c2bd74edb96c
+      internalID: -836400588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_10
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 292
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a5d6d33f593c44483172a6704bc2d1
+      internalID: 1373487356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_11
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 292
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac81c4e0a7073da4caeb21263072d316
+      internalID: -2112762905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_12
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 292
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f36d09a16051cc42bff71df58b2fbbb
+      internalID: 1922815078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_13
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 228
+        width: 66
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae26517935c41004d950fc675fc12e7d
+      internalID: 1824289429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_14
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 292
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00747143bc2f24d4e9c4cf0cc0a4324c
+      internalID: 1035775633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_15
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 292
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1dc6f1b8257a494995459ad446b0b63
+      internalID: 850541419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_16
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 292
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16187d04c2cf019488cfb5d8b36d5264
+      internalID: 849636410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_17
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 292
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4599e261749cfb8479134fc1eb819c39
+      internalID: 1923203534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_18
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 292
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67dd260e9af8a2948b9745a391d04414
+      internalID: 984161966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 244
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4e236a4667fa646a0f9a2f6d71f6e6
+      internalID: 566943289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 244
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5ec90b3f88c184fbfccd96283c2a47
+      internalID: 75121954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_21
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 244
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc572835e4a82542bf29d077cd61c81
+      internalID: 961435135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_22
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 244
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17e0ded05c69f44aa22ac5bcef4a8ec
+      internalID: 1861751353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_23
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 244
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe9ed8f8748f30419ad554cd1897b4a
+      internalID: 651186500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_24
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 244
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d116e45395638dc49bde5683c762ee15
+      internalID: 334892345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_25
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 244
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1876732e82f96fe4da89afcd653ddf2b
+      internalID: -1269299702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_26
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 244
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5515407b6fcc58f41b32b814f745900b
+      internalID: -155431875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_27
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 244
+        width: 128
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3baecb38dbe1514a9a262bee6b6fbc8
+      internalID: -981074941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_28
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 196
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4369bec9110d574086a077e713a2aff
+      internalID: -1251557552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_29
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 194
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38958542e67e894ebb13b144df14200
+      internalID: -775542125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_30
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 196
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31850576063d4045a91d444cd04e676
+      internalID: 254465240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_31
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 194
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cef50683b30044287ec61dc3423fba
+      internalID: 444737231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_32
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 196
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5ee1d7f51e8884286ddb350f761340
+      internalID: -197982411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_33
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 194
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab711c0e7ef7523428f016a624200df3
+      internalID: -1804593739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_34
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 194
+        width: 128
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3530f9965872b749a28cc44a6ef9b9e
+      internalID: 1656525698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_35
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 148
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c4ce0c221a79245a74a4769872ac47
+      internalID: -261572007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_36
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 146
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a60c022884a3fe4e87532c233a8359f
+      internalID: -899901552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_37
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 148
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c57b0c49a90abc49b8dedffa31bda95
+      internalID: -2021756345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_38
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 146
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b669e9c24dd277f46bd094017e3cadcd
+      internalID: 1122877522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_39
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 148
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e49b5f3467ac9546ad8a52186d41d8c
+      internalID: -1136502214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_40
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 146
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d03f6c81b3c44c44bb32a7aaefa3262
+      internalID: -825704955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_41
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 148
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2258fdcc385209048a21f4a4fa921376
+      internalID: -1286781370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_42
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 146
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df3d0b3366544543a0393b35ac4d39d
+      internalID: -966194211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_43
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 16
+        width: 84
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07391c2585d5b5343a74d0a09156c962
+      internalID: 1402933750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_44
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 146
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7479f0e71ec9049be71f06c12b7be4
+      internalID: -357304163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_45
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 144
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176eddb33225aec48a97ba83e2ecbff0
+      internalID: 543646072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_46
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 146
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac8465d68d5dd945a94b360ec682f13
+      internalID: -529171109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_47
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 144
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899c750851be20e448d35c3bd007c2f5
+      internalID: 896932836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_48
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 38
+        width: 76
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4942cf308446f8d4fa273fc7c4de26f3
+      internalID: 1459699355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_49
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 100
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e8e160cb8b7c8419900b9f6aba89f7
+      internalID: 1707906686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_50
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 100
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee347c7220f51347ba5791c13d75006
+      internalID: -933444101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_51
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 100
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda07f6a59a3ff640acd15b3108073c1
+      internalID: -2136816965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_52
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 100
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702fe83e622e64a45a7a85f02c828121
+      internalID: 811195150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_53
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 36
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a9e4f9220a39274cb8ba2ea8810bf73
+      internalID: -653616484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_54
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 100
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab9316e19cff8494697a69d079c3db0d
+      internalID: 1774729794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_55
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 100
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d843c112949b91046ac4bd2fe2341956
+      internalID: 1692067360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_56
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 100
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a17f20db57a9f24883bf81d892bd15b
+      internalID: -807059331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_57
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 100
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7caff105d89754a86b998cc25d4150
+      internalID: 954673568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_58
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 98
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a2cfb19b679b643b4b58c13a469265
+      internalID: 303754148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_59
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 98
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840ad59631daac24980551843084096a
+      internalID: 1389694461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_60
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 98
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330d2c732ddb89b47bfa7387a77ad6de
+      internalID: 1301455044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_61
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 98
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c131ec799c39a224fa1c5e69ee4995f3
+      internalID: -109411048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_62
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 52
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3481eb6becba7f74f9eb28f8fc5d9994
+      internalID: 1313840461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_63
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 52
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462bb03e2d3985a429810dfbcdaffc91
+      internalID: -48317392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_64
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 52
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86517870a4f08af4b97e291d81672bb4
+      internalID: 1428025621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_65
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 52
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ab37e8e423fdf48b69c94351d7b3ac
+      internalID: 113663651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_66
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 52
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5454cc4d4b1174b9b7d74bbc34831f
+      internalID: -775482974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_67
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 52
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967ddf2627617544dba6ca696b951e95
+      internalID: -1699438024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_68
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 52
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3649109b9285347bd7e4a4f6147b17
+      internalID: -1010575775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_69
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 52
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09114edffd9579443b363086e5159500
+      internalID: -2005731346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_70
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 50
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4d735582ec5674bba09488ad5b7a0d
+      internalID: 2093621819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_71
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 50
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655583b1e0acfba48ae6855395eb18a4
+      internalID: 1949750529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_72
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 50
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8fb7cf3e0bd6044ace6aa14c1316f0
+      internalID: 270415205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_73
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 50
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3ab11bbbeae3648a29c5fdf30f7c1f
+      internalID: -1753882279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_74
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f8dbd6bb888ed44a88550e47aec7a9
+      internalID: -2071718091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_75
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 2
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e59662ce6aebd541bc94f4c0cc93c23
+      internalID: -1130629101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_76
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 4
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1f6199b364f704ab1de5467467109e
+      internalID: 1137824456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_77
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b83c858960fc849b3975b9a345f4da
+      internalID: -897270086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_78
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 4
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba4f56b4934a0a044982feada5afa8de
+      internalID: -45960360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_79
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 2
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee150853404bd748856219dd846b7ee
+      internalID: 1032801674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_80
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 4
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54645b0dac2bf6d4ea2e3ba9b08f2726
+      internalID: -827294362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_81
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13581972894f5d4ea5074a342e299e5
+      internalID: -262838413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_82
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 2
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001a30e5c5c149f47865a9aafbc5c439
+      internalID: 974464784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_83
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd21b1b8489aef47a7a2acc3870c7e5
+      internalID: -2144111474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_84
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 2
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd633f942974f864898ceac7eb0ebff2
+      internalID: 1633334005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_85
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9e9fe0c72b09e4298dcb9a64853e79
+      internalID: 650514775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_86
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 338
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597cfd51c4eecb84796b7cfae4e119af
+      internalID: -56532584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_87
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 338
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8336c6afca9a72649a240abbf3a36842
+      internalID: -1479085482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_88
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 338
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5117ee6f17b0b488b6308d6e40267a
+      internalID: -1283324521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_89
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 292
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8f8ece857bd6040854aad3196b9b98
+      internalID: -2107298163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_90
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 292
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ce9b74faa514947b6b7fdf48a91a24
+      internalID: 663550172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_91
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 292
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5e236bdcacbd147a8c23deac47b8ca
+      internalID: 2026209642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_0: -1695860564
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_1: 1267771744
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_10: 1373487356
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_11: -2112762905
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_12: 1922815078
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_13: 1824289429
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_14: 1035775633
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_15: 850541419
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_16: 849636410
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_17: 1923203534
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_18: 984161966
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_19: 566943289
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_2: -1482337958
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_20: 75121954
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_21: 961435135
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_22: 1861751353
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_23: 651186500
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_24: 334892345
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_25: -1269299702
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_26: -155431875
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_27: -981074941
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_28: -1251557552
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_29: -775542125
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_3: -1525593990
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_30: 254465240
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_31: 444737231
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_32: -197982411
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_33: -1804593739
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_34: 1656525698
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_35: -261572007
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_36: -899901552
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_37: -2021756345
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_38: 1122877522
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_39: -1136502214
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_4: 1299305773
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_40: -825704955
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_41: -1286781370
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_42: -966194211
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_43: 1402933750
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_44: -357304163
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_45: 543646072
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_46: -529171109
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_47: 896932836
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_48: 1459699355
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_49: 1707906686
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_5: -774301259
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_50: -933444101
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_51: -2136816965
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_52: 811195150
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_53: -653616484
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_54: 1774729794
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_55: 1692067360
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_56: -807059331
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_57: 954673568
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_58: 303754148
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_59: 1389694461
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_6: -815974052
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_60: 1301455044
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_61: -109411048
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_62: 1313840461
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_63: -48317392
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_64: 1428025621
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_65: 113663651
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_66: -775482974
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_67: -1699438024
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_68: -1010575775
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_69: -2005731346
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_7: 246582300
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_70: 2093621819
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_71: 1949750529
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_72: 270415205
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_73: -1753882279
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_74: -2071718091
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_75: -1130629101
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_76: 1137824456
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_77: -897270086
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_78: -45960360
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_79: 1032801674
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_8: -2037496253
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_80: -827294362
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_81: -262838413
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_82: 974464784
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_83: -2144111474
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_84: 1633334005
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_85: 650514775
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_86: 915906292
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_87: -56532584
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_88: -1479085482
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_89: -1283324521
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_9: -836400588
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_90: -2107298163
+      various_3rd_gen_style_overworld_sprites_by_young_dante_d6qwhea-375w-2x_91: 663550172
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

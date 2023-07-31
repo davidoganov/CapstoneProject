@@ -11,6 +11,7 @@ public class SceneManagement : MonoBehaviour
     public string LoginMenuScene = "Login-Menu";
     public string LoadGameScene = "Load-Game-Menu";
     public string ExpScene = "Experiment";
+    public string IntroScene = "Intro";
 
     public void TransitionToCreateAccScene()
     {
@@ -34,6 +35,12 @@ public class SceneManagement : MonoBehaviour
     {
         Debug.Log("Loading experiment scene...");
         SceneManager.LoadScene(ExpScene);
+    }
+
+    public void TransitionToIntroScene()
+    {
+        Debug.Log("Loading intro scene...");
+        SceneManager.LoadScene(IntroScene);
     }
 }
 

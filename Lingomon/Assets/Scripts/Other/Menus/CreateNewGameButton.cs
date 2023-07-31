@@ -103,7 +103,8 @@ public class CreateNewGameButton : MonoBehaviour
             LoadingMessageIndicator();
 
             // open the world 
-            sceneManager.TransitionToExperimentScene(); // <-- temporary, replace with call to database when complete.
+            //sceneManager.TransitionToExperimentScene(); // <-- temporary, replace with call to database when complete.
+            sceneManager.TransitionToIntroScene();
         } 
         else
         {

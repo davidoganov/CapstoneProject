@@ -16,7 +16,10 @@ MonoBehaviour:
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type: 0
-  maxHP: 0
+  type: 1
+  maxHP: 150
   attack: 0
-  possibleQuestions: []
+  possibleQuestions:
+  - questionBase: {fileID: 11400000, guid: 166aedd746c6eeb4d9ac47bdafc3f834, type: 2}
+  - questionBase: {fileID: 11400000, guid: b2b40d68f845bfe4b9f5d5da7f634f5d, type: 2}
+  - questionBase: {fileID: 11400000, guid: 24652a9301927dc409fa6e79bea264da, type: 2}
