@@ -1,4 +1,4 @@
-# CapstoneProject
+# Lingomon
 
 **Creators**: Ali Ibrahim, Mickey Girmai, David Oganov
 
