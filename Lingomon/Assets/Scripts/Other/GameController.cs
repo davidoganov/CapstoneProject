@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu, Cutscene}
+public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu, Cutscene, Heal }
 public enum BattleType { wild, trainer, specialist}
 public class GameController : MonoBehaviour
 {
@@ -113,6 +113,16 @@ public class GameController : MonoBehaviour
         battleSystem.StartTrainerBattle(playerParty, trainerParty);
     }
 
+    public void HealPlayerLingomon()
+    {
+        state = GameState.Heal;
+        Debug.Log("Lingomon Healed");
+        var playerParty = playerController.GetComponent<LingomonParty>();
+        var lingomon = playerParty.GetPlayerLingomon();
+        lingomon.HP = lingomon.MaxHP;
+        state = GameState.FreeRoam;
+    }
+
     void EndBattle(bool won)
     {
         if (!ranAway)
@@ -131,11 +141,19 @@ public class GameController : MonoBehaviour
             }
             ranAway = false;
         }
-        QuestManager.Instance.revealQuests();
-        MapController.Instance.revealMap();
-        state = GameState.FreeRoam;
-        battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
+        if (won)
+        {
+            QuestManager.Instance.revealQuests();
+            MapController.Instance.revealMap();
+            state = GameState.FreeRoam;
+            battleSystem.gameObject.SetActive(false);
+            worldCamera.gameObject.SetActive(true);
+        }
+        else
+        {
+            state = GameState.Paused;
+            //resume from here
+        }
     }
 
     private void Update()

@@ -7,6 +7,7 @@ public class NPCController : MonoBehaviour, Interactable
     public List<Dialog> dialog;
     Character character;
 
+
     void Awake()
     { 
         character = GetComponent<Character>();
@@ -17,9 +18,16 @@ public class NPCController : MonoBehaviour, Interactable
     }
 
     public void Interact(Transform initiator) {
+        int index = Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase);
         if (dialog.Count > 0)
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog[Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase)], character));
+            if (!dialog[index].IsNurse)
+                StartCoroutine(DialogManager.Instance.ShowDialog(dialog[index], character));
+            else
+                StartCoroutine(DialogManager.Instance.ShowDialog(dialog[index], character, onFinished: () =>
+                {
+                    GameController.Instance.HealPlayerLingomon();
+                }));
             character.LookTowards(initiator.position);
         }
     }

@@ -198,7 +198,15 @@ public class BattleSystem : MonoBehaviour
             if (!isTrainerBattle)
             {
                 if (sourceUnit == playerUnit)
+                {
+                    yield return battleDialogueBox.TypeDialogue($"You ran out of usable Lingomon!");
+                    yield return new WaitForSeconds(1.5f);
+                    yield return battleDialogueBox.TypeDialogue($"... ... ...");
+                    yield return new WaitForSeconds(1.5f);
+                    yield return battleDialogueBox.TypeDialogue($"You whited out!");
+                    yield return new WaitForSeconds(1.5f);
                     BattleOver(false);
+                }
                 else
                     BattleOver(true);
             }

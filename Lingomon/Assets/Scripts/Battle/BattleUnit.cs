@@ -48,6 +48,7 @@ public class BattleUnit : MonoBehaviour
 
     public void PlayEnterAnimation()
     {
+        image.DOFade(1f, 0.1f);
         if (isPlayerUnit)
             image.transform.localPosition = new Vector3(-500f, originalPos.y);
         else

@@ -7,7 +7,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine.TextCore.Text;
 
-public enum DialogState { normal, battleOption }
+public enum DialogState { normal, battleOption, healOption }
 
 public class DialogManager : MonoBehaviour
 {
@@ -75,7 +75,11 @@ public class DialogManager : MonoBehaviour
         }
         else if (state == DialogState.battleOption)
         {
-            battleOptionHandler();
+            optionHandler(true);
+        }
+        else if (state == DialogState.healOption)
+        {
+            optionHandler(false);
         }
     }
 
@@ -87,13 +91,16 @@ public class DialogManager : MonoBehaviour
             if (currentLine < dialog.Lines.Count)
             {
                 StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
-                if (currentLine == dialog.Lines.Count - 1 && dialog.IsTrainer)
+                if (currentLine == dialog.Lines.Count - 1 && dialog.IsTrainer || dialog.IsNurse)
                 {
                     //activate ActionSelector in dialogBox
                     actionSelector.SetActive(true);
                     currentAction = 0;
                     updateSelections(currentAction);
-                    state = DialogState.battleOption;
+                    if(dialog.isTrainer)
+                        state = DialogState.battleOption;
+                    else if (dialog.isNurse)
+                        state = DialogState.healOption;
                 }
             }
             else
@@ -114,7 +121,7 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void battleOptionHandler()
+    public void optionHandler(bool battle)
     {
         if (Input.GetKeyDown(KeyCode.DownArrow) && currentAction < 1)
         {
@@ -136,9 +143,13 @@ public class DialogManager : MonoBehaviour
             actionSelector.SetActive(false);
             updateSelections(currentAction);
             dialogBox.SetActive(false);
-            if (currentAction == 0)
+            if (currentAction == 0 && battle)
             {
                 StartCoroutine(startTrainerBattle());
+            }
+            else if (currentAction == 0 && !battle)
+            {
+                StartCoroutine(healLingomon());
             }
             else 
             {
@@ -152,6 +163,15 @@ public class DialogManager : MonoBehaviour
         yield return StartCoroutine(TransitionManager.Instance.lingomonBattle1());
         StartCoroutine(TransitionManager.Instance.lingomonBattle2());
         GameController.Instance.PauseGame(false);
+        resetNPCDirection();
+        onDialogFinished?.Invoke();
+    }
+
+    IEnumerator healLingomon()
+    {
+        //GameController.Instance.PauseGame(true);
+        //transition? probably not
+        yield return new WaitForSeconds(0.5f);
         resetNPCDirection();
         onDialogFinished?.Invoke();
     }

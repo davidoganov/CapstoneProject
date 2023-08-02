@@ -19,4 +19,9 @@ public class LingomonParty : MonoBehaviour
     {
         return lingomons.Where(x => x.HP > 0).FirstOrDefault();
     }
+
+    public Lingomon GetPlayerLingomon()
+    {
+        return lingomons[0];
+    }
 }
