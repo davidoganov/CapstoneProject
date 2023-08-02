@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { FreeRoam, Battle, Transition, Dialog , Paused, Menu, Cutscene, Heal }
 public enum BattleType { wild, trainer, specialist}
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
     [SerializeField] MenuManager menuManager;
+    [SerializeField] Dialog onLossDialog;
     public bool ranAway;
     BattleType currentBattle;
     GameState state;
@@ -93,7 +95,6 @@ public class GameController : MonoBehaviour
         state = GameState.Battle;
         var playerParty = playerController.GetComponent<LingomonParty>();
         var wildLingomon = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildLingomon();
-
         battleSystem.StartBattle(playerParty, wildLingomon);
     }
 
@@ -115,17 +116,17 @@ public class GameController : MonoBehaviour
 
     public void HealPlayerLingomon()
     {
-        state = GameState.Heal;
+        PauseGame(true);
         Debug.Log("Lingomon Healed");
         var playerParty = playerController.GetComponent<LingomonParty>();
         var lingomon = playerParty.GetPlayerLingomon();
         lingomon.HP = lingomon.MaxHP;
-        state = GameState.FreeRoam;
+        PauseGame(false);
     }
 
     void EndBattle(bool won)
     {
-        if (!ranAway)
+        if (!ranAway && won)
         {
             switch (currentBattle)
             {
@@ -151,9 +152,25 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            state = GameState.Paused;
-            //resume from here
+   
+            StartCoroutine(onPlayerLoss());
         }
+    }
+
+    public IEnumerator onPlayerLoss() {
+        PauseGame(true);
+        yield return StartCoroutine(TransitionManager.Instance.playerLoss());
+        battleSystem.gameObject.SetActive(false);
+        worldCamera.gameObject.SetActive(true);
+        SceneManager.LoadSceneAsync(3);
+        playerController.transform.position = new Vector3(-.5f, -4.25f, 0f);
+        playerController.character.Animator.SetFacingDirection(FacingDirection.Right);
+        yield return StartCoroutine(TransitionManager.Instance.playerSpawning());
+        QuestManager.Instance.revealQuests();
+        
+        PauseGame(false);
+        HealPlayerLingomon();
+        StartCoroutine(DialogManager.Instance.ShowDialog(onLossDialog));
     }
 
     private void Update()

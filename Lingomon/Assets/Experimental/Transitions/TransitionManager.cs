@@ -30,6 +30,19 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
+    public IEnumerator playerLoss() {
+        battleSr.material.SetTexture("_TransitionTexture", horizontal);
+        transitionProg = 0f;
+        battleSr.material.SetFloat("_CutOff", transitionProg);
+        while (battleSr.material.GetFloat("_CutOff") < 1.1f)
+        {
+            transitionProg += .01f;
+            battleSr.material.SetFloat("_CutOff", transitionProg);
+            yield return new WaitForSeconds(.05f / transitionSpeed);
+        }
+        battleSr.material.SetFloat("_CutOff", 1f);
+    }
+
     public IEnumerator playerSpawning()
     {;
         sr.material.SetTexture("_TransitionTexture", horizontal);
@@ -105,7 +118,7 @@ public class TransitionManager : MonoBehaviour
             battleSr.material.SetFloat("_CutOff", transitionProg);
             yield return new WaitForSeconds(.05f / transitionSpeed);
         }
-
+        //yield return new WaitForSeconds(.5f);
     }
 
 }

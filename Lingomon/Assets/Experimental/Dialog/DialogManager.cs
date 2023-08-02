@@ -110,7 +110,7 @@ public class DialogManager : MonoBehaviour
                 currentLine = 0;
                 dialogBox.SetActive(false);
                 resetNPCDirection();
-                if (npc.CharacterName.Equals("Larry"))
+                if (npc != null && npc.CharacterName.Equals("Larry"))
                 {
                     QuestManager.Instance.progressTask(0);
                     QuestManager.Instance.progressTask(3);

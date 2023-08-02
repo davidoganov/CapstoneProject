@@ -246,10 +246,10 @@ RectTransform:
   m_Father: {fileID: 8720325593072961496}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.7617, y: -12.5662}
-  m_SizeDelta: {x: 122.7857, y: 122.7857}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 62.7617, y: -62.5662}
+  m_SizeDelta: {x: 122.7857, y: 122.785706}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2366134778881487936
 CanvasRenderer:
@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.124000005, y: 0.022369428}
   m_AnchorMax: {x: 0.874, y: 0.31041667}
-  m_AnchoredPosition: {x: 0.25003052, y: -6.500183}
+  m_AnchoredPosition: {x: 0.25, y: -6.500183}
   m_SizeDelta: {x: -1.125, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8275567546909068584
@@ -435,9 +435,9 @@ RectTransform:
   m_Father: {fileID: 7009136830934633411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 191.81856, y: -93.25928}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 191.81854, y: 131.74072}
   m_SizeDelta: {x: -575.3331, y: 152.0386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2662475074636048660
@@ -455,9 +455,9 @@ MonoBehaviour:
   quests:
   - task: Talk to Professor Larry
     goal: 1
-  - task: Fight a wild Lingomon
+  - task: Defeat a wild Lingomon
     goal: 1
-  - task: Fight a Lingomon trainer
+  - task: Defeat a Lingomon trainer
     goal: 1
   - task: Meet with Professor Larry again
     goal: 1
@@ -639,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.85783464, y: 0.07851567}
   m_AnchorMax: {x: 0.9761391, y: 0.88868934}
-  m_AnchoredPosition: {x: 1.6999817, y: 4.0000005}
+  m_AnchoredPosition: {x: 1.6999512, y: 4}
   m_SizeDelta: {x: 177.9991, y: 7.1841965}
   m_Pivot: {x: 1, y: 0.50000006}
 --- !u!1 &1945300715475474836
@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.58000004, y: 0.121293135}
   m_AnchorMax: {x: 0.9775023, y: 0.46560577}
-  m_AnchoredPosition: {x: 0.28599548, y: -0.6950464}
+  m_AnchoredPosition: {x: 0.28599548, y: -0.6950531}
   m_SizeDelta: {x: 2.3399963, y: 2.60993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &93230794877101933
@@ -951,7 +951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07149488, y: 0.123}
   m_AnchorMax: {x: 0.92800003, y: 0.57500005}
-  m_AnchoredPosition: {x: -0.7418823, y: 0.31680298}
+  m_AnchoredPosition: {x: -0.74186707, y: 0.31680298}
   m_SizeDelta: {x: -0.9211998, y: 0.23969984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7065228404291369240
@@ -1273,7 +1273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03918043, y: 0.18111499}
   m_AnchorMax: {x: 0.81320745, y: 0.854423}
-  m_AnchoredPosition: {x: -0.78048706, y: 4}
+  m_AnchoredPosition: {x: -0.7805176, y: 4}
   m_SizeDelta: {x: -1.5609999, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3735606064169257781
@@ -1390,7 +1390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8264280911614308784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1704,7 +1704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07149488, y: 0.5563083}
   m_AnchorMax: {x: 0.92800003, y: 0.6956388}
-  m_AnchoredPosition: {x: -0.7480774, y: -0.5001068}
+  m_AnchoredPosition: {x: -0.74806213, y: -0.5001068}
   m_SizeDelta: {x: 2.7770004, y: 1.0002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3432449312281458416
@@ -1914,10 +1914,10 @@ RectTransform:
   m_Father: {fileID: 1072924281506197617}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.878, y: 16.8}
-  m_SizeDelta: {x: -39.756, y: -23.7825}
+  m_AnchoredPosition: {x: -93.62201, y: -59.199997}
+  m_SizeDelta: {x: 185.24402, y: 128.2175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5267516563985391044
 CanvasRenderer:
@@ -1990,9 +1990,9 @@ RectTransform:
   m_Father: {fileID: 8720325593072961496}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.5322, y: -13.3904}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 62.5322, y: -63.3904}
   m_SizeDelta: {x: 137.0792, y: 137.0792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &367594134039581003
@@ -3200,6 +3200,26 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 7789765328579561871}
+    - target: {fileID: 6504299865742990916, guid: 18c0cc2be302f1648b70b170475efe7f, type: 3}
+      propertyPath: onLossDialog.isNurse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504299865742990916, guid: 18c0cc2be302f1648b70b170475efe7f, type: 3}
+      propertyPath: onLossDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504299865742990916, guid: 18c0cc2be302f1648b70b170475efe7f, type: 3}
+      propertyPath: onLossDialog.lines.Array.data[0]
+      value: 'I heard you passed out in your last battle. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504299865742990916, guid: 18c0cc2be302f1648b70b170475efe7f, type: 3}
+      propertyPath: onLossDialog.lines.Array.data[1]
+      value: I came to rescue you and have healed your lingomon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504299865742990916, guid: 18c0cc2be302f1648b70b170475efe7f, type: 3}
+      propertyPath: onLossDialog.lines.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3524,15 +3544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.70603013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.30533117
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.49861807
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2123535999753193745, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_Name
