@@ -11659,7 +11659,7 @@ MonoBehaviour:
     - If you ever become a trainer I am here
     - to nurse your lingomon back to health.
     - Safe travels!
-    isTrainer: 1
+    isTrainer: 0
     isNurse: 0
   - lines:
     - I heard the news!

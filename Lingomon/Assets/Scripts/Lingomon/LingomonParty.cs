@@ -20,8 +20,8 @@ public class LingomonParty : MonoBehaviour
         return lingomons.Where(x => x.HP > 0).FirstOrDefault();
     }
 
-    public Lingomon GetPlayerLingomon()
+    public Lingomon GetLingomon(int index)
     {
-        return lingomons[0];
+        return index >= lingomons.Count ? null : lingomons[index];
     }
 }

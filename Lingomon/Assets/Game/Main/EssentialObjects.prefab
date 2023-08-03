@@ -3277,7 +3277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92356d719c98b543adf93e7f32041e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: -1
+  phase: 2
 --- !u!1001 &4604314644442668531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3544,15 +3544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.7307693
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 1.0015432
       objectReference: {fileID: 0}
     - target: {fileID: 1089211060996831579, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 1.2480769
       objectReference: {fileID: 0}
     - target: {fileID: 2123535999753193745, guid: d82e848c838080049826c263be8b3dbd, type: 3}
       propertyPath: m_Name

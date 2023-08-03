@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -114,6 +115,16 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.BattleOver;
         promptDialogueBox.EnablePromptBox(false);
+        if (isTrainerBattle)
+        {
+            int index = 0;
+            Lingomon mon = trainerParty.GetLingomon(index);
+            while (mon != null) {
+                mon.HP = mon.MaxHP;
+                mon = trainerParty.GetLingomon(++index);
+            }
+            
+        }
         isTrainerBattle = false;
         OnBattleOver(won);
     }
@@ -216,7 +227,20 @@ public class BattleSystem : MonoBehaviour
                 if (sourceUnit != playerUnit && nextLingomon != null)
                     yield return StartCoroutine(SendNextTrainerLingomon(nextLingomon));
                 else
-                    BattleOver(true);
+                {
+                    if (sourceUnit == playerUnit)
+                    {
+                        yield return battleDialogueBox.TypeDialogue($"You ran out of usable Lingomon!");
+                        yield return new WaitForSeconds(1.5f);
+                        yield return battleDialogueBox.TypeDialogue($"... ... ...");
+                        yield return new WaitForSeconds(1.5f);
+                        yield return battleDialogueBox.TypeDialogue($"You whited out!");
+                        yield return new WaitForSeconds(1.5f);
+                        BattleOver(false);
+                    }
+                    else
+                        BattleOver(true);
+                }
             }
         }
 
@@ -321,8 +345,8 @@ public class BattleSystem : MonoBehaviour
         if (isTrainerBattle)
         {
             yield return battleDialogueBox.TypeDialogue($"You can't run from trainer battles!");
-            state = BattleState.RunningTurn;
             yield return new WaitForSeconds(1f);
+            MoveSelection();
             yield break;
         }
 
@@ -337,7 +361,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return battleDialogueBox.TypeDialogue($"Can't escape!");
             yield return new WaitForSeconds(1f);
-            state = BattleState.RunningTurn;
+            MoveSelection();
         }
     }
 }

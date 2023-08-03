@@ -91,16 +91,20 @@ public class DialogManager : MonoBehaviour
             if (currentLine < dialog.Lines.Count)
             {
                 StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
-                if (currentLine == dialog.Lines.Count - 1 && dialog.IsTrainer || dialog.IsNurse)
+                if (currentLine == dialog.Lines.Count - 1 && (dialog.IsTrainer || dialog.IsNurse))
                 {
                     //activate ActionSelector in dialogBox
                     actionSelector.SetActive(true);
                     currentAction = 0;
                     updateSelections(currentAction);
-                    if(dialog.isTrainer)
+                    if (dialog.isTrainer)
+                    {
                         state = DialogState.battleOption;
+                    }
                     else if (dialog.isNurse)
+                    {
                         state = DialogState.healOption;
+                    }
                 }
             }
             else

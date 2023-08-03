@@ -116,16 +116,15 @@ public class GameController : MonoBehaviour
 
     public void HealPlayerLingomon()
     {
-        PauseGame(true);
         Debug.Log("Lingomon Healed");
         var playerParty = playerController.GetComponent<LingomonParty>();
-        var lingomon = playerParty.GetPlayerLingomon();
+        var lingomon = playerParty.GetLingomon(0);
         lingomon.HP = lingomon.MaxHP;
-        PauseGame(false);
     }
 
     void EndBattle(bool won)
     {
+
         if (!ranAway && won)
         {
             switch (currentBattle)
@@ -152,12 +151,12 @@ public class GameController : MonoBehaviour
         }
         else
         {
-   
             StartCoroutine(onPlayerLoss());
         }
     }
 
     public IEnumerator onPlayerLoss() {
+        Debug.Log("hit");
         PauseGame(true);
         yield return StartCoroutine(TransitionManager.Instance.playerLoss());
         battleSystem.gameObject.SetActive(false);

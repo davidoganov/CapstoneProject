@@ -497,6 +497,7 @@ MonoBehaviour:
           lines:
           - Hey you!
           isTrainer: 0
+          isNurse: 0
     - rid: 5040578580004995076
       type: {class: MoveAction, ns: , asm: Assembly-CSharp}
       data:
@@ -544,6 +545,7 @@ MonoBehaviour:
           lines:
           - You aren't ready to meet with the specialist!
           isTrainer: 0
+          isNurse: 0
     - rid: 5040578580004995081
       type: {class: DialogueAction, ns: , asm: Assembly-CSharp}
       data:
@@ -553,6 +555,7 @@ MonoBehaviour:
           lines:
           - Get out of here!
           isTrainer: 0
+          isNurse: 0
     - rid: 5040578580004995082
       type: {class: MoveAction, ns: , asm: Assembly-CSharp}
       data:
@@ -592,6 +595,7 @@ MonoBehaviour:
           lines:
           - Come back when you're ready
           isTrainer: 0
+          isNurse: 0
     - rid: 5040578580004995086
       type: {class: TurnActorAction, ns: , asm: Assembly-CSharp}
       data:
@@ -29762,20 +29766,20 @@ MonoBehaviour:
   - {fileID: -1479085482, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -1283324521, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkUpSprites:
-  - {fileID: 21250613, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: 917711757, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: -1326885668, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: 1797787225, guid: 104248165053f39449adf1582673232a, type: 3}
+  - {fileID: 1656525698, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -308706672, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -353226270, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: 1942820827, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkRightSprites:
-  - {fileID: -1415305561, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: -1616098618, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: 738763352, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: -1956200854, guid: 104248165053f39449adf1582673232a, type: 3}
+  - {fileID: -981074941, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: 150715663, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -2038402242, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: 1691508188, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkLeftSprites:
+  - {fileID: 984161966, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -2107298163, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 663550172, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
-  - {fileID: 67003547, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: -1589125464, guid: 104248165053f39449adf1582673232a, type: 3}
-  - {fileID: 1670209842, guid: 104248165053f39449adf1582673232a, type: 3}
+  - {fileID: 2026209642, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   defaultDirection: 1
 --- !u!114 &1230013844
 MonoBehaviour:
@@ -29825,6 +29829,7 @@ MonoBehaviour:
     - Lets see if Vocab U. Larry was right about you
     - Lets Battle!
     isTrainer: 1
+    isNurse: 0
   isSpecialist: 1
 --- !u!61 &1230013847
 BoxCollider2D:
@@ -49987,11 +49992,13 @@ MonoBehaviour:
     - I dont think i've seen you before.
     - Well regardless of that, its nice to meet you!
     isTrainer: 0
+    isNurse: 0
   - lines:
     - Hi, its nice to see you again
     - Wait you're a trainer now!?
     - We have to battle, you up for it?
     isTrainer: 1
+    isNurse: 0
   - lines:
     - Hows it going dude.
     - You've been getting the hang of this battling stuff.
@@ -49999,18 +50006,21 @@ MonoBehaviour:
     - but its the only way to get the flowers she wants from the island over
     - anyways, you have time for a battle?
     isTrainer: 1
+    isNurse: 0
   - lines:
     - Larry gave you permission to fight the specialist!?
     - He still hasen't gave me permission...
     - hopefully one day!
     - Have time to help me practice?
     isTrainer: 1
+    isNurse: 0
   - lines:
     - I cant believe it...
     - You defeated the specialist, congrats dude!!!
     - You've been inspiring me to keep pushing at a chance to fight him too!
     - Have time for a quick battle?
     isTrainer: 1
+    isNurse: 0
   isSpecialist: 0
 --- !u!61 &1631170516
 BoxCollider2D:
@@ -50393,6 +50403,7 @@ MonoBehaviour:
     - Did you go and fetch those flowers from the Island over like I told you to?
     - Sigh its fine
     isTrainer: 0
+    isNurse: 0
   - lines:
     - Grandson I thought I told you to stay away from lingomon battles!
     - Wait...
@@ -50400,6 +50411,7 @@ MonoBehaviour:
     - You're an imposter!
     - Get away from me!
     isTrainer: 0
+    isNurse: 0
 --- !u!114 &1737973079
 MonoBehaviour:
   m_ObjectHideFlags: 0
