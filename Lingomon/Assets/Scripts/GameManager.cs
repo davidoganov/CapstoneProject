@@ -1,18 +1,21 @@
 using UnityEngine;
 
+// used for tracking all game data specific to a user, and utilizing it in every game scene to keep database updated.
 public class GameManager : MonoBehaviour
 {
+    // init the gamemanager instance
     private static GameManager instance;
+
 
     public static GameManager Instance
     {
         get
         {
-            if (instance == null)
+            if (instance == null) // instance does not yet exist
             {
                 instance = FindObjectOfType<GameManager>();
-                DontDestroyOnLoad(instance.gameObject); // Make sure the instance persists through scene changes
-            }
+                DontDestroyOnLoad(instance.gameObject); // instance persists through scene changes
+            } 
             return instance;
         }
     }
@@ -27,19 +30,22 @@ public class GameManager : MonoBehaviour
     public double DictionPercentage;
     public double ConjugationPercentage;
 
-    // store the local save state
+    // store the local & db save states
     private bool isLocalSaveEnabled = false;
+    private bool isDBSaveEnabled = false;
 
     // enable local save
     public void EnableLocalSave()
     {
         isLocalSaveEnabled = true;
+        Debug.Log("Local save enabled.");
     }
 
     // disable local save
     public void DisableLocalSave()
     {
         isLocalSaveEnabled = false;
+        Debug.Log("Local save disabled.");
     }
 
     // check if local save is enabled
@@ -47,5 +53,24 @@ public class GameManager : MonoBehaviour
     {
         return isLocalSaveEnabled;
     }
-  
+
+    // enable Database save
+    public void EnableDBSave()
+    {
+        isDBSaveEnabled = true;
+        Debug.Log("Database save enabled.");
+    }
+
+    // disable Database save
+    public void DisableDBSave()
+    {
+        isDBSaveEnabled = false;
+        Debug.Log("Database save disabled.");
+    }
+
+    // check if Database save is enabled
+    public bool IsDBSaveEnabled()
+    {
+        return isDBSaveEnabled;
+    }
 }

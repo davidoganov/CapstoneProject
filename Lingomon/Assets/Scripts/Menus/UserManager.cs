@@ -14,25 +14,36 @@ public class UserManager : MonoBehaviour
         public string password;
         public string role;
         public string classID;
+        public double spellingPercentage;
+        public double grammarPercentage;
+        public double dictionPercentage;
+        public double conjugationPercentage;
     }
 
-    // add user
+    // add user with the default game data
     public void AddUser(string userID, string password, string role, string classID)
     {
         // check if the user already exists based on userID and password
         if (!DoesUserExist(userID, password))
         {
             // init all the variables
-            UserData user = new UserData
+            UserData newUser = new UserData
             {
+                // user inputs
                 userID = userID,
                 password = password,
                 role = role,
-                classID = classID
+                classID = classID,
+
+                // default 
+                spellingPercentage = 0.0,
+                grammarPercentage = 0.0,
+                dictionPercentage = 0.0,
+                conjugationPercentage = 0.0
             };
 
             // add the user to the list of users
-            users.Add(user);
+            users.Add(newUser);
         }
     }
 
@@ -47,4 +58,10 @@ public class UserManager : MonoBehaviour
     {
         return users.Exists(user => user.userID == userID && user.password == password);
     }
+
+    // retrieve any created users already in the database, and add them to the list of users
+   // private void GetDBUsers()
+   // {
+
+  //  }
 }

@@ -16,7 +16,9 @@ public class LoadSaveButton : MonoBehaviour
 
     private void Start()
     {
+        // add a listener to the saves dropdown list
         saves.onValueChanged.AddListener(delegate { UpdateLoadSaveButtonInteractability(); });
+        // call the interactivity updater
         UpdateLoadSaveButtonInteractability();
     }
 
@@ -29,7 +31,7 @@ public class LoadSaveButton : MonoBehaviour
             // get the selected game from the dropdown
             string selectedGame = saves.options[saves.value].text;
 
-            // extract the UserID from the selectedGame (UserID is the first part of the string before " - ")
+            // get the UserID from the selectedGame (UserID is the first part of the string before " - ")
             string[] gameInfo = selectedGame.Split(new string[] { " - " }, System.StringSplitOptions.None);
             string userID = gameInfo[0];
 
@@ -37,10 +39,11 @@ public class LoadSaveButton : MonoBehaviour
             LoadUserData(userID);
 
             // load the experiment scene or any other scene where the user continues from their saved state
-            sceneManager.TransitionToExperimentScene(); // <-- Replace with the appropriate scene transition.
+            sceneManager.TransitionToExperimentScene(); // <-- Replace with the appropriate scene transition when scenes have been moved and renamed appropriately.
         }
     }
 
+    // updates the interactivity of the load selected save button based on constraints
     private void UpdateLoadSaveButtonInteractability()
     {
         loadSaveButton.interactable = saves.options.Count > 1 && saves.value > 0;

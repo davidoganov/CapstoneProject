@@ -7,7 +7,9 @@ using TMPro;
 // validate all input fields required to registration of a new user properly
 public class RegisterButton : MonoBehaviour
 {
-    // init all the input fields, dropdown, textvalidator, passwordmatchindicator reference, roleUpdate reference, usermanager reference, scenemanager reference
+    // init all the input fields, dropdown, textvalidator,
+    // passwordmatchindicator reference, roleUpdate reference,
+    // usermanager reference, scenemanager reference, errorAccountManager reference
     public TMP_InputField userID;
     public TMP_InputField nickname;
     public TMP_InputField password;
@@ -15,11 +17,12 @@ public class RegisterButton : MonoBehaviour
     public TMP_Dropdown roles;
     public TMP_InputField classID;
     public TMP_Text inputValidator;
-    public PasswordMatchIndicator passMatchIndicator;
+    public PassMatchIndicator passMatchIndicator;
     public RoleUpdate roleUpdate;
     public UserManager userManager;
     public SceneManagement sceneManager;
     public Button registerButton;
+    public ErrorAccountManager errorAccountManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +51,20 @@ public class RegisterButton : MonoBehaviour
     private void ValidateInputs()
     {
         Debug.Log("Validating inputs...");
+
+        // check userManager null
+        if (userManager == null) 
+        {
+            Debug.LogError("UserManager is not assigned to RegisterButton.");
+            return;
+        }
+
+        // check errorAccountManager null
+        if (ErrorAccountManager.instance == null)
+        {
+            Debug.LogError("ErrorAccountManager.instance is not assigned.");
+            return;
+        }
 
         // init validator checks
         inputValidator.text = "Registration is just a click away!";
@@ -116,12 +133,48 @@ public class RegisterButton : MonoBehaviour
     // when register button is clicked function below:
     public void RegisterButtonHasBeenClicked()
     {
-        // call usermanager add user and then make new script for scene management and call it here 
-
         Debug.Log("Register Button has been clicked...");
-        userManager.AddUser(userID.text, password.text, roles.options[roles.value].text, classID.text);
-        Debug.Log("User has been added...");
-        sceneManager.TransitionToLoadGameScene();
-        Debug.Log("Scene transitioning...");
+
+        // error handle for user already exists with provided info
+        if (userManager.DoesUserExist(userID.text, password.text)) // user exists
+        {
+            Debug.Log("User already exists. Registration with provided credentials is not possible.");
+
+            // display an error message to the user 
+            if (ErrorAccountManager.instance != null)
+            {
+                ErrorAccountManager.instance.DisplayErrorMessage("Invalid registration data. User already exists.");
+            }
+        }
+        else // user does NOT exist
+        {
+            // add the user to the usermanager list
+            userManager.AddUser(userID.text, password.text, roles.options[roles.value].text, classID.text);
+            Debug.Log("User has been added...");
+
+            // check to see if database saving has been enabled
+            if (GameManager.Instance.IsDBSaveEnabled()) // database saving enabled
+            {
+                // init the user region completion percentages
+                double spellingPercentage = 0.0;
+                double grammarPercentage = 0.0;
+                double dictionPercentage = 0.0;
+                double conjugationPercentage = 0.0;
+
+                // call database controller to save the newly created user
+                DatabaseController dbController = GetComponent<DatabaseController>();
+                dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
+                    dictionPercentage, conjugationPercentage);
+                Debug.Log("A new user has been added to the database.");
+            }
+            else // database saving disabled
+            {
+                Debug.Log("Database saving is disabled. To add to the database, enable the database saving option.");
+            }
+
+            // transition to the create/load game menu
+            sceneManager.TransitionToLoadGameScene();
+            Debug.Log("Scene transitioning to create/load game menu scene...");
+        }
     }
 }

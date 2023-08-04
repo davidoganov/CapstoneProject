@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject menu;
     [SerializeField] TextMeshProUGUI[] menuOptions;
     int option = 0;
+    public SaveManager saveManager; // reference to the SaveManager script
 
     public void HandleUpdate()
     {
@@ -53,7 +54,8 @@ public class MenuManager : MonoBehaviour
 
                 break;
             case 1: //Save
-
+                saveManager.SaveGame();
+                Debug.Log("Game data saved locally...");
                 break;
             case 2: //Exit
                 Application.Quit();

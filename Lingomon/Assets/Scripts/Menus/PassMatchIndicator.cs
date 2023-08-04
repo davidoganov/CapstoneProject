@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 // ensure the password has been entered correctly in both inputfields and prompt the respective message
-public class PasswordMatchIndicator : MonoBehaviour
+public class PassMatchIndicator : MonoBehaviour
 {
     // init the two password input fields and the text ui element and bool tracker
     public TMP_Text passMatchIndicator;

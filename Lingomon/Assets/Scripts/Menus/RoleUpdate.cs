@@ -63,7 +63,7 @@ public class RoleUpdate : MonoBehaviour
         if (selected == "Student")
         {
             return !string.IsNullOrWhiteSpace(classID.text);
-        }
+        } 
 
         // For other roles, classID is not required, so it is considered valid
         return true;
