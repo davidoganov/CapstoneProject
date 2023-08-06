@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -56,7 +57,8 @@ public class DatabaseController : MonoBehaviour
     // coroutine to send a GET request 
     private IEnumerator LoadGameDataFromDatabase(string userID, string password)
     {
-        string url = baseURL + "EndUsers?UserID=" + userID + "&Password=" + password; // replace the endusers with the api endpoint for it
+        // replace the endusers with the api endpoint for it
+        string url = baseURL + "EndUsers?UserID=" + userID + "&Password=" + password; 
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -72,8 +74,45 @@ public class DatabaseController : MonoBehaviour
                 // parse the JSON response
                 // deserialize the JSON response into a data class
                 UserData userData = JsonUtility.FromJson<UserData>(jsonResponse);
+
                 // update the users game data
                 UpdateGameData(userData);
+            }
+        }
+    }
+
+    // get all already created users from the database
+    public IEnumerator GetAllUsers(Action<List<UserManager.UserData>> callback)
+    {
+        yield return StartCoroutine(GetAllUsersFromDB(callback));
+    }
+
+    // coroutine to perform GET request to retrieve all users 
+    private IEnumerator GetAllUsersFromDB(Action<List<UserManager.UserData>> callback)
+    {
+        // replace the endusers with the api endpoint for it
+        string url = baseURL + "EndUser";
+
+        // perform Unity web request
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            // wait for the request to send
+            yield return www.SendWebRequest();
+
+            // error handle 
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Failed to retrieve users from the database:" + www.error);
+            }
+            else
+            {
+                string jsonResponse = www.downloadHandler.text;
+                // parse the JSON response
+                // deserialize the JSON response into a list of UserData objects
+                List<UserManager.UserData> dbUsers = JsonUtility.FromJson<List<UserManager.UserData>>(jsonResponse);
+
+                // return the list of users to UserManager
+                callback?.Invoke(dbUsers);
             }
         }
     }

@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (instance == null) // instance does not yet exist
+            // check if instance does not yet exist
+            if (instance == null) 
             {
                 instance = FindObjectOfType<GameManager>();
-                DontDestroyOnLoad(instance.gameObject); // instance persists through scene changes
+                // make sure the instance persists through scene changes
+                DontDestroyOnLoad(instance.gameObject); 
             } 
             return instance;
         }
@@ -31,8 +33,10 @@ public class GameManager : MonoBehaviour
     public double ConjugationPercentage;
 
     // store the local & db save states
-    private bool isLocalSaveEnabled = false;
+    private bool isLocalSaveEnabled = true;
     private bool isDBSaveEnabled = false;
+
+    // local save states
 
     // enable local save
     public void EnableLocalSave()
@@ -53,6 +57,8 @@ public class GameManager : MonoBehaviour
     {
         return isLocalSaveEnabled;
     }
+
+    // DB save states
 
     // enable Database save
     public void EnableDBSave()

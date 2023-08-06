@@ -2,10 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// creates a data structure that maintains a list of users, if db saving is enabled, existing users are loaded to the list at load time.
 public class UserManager : MonoBehaviour
 {
     // init a data structure to store all of the entered user information
     private List<UserData> users = new List<UserData>();
+
+    // reference to databasecontroller
+    private DatabaseController dbController;
+
+    private void Start()
+    {
+        // init the DatabaseController reference
+        dbController = GetComponent<DatabaseController>();
+
+        // check to make sure database connection is enabled
+        if (GameManager.Instance.IsDBSaveEnabled())
+        {
+            // Load the users from the database
+            GetDBUsers();
+        }
+
+    }
 
     // create a class to represent each user
     public class UserData
@@ -59,9 +77,23 @@ public class UserManager : MonoBehaviour
         return users.Exists(user => user.userID == userID && user.password == password);
     }
 
-    // retrieve any created users already in the database, and add them to the list of users
-   // private void GetDBUsers()
-   // {
+    // retrieve all the users in the database by calling the coroutine
+    private void GetDBUsers()
+    {
+        // call the coroutine 
+        StartCoroutine(GetDBUsersCoroutine());
+    }
 
-  //  }
+    // coroutine to retrieve any created users already in the database, and add them to the list of users
+    private IEnumerator GetDBUsersCoroutine()
+    {
+        // get all the users from the database
+        dbController.GetAllUsers(dbUsers =>
+        {
+            // add them to the user list
+            users.AddRange(dbUsers);
+        });
+
+        yield return null;
+    }
 }

@@ -40,6 +40,10 @@ public class LoadSaveButton : MonoBehaviour
 
             // load the experiment scene or any other scene where the user continues from their saved state
             sceneManager.TransitionToExperimentScene(); // <-- Replace with the appropriate scene transition when scenes have been moved and renamed appropriately.
+        } 
+        else
+        {
+            Debug.Log("Game to load not selected.");
         }
     }
 

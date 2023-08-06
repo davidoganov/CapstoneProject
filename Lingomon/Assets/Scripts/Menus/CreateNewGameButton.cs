@@ -6,9 +6,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+// manages the functionality of the createnewgame button, updates its interactivity accordingly, initializes new game and adds it to the dropdown, transitioning to new world.
 public class CreateNewGameButton : MonoBehaviour
 {
-    // init inputs
+    // init inputs and references
     public TMP_InputField gameSaveName;
     public Button createNewGameButton;
     public TMP_Text createNewGameIndicator;
@@ -30,59 +31,109 @@ public class CreateNewGameButton : MonoBehaviour
         UpdateCreateNewButtonInteractability();
     }
 
+    // user input detected in the gameSaveName TMP input field
     private void UserInputDetected()
     {
         Debug.Log("User input has been detected...");
+
         // validate every time that input has been detected
         ValidateNewGameName();
     }
 
+    // user selection changed detected in language dropdown menu
     private void LanguageDropdownValueChanged()
     {
-        // Validate the language selection when the dropdown value changes
-        if (languageDropdown.value == 0) // Assuming index 0 is "Select a language"
+        // validate the language selection when the dropdown value changes
+        if (languageDropdown.value == 0) // index 0 is "Select a language"
         {
-            createNewGameIndicator.text = "Please select a language."; // update the validator text
-            createNewGameIndicator.color = Color.red; // text color
-            valid = false; // update validity
+            // update the validator text
+            createNewGameIndicator.text = "Please select a language.";
+
+            // text color
+            createNewGameIndicator.color = Color.red;
+
+            // update validity
+            valid = false; 
         }
-        else
+        else // language selection exists, validate game name
         {
             // If a language is selected, call ValidateNewGameName to update overall validation
             ValidateNewGameName();
         }
     }
 
+    // validate the name of the game being created
     private void ValidateNewGameName()
     {
+        // make sure the name, language selection options are not null empty or 0
         if (string.IsNullOrWhiteSpace(gameSaveName.text) || gameSaveName.text == null || languageDropdown.value == 0)
         {
-            createNewGameIndicator.text = "Game name cannot be empty or contain only whitespace."; // update the validator text
-            createNewGameIndicator.color = Color.red; // text color
-            valid = false; // update validity
+            // update the validator text
+            createNewGameIndicator.text = "Game name cannot be empty or contain only whitespace.";
+
+            // text color
+            createNewGameIndicator.color = Color.red;
+
+            // update validity
+            valid = false; 
         }
-        else
+        else // valid input selection for new game creation
         {
-            createNewGameIndicator.text = "New game ready to be created."; // update the validator text
-            createNewGameIndicator.color = Color.green; // text color
-            valid = true; // update validity
+            // update the validator text
+            createNewGameIndicator.text = "New game ready to be created.";
+
+            // text color
+            createNewGameIndicator.color = Color.green;
+
+            // update validity
+            valid = true; 
         }
 
         // Update button interactability after validating the game name and language selection
         UpdateCreateNewButtonInteractability();
     }
 
+    // update whether the create new game button can be clicked or not
     private bool UpdateCreateNewButtonInteractability()
     {
-        // Combine validation of both game name and language selection
+        // combine validation of both game name and language selection
         createNewGameButton.interactable = valid && languageDropdown.value != 0;
+
         return createNewGameButton.interactable;
+    }
+
+    // loads message to indicate loading process
+    private IEnumerator LoadingMessageIndicator()
+    {
+        Debug.Log("Delay beginning...");
+
+        // adjust text of message indicator
+        loadingMessageIndicator.text = "Loading...";
+        Debug.Log("Delay #1 beginning...");
+
+        // wait for the delay to finish
+        yield return new WaitForSeconds(loadDelay);
+
+        Debug.Log("Delay #1 completed...");
+
+        // adjust text of message indicator
+        loadingMessageIndicator.text = "Successful!";
+
+        Debug.Log("Delay #2 beginning...");
+
+        // wait for the delay to finish
+        yield return new WaitForSeconds(loadDelay / 2);
+
+        Debug.Log("Delay #2 completed...");
+
+        Debug.Log("Delay annd scene transition completed...");
     }
 
     // button is clicked
     public void CreateNewGameButtonIsClicked()
     {
-        if (valid)
+        // check input validity needed for new game creation
+        if (valid) 
         {
             // format new dropdown item
             string newItem = $"{gameSaveName.text} - {DateTime.Now.ToString("MM/dd/yyyy")} - Initial";
@@ -102,36 +153,19 @@ public class CreateNewGameButton : MonoBehaviour
             // set a loading message and give a little load time
             LoadingMessageIndicator();
 
-            // open the world 
-            //sceneManager.TransitionToExperimentScene(); // <-- temporary, replace with call to database when complete.
-            sceneManager.TransitionToIntroScene();
+            // transition to the introductory scene of the newly created game
+            sceneManager.TransitionToIntroScene(); 
         } 
-        else
+        else // input invalid for new game creation
         {
+            // adjust text of message indicator
             createNewGameIndicator.text = "New game is not ready to be created.";
+
+            // text color
             createNewGameIndicator.color = Color.red;
         }
     }
 
-    private IEnumerator LoadingMessageIndicator()
-    {
-        Debug.Log("Delay beginning...");
-        loadingMessageIndicator.text = "Loading...";
-        Debug.Log("Delay #1 beginning...");
 
-        yield return new WaitForSeconds(loadDelay);
-
-        Debug.Log("Delay #1 completed...");
-
-        loadingMessageIndicator.text = "Successful!";
-
-        Debug.Log("Delay #2 beginning...");
-
-        yield return new WaitForSeconds(loadDelay / 2);
-
-        Debug.Log("Delay #2 completed...");
-
-        Debug.Log("Delay annd scene transition completed...");
-    }
 }
 
