@@ -7,25 +7,33 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject menu;
     [SerializeField] TextMeshProUGUI[] menuOptions;
+    [SerializeField] GameObject controls;
     int option = 0;
     public SaveManager saveManager; // reference to the SaveManager script
 
     public void HandleUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            menu.SetActive(!(menu.activeSelf));
-            if (menu.activeSelf)
+            if (controls.activeSelf)
             {
-                GameController.Instance.enterMenu();
+                controls.SetActive(false);
             }
             else
             {
-                GameController.Instance.leaveMenu();
-                option = 0;
+                menu.SetActive(!(menu.activeSelf));
+                if (menu.activeSelf)
+                {
+                    GameController.Instance.enterMenu();
+                }
+                else
+                {
+                    GameController.Instance.leaveMenu();
+                    option = 0;
+                }
             }
         }
 
-        if (menu.activeSelf) menuUpdate();
+        if (menu.activeSelf && !controls.activeSelf) menuUpdate();
 
         
     }
@@ -51,7 +59,7 @@ public class MenuManager : MonoBehaviour
         switch (option)
         {
             case 0: //Options
-
+                controls.SetActive(true);
                 break;
             case 1: //Save
                 saveManager.SaveGame();
