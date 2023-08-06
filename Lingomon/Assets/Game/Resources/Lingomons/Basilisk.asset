@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Basilisk
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type: 0
-  maxHP: 0
+  frontSprite: {fileID: 21300000, guid: efb8e2d19ba77f449b37432e638ea253, type: 3}
+  backSprite: {fileID: 21300000, guid: d4d3a00bf6702364c9cab209f720a04d, type: 3}
+  type: 1
+  maxHP: 65
   attack: 0
-  possibleQuestions: []
+  possibleQuestions:
+  - questionBase: {fileID: 11400000, guid: 5668a6b0a850d744ab53ad0b61975bb7, type: 2}
+  - questionBase: {fileID: 11400000, guid: 3d19c2a2f348f0641be6935b2dec2148, type: 2}
+  - questionBase: {fileID: 11400000, guid: 839ace4c2b169e742a23b9f3167b96fa, type: 2}

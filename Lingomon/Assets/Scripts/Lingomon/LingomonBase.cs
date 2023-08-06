@@ -63,5 +63,6 @@ public class PossibleQuestion
 public enum LingomonType
 {
     None,
-    Grammar
+    Grammar,
+    Conjugation
 }

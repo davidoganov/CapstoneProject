@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Glause
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: 3de3357e75b0d074e8ab0d6142f4a800, type: 3}
+  backSprite: {fileID: 21300000, guid: 4e0891744a97ccc46a7a751878e6c1cf, type: 3}
   type: 1
   maxHP: 150
   attack: 0

@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Vibruna
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type: 0
-  maxHP: 0
-  attack: 0
-  possibleQuestions: []
+  frontSprite: {fileID: 21300000, guid: 35ef0bb3ac7722d44835d9a41b5b65fd, type: 3}
+  backSprite: {fileID: 21300000, guid: 2e03b3ed340fa004a83017acb90a4ee8, type: 3}
+  type: 1
+  maxHP: 50
+  attack: 25
+  possibleQuestions:
+  - questionBase: {fileID: 11400000, guid: 5668a6b0a850d744ab53ad0b61975bb7, type: 2}
+  - questionBase: {fileID: 11400000, guid: 275c19c575e182c40b2a46430263adca, type: 2}
+  - questionBase: {fileID: 11400000, guid: 4251f5c338deef642ab057a21266f1a2, type: 2}

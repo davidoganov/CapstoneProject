@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Yebumbel
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type: 0
-  maxHP: 0
+  frontSprite: {fileID: 21300000, guid: 6722646894436fe43b71bd09bdf867b4, type: 3}
+  backSprite: {fileID: 21300000, guid: ea7ba8faea048ad428efd9280ea5fd99, type: 3}
+  type: 1
+  maxHP: 65
   attack: 0
-  possibleQuestions: []
+  possibleQuestions:
+  - questionBase: {fileID: 11400000, guid: 85dc91f84b3a9e141b58d9fabac47c8a, type: 2}
+  - questionBase: {fileID: 11400000, guid: 275c19c575e182c40b2a46430263adca, type: 2}
+  - questionBase: {fileID: 11400000, guid: 4251f5c338deef642ab057a21266f1a2, type: 2}

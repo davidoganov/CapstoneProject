@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zhleepy
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type: 0
-  maxHP: 0
+  frontSprite: {fileID: 21300000, guid: d87cb4aa4ad7ef3439f4889707e886d9, type: 3}
+  backSprite: {fileID: 21300000, guid: 7011958f291fb114f9aa486a16136606, type: 3}
+  type: 2
+  maxHP: 70
   attack: 0
-  possibleQuestions: []
+  possibleQuestions:
+  - questionBase: {fileID: 11400000, guid: 0412f7ad6b8e1fa4a88b4df1a868b4ae, type: 2}
+  - questionBase: {fileID: 11400000, guid: 3266d9d42fcb50c43b63f6157c5a5c61, type: 2}
+  - questionBase: {fileID: 11400000, guid: 0c69a8a6ed7ce744288281061d5c0ce8, type: 2}
+  - questionBase: {fileID: 11400000, guid: eb42d458ee59e9d48bcdc68078ac1654, type: 2}

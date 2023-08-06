@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513bd63df7bb63249a4c20e450d1cb73, type: 3}
   m_Name: Grammar 1
   m_EditorClassIdentifier: 
-  prompt: 'Fill in the following blank with the correct verb: "She ___ to the store
-    yesterday."'
+  prompt: 'Fill in the blank with the correct verb: "She ___ to the store yesterday."'
   answers:
   - went
   - goes
