@@ -9,7 +9,8 @@
       "containerName": "postgresql",
       "containerImage": "postgres",
       "type": "postgresql.container",
-      "connectionId": "LingomonDB"
+      "connectionId": "LingomonDB",
+      "dynamicId": null
     }
   }
 }

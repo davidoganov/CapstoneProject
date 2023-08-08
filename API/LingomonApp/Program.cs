@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
-//builder.Services.AddCors();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -16,7 +16,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-//.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {

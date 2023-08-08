@@ -1353,7 +1353,6 @@ GameObject:
   - component: {fileID: 451693989}
   - component: {fileID: 451693988}
   - component: {fileID: 451693987}
-  - component: {fileID: 451693991}
   m_Layer: 5
   m_Name: RegisterButton
   m_TagString: Untagged
@@ -1476,18 +1475,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451693985}
   m_CullTransparentMesh: 1
---- !u!114 &451693991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451693985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbe1139ab64d2f42ad9f72b90b4bdcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &490286658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3526,6 +3513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1378117145}
   - component: {fileID: 1378117146}
+  - component: {fileID: 1378117147}
   m_Layer: 5
   m_Name: RegisterButtonScript
   m_TagString: Untagged
@@ -3578,6 +3566,18 @@ MonoBehaviour:
   sceneManager: {fileID: 1849284199}
   registerButton: {fileID: 451693987}
   errorAccountManager: {fileID: 734660712}
+--- !u!114 &1378117147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378117144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9052109d34806e843aad018ac762f5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435363601
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 // makes unity web requests to api that communicates with database to save and load data. 
 public class DatabaseController : MonoBehaviour
 {
-    private const string baseURL = "https://your-api-url.com/"; // replace with our api url
+    private const string baseURL = "https://lingomonapp.azurewebsites.net/"; // replace with our api url
 
     // save game data to the database
     public void SaveGameData(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
@@ -16,11 +16,15 @@ public class DatabaseController : MonoBehaviour
     }
 
     // coroutine to send POST request
+    /*
     private IEnumerator SaveGameDataToDatabase(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
     {
         // API endpoint for saving game data for specific user
-        string url = baseURL + "EndUser/" + userID; // replace the enduser with the api endpoint for it
-
+        string url = baseURL + "api/EndUser"; // replace the enduser with the api endpoint for it
+        Debug.Log("before form");
+        // enduser:
+            // userId: 
+            //ad
         // create a WWWForm to collect data for the POST request
         WWWForm form = new WWWForm();
         form.AddField("UserID", userID);
@@ -30,11 +34,70 @@ public class DatabaseController : MonoBehaviour
         form.AddField("GrammarPercentage", grammarPercentage.ToString());
         form.AddField("DictionPercentage", dictionPercentage.ToString());
         form.AddField("ConjugationPercentage", conjugationPercentage.ToString());
-
+        Debug.Log("after form");
         // send the POST request
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
+
+            Debug.Log("entered using");
+            www.SetRequestHeader("Content-Type", "application/json");
             yield return www.SendWebRequest();
+            Debug.Log("Response code: " + www.responseCode);
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Failed to save game data: " + www.error);
+            }
+            else
+            {
+                Debug.Log("Game data saved successfully for user: " + userID);
+            }
+        }
+    }
+    */
+    
+    [System.Serializable]
+    public class GameData
+    {
+        public string UserID;
+        public string Password;
+        public string ClassID;
+        public double SpellingPercentage;
+        public double GrammarPercentage;
+        public double DictionPercentage;
+        public double ConjugationPercentage;
+    }
+
+    private IEnumerator SaveGameDataToDatabase(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
+    {
+        // API endpoint for saving game data for a specific user
+        string url = baseURL + "api/EndUser";
+        Debug.Log("before form");
+        // Create a GameData object and fill it with the data
+        GameData gameData = new GameData
+        {
+            UserID = userID,
+            Password = password,
+            ClassID = classID,
+            SpellingPercentage = spellingPercentage,
+            GrammarPercentage = grammarPercentage,
+            DictionPercentage = dictionPercentage,
+            ConjugationPercentage = conjugationPercentage
+        };
+
+        // Convert the GameData object to a JSON string
+        string jsonData = JsonUtility.ToJson(gameData);
+        Debug.Log("after form");
+        // Send the POST request
+        using (UnityWebRequest www = new UnityWebRequest(url, "POST"))
+        {
+            Debug.Log("entered using");
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/json");
+
+            yield return www.SendWebRequest();
+            Debug.Log("Response code: " + www.responseCode);
 
             if (www.result != UnityWebRequest.Result.Success)
             {
@@ -46,7 +109,6 @@ public class DatabaseController : MonoBehaviour
             }
         }
     }
-
 
     // load game data from the database
     public void LoadGameData(string userID, string password)

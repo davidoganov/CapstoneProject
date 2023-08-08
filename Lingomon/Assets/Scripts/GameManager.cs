@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
             {
                 instance = FindObjectOfType<GameManager>();
                 // make sure the instance persists through scene changes
-                DontDestroyOnLoad(instance.gameObject); 
+                DontDestroyOnLoad(instance.gameObject);
             } 
             return instance;
         }

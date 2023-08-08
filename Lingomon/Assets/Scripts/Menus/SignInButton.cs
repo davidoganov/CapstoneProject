@@ -71,8 +71,7 @@ public class SignInButton : MonoBehaviour
         if (validSignIn)
         {
             // check if user exists
-            if (!userManager.DoesUserExist(userID.text, password.text) && 
-                userID.text != tempUser && password.text != tempPass)
+            if (!userManager.DoesUserExist(userID.text, password.text))
             {
                 Debug.Log("User does not exist...");
                 // prompt error message to tell user to make a valid account

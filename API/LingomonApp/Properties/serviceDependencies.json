@@ -5,7 +5,8 @@
     },
     "postgresql1": {
       "type": "postgresql",
-      "connectionId": "LingomonDB"
+      "connectionId": "LingomonDB",
+      "dynamicId": null
     }
   }
 }
