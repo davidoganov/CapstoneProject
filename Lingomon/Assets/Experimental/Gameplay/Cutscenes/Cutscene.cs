@@ -7,18 +7,18 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
 {
     [SerializeReference]
     [SerializeField] List<CutsceneAction> actions;
-    [SerializeField] bool repeatable;
     [SerializeField] int minPhase;
     [SerializeField] int maxPhase;
 
-    public bool TriggerRepeatedly => repeatable;
-
     public IEnumerator Play() {
+        Debug.Log("cutscene started");
+        yield return new WaitForSeconds(.5f);
         GameController.Instance.StartCutsceneState();
-        foreach (var action in actions) {
+        foreach (var action in actions)
+        {
             if (action.WaitForCompletion)
                 yield return action.Play();
-            else 
+            else
                 StartCoroutine(action.Play());
         }
         GameController.Instance.StartFreeRoamState();

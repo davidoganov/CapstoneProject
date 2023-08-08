@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
         Vector3 interactPos = transform.position + playerDir;
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractableLayer);
         if (collider != null) {
+            pauseMovement();
             collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }

@@ -19,6 +19,8 @@ public class CutsceneEditor : Editor
             cutscene.AddAction(new TurnActorAction());
         else if (GUILayout.Button("Add Coordinate Action"))
             cutscene.AddAction(new CoordinateAction());
+        else if (GUILayout.Button("Add Save Position Action"))
+            cutscene.AddAction(new SavePosAction());
 
         base.OnInspectorGUI();
     }

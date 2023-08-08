@@ -51,7 +51,6 @@ public class BattleSystem : MonoBehaviour
         isTrainerBattle = true;
         player = playerParty.GetComponent<PlayerController>();
         trainer = trainerParty.GetComponent<TrainerController>();
-
         StartCoroutine(SetupBattle());
     }
 

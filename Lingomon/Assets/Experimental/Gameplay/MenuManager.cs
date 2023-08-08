@@ -11,6 +11,10 @@ public class MenuManager : MonoBehaviour
     int option = 0;
     public SaveManager saveManager; // reference to the SaveManager script
 
+    private void Start()
+    {
+        saveManager = GetComponent<SaveManager>();
+    }
     public void HandleUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {

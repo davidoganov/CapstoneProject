@@ -8,7 +8,7 @@ using CI.QuickSave;
 public class SaveManager : MonoBehaviour
 {
     // reference to the database controller
-    private DatabaseController databaseController; 
+    private DatabaseController databaseController;
 
     private void Start()
     {

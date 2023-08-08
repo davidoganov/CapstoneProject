@@ -60,7 +60,7 @@ public class DialogManager : MonoBehaviour
         printing = false;
         if (isCutscene)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.75f);
             inDialog = false;
             currentLine = 0;
             dialogBox.SetActive(false);
@@ -170,6 +170,7 @@ public class DialogManager : MonoBehaviour
         resetNPCDirection();
         onDialogFinished?.Invoke();
     }
+    
 
     IEnumerator healLingomon()
     {

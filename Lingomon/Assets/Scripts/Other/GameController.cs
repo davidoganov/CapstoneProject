@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
     [SerializeField] MenuManager menuManager;
     [SerializeField] Dialog onLossDialog;
+    Action onBattleFinished;
     public bool ranAway;
     BattleType currentBattle;
     GameState state;
@@ -98,7 +100,7 @@ public class GameController : MonoBehaviour
         battleSystem.StartBattle(playerParty, wildLingomon);
     }
 
-    public void StartTrainerBattle(TrainerController trainer)
+    public void StartTrainerBattle(TrainerController trainer, Action onBattleFinished=null)
     {
         currentBattle = trainer.isSpecialist ? BattleType.specialist : BattleType.trainer;
         QuestManager.Instance.hideQuests();
@@ -110,7 +112,7 @@ public class GameController : MonoBehaviour
 
         var playerParty = playerController.GetComponent<LingomonParty>();
         var trainerParty = trainer.GetComponent<LingomonParty>();
-
+        this.onBattleFinished = onBattleFinished;
         battleSystem.StartTrainerBattle(playerParty, trainerParty);
     }
 
@@ -148,6 +150,7 @@ public class GameController : MonoBehaviour
             state = GameState.FreeRoam;
             battleSystem.gameObject.SetActive(false);
             worldCamera.gameObject.SetActive(true);
+            onBattleFinished?.Invoke();
         }
         else
         {

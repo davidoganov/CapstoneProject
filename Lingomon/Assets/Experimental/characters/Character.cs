@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.Windows;
 
 public class Character : MonoBehaviour
 {
     CharacterAnimator animator;
     [SerializeField] string characterName;
+    private Vector3 local;
     public bool IsMoving { get; set; }
 
     public string CharacterName { get { return characterName; } }
@@ -16,6 +18,11 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
+    }
+    private void Start()
+    {
+        local = LocationManager.Instance.getLocation(name);
+        if (local != Vector3.zero) transform.position = local;
     }
 
     public IEnumerator Move(Vector2 moveVec, Action OnMoveOver=null, bool checkCollisions=true)

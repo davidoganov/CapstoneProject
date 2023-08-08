@@ -9,9 +9,10 @@ public class TrainerController : MonoBehaviour, Interactable
     [SerializeField] List<Dialog> dialog;
     [SerializeField] public bool isSpecialist;
     Character character;
+    
 
     void Awake()
-    { 
+    {
         character = GetComponent<Character>();
     }
 
@@ -20,7 +21,20 @@ public class TrainerController : MonoBehaviour, Interactable
         character.LookTowards(initiator.position);
         StartCoroutine(DialogManager.Instance.ShowDialog(dialog[Mathf.Min(dialog.Count - 1, GamePhase.Instance.phase)], character, onFinished:() =>
         {
-            GameController.Instance.StartTrainerBattle(this);
+            if (name.Equals("apprentice"))
+            {
+                Debug.Log("apprentice dialog hit");
+                GameController.Instance.StartTrainerBattle(this, () => {
+                    if (gameObject.transform.position != LocationManager.Instance.getLocation(character.CharacterName))
+                        StartCoroutine(GetComponent<Cutscene>().Play());
+                });
+            }
+            else
+            {
+                Debug.Log("apprentice dialog not hit");
+                GameController.Instance.StartTrainerBattle(this);
+            }
+            
         }));
     }
 
