@@ -13,6 +13,7 @@ public class LoadSaveButton : MonoBehaviour
     public TMP_Dropdown saves;
     public Button loadSaveButton;
     public SceneManagement sceneManager;
+    public string sound = "Click";
 
     private void Start()
     {
@@ -25,18 +26,27 @@ public class LoadSaveButton : MonoBehaviour
     // load the selected save
     public void LoadingSave()
     {
+        // play button click sound
+        AudioManager.instance.Play(sound);
+
+        Debug.Log("Loading Save...");
         // check if there are any saved games and if a game is selected
         if (saves.options.Count > 1 && saves.value > 0) 
         {
-            // get the selected game from the dropdown
-            string selectedGame = saves.options[saves.value].text;
+            // remove when load from api fixed
 
-            // get the UserID from the selectedGame (UserID is the first part of the string before " - ")
-            string[] gameInfo = selectedGame.Split(new string[] { " - " }, System.StringSplitOptions.None);
-            string userID = gameInfo[0];
+            //// get the selected game from the dropdown
+            //string selectedGame = saves.options[saves.value].text;
 
-            // load corresponding user's game data
-            LoadUserData(userID);
+            //// get the UserID from the selectedGame (UserID is the first part of the string before " - ")
+            //string[] gameInfo = selectedGame.Split(new string[] { " - " }, System.StringSplitOptions.None);
+            //string userID = gameInfo[0];
+
+            //// load corresponding user's game data
+            //LoadUserData(userID);
+
+            // stop the theme from playing
+            AudioManager.instance.Stop("Theme");
 
             // load the experiment scene or any other scene where the user continues from their saved state
             sceneManager.TransitionToExperimentScene(); // <-- Replace with the appropriate scene transition when scenes have been moved and renamed appropriately.

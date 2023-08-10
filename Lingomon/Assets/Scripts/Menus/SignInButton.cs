@@ -7,21 +7,29 @@ using TMPro;
 // the sign in button has been clicked, check the user input, if its a valid user, continue on, else try again
 public class SignInButton : MonoBehaviour
 {
-    // init all the input components, scenemanagement reference, usermanager reference, error message
+    // init all the input components, , , 
     public TMP_InputField userID;
     public TMP_InputField password;
-    public SceneManagement sceneManager;
-    public UserManager userManager;
-    public TMP_Text signInErrorIndicator;
-    public Button signInButton;
-    bool validSignIn = true;
 
-    public string tempUser = "stu123";
-    public string tempPass = "asdf";
+    // scenemanagement reference
+    public SceneManagement sceneManager;
+    // usermanager reference
+    public UserManager userManager;
+    // button reference
+    public Button signInButton;
+    // audio reference
+    public string sound = "Click";
+
+    // error message
+    public TMP_Text signInErrorIndicator;
+    
+    // sign in validity
+    bool validSignIn = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        // init listeners
         userID.onValueChanged.AddListener(delegate { UserInputDetected(); });
         password.onValueChanged.AddListener(delegate { UserInputDetected(); });
         Debug.Log("Listeners added...");
@@ -53,8 +61,6 @@ public class SignInButton : MonoBehaviour
         }
         else
         {
-            signInErrorIndicator.text = "Valid login attempt."; // update the validator text
-            signInErrorIndicator.color = Color.green; // text color
             validSignIn = true; // update validity
         }
     }
@@ -68,6 +74,10 @@ public class SignInButton : MonoBehaviour
     // button has been clicked
     public void SignInButtonHasBeenClicked()
     {
+        // play button click sound
+        AudioManager.instance.Play(sound);
+
+        // check sign in validity
         if (validSignIn)
         {
             // check if user exists

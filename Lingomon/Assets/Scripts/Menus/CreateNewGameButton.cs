@@ -18,6 +18,7 @@ public class CreateNewGameButton : MonoBehaviour
     public SceneManagement sceneManager;
     public float loadDelay = 200f;
     public TMP_Dropdown languageDropdown;
+    public string sound = "Click";
 
     private bool valid = true;
 
@@ -132,6 +133,9 @@ public class CreateNewGameButton : MonoBehaviour
     // button is clicked
     public void CreateNewGameButtonIsClicked()
     {
+        // play button click sound
+        AudioManager.instance.Play(sound);
+
         // check input validity needed for new game creation
         if (valid) 
         {
@@ -152,6 +156,9 @@ public class CreateNewGameButton : MonoBehaviour
 
             // set a loading message and give a little load time
             LoadingMessageIndicator();
+
+            // stop the theme from playing
+            AudioManager.instance.Stop("Theme");
 
             // transition to the introductory scene of the newly created game
             sceneManager.TransitionToIntroScene(); 

@@ -12,6 +12,7 @@ public class SceneManagement : MonoBehaviour
     public string LoadGameScene = "Load-Game-Menu";
     public string ExpScene = "Experiment";
     public string IntroScene = "Intro";
+    public string sound = "Upbeat-transition";
 
     public void TransitionToCreateAccScene()
     {
@@ -34,6 +35,7 @@ public class SceneManagement : MonoBehaviour
     public void TransitionToExperimentScene()
     {
         Debug.Log("Loading experiment scene...");
+        AudioManager.instance.Play(sound);
         SceneManager.LoadScene(ExpScene);
     }
 

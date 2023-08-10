@@ -347,6 +347,7 @@ MonoBehaviour:
   sceneManager: {fileID: 400415940}
   loadDelay: 200
   languageDropdown: {fileID: 256888027}
+  sound: Click
 --- !u!1 &84756697
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +667,7 @@ MonoBehaviour:
   saves: {fileID: 84756699}
   loadSaveButton: {fileID: 1211110772}
   sceneManager: {fileID: 400415940}
+  sound: Click
 --- !u!1 &219186737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1255,7 @@ MonoBehaviour:
   LoadGameScene: Load-Game-Menu
   ExpScene: Experiment
   IntroScene: Intro
+  sound: Upbeat-transition
 --- !u!1 &407219218
 GameObject:
   m_ObjectHideFlags: 0

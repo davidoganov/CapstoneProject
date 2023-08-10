@@ -23,6 +23,7 @@ public class RegisterButton : MonoBehaviour
     public SceneManagement sceneManager;
     public Button registerButton;
     public ErrorAccountManager errorAccountManager;
+    public string sound = "Click";
 
     // Start is called before the first frame update
     void Start()
@@ -133,6 +134,9 @@ public class RegisterButton : MonoBehaviour
     // when register button is clicked function below:
     public void RegisterButtonHasBeenClicked()
     {
+        // play button click sound
+        AudioManager.instance.Play(sound);
+
         Debug.Log("Register Button has been clicked...");
 
         // error handle for user already exists with provided info
@@ -162,9 +166,9 @@ public class RegisterButton : MonoBehaviour
                 double conjugationPercentage = 0.0;
 
                 // call database controller to save the newly created user
-                DatabaseController dbController = GetComponent<DatabaseController>();
-                dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
-                    dictionPercentage, conjugationPercentage);
+             //   DatabaseController dbController = GetComponent<DatabaseController>();
+               // dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
+                //    dictionPercentage, conjugationPercentage);
                 Debug.Log("A new user has been added to the database.");
             }
             else // database saving disabled

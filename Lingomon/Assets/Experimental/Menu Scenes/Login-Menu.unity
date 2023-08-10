@@ -260,6 +260,75 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1001 &74203914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1092475000829272666, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_Name
+      value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426183329157781651, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373662043756153272, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: sounds.Array.data[0].pitchVariance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373662043756153272, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+      propertyPath: sounds.Array.data[0].volumeVariance
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
 --- !u!1 &104933871
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +787,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -915,6 +984,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628328097}
   m_CullTransparentMesh: 1
+--- !u!114 &663431544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8373662043756153272, guid: cc7f25dabfce6244ab61076f901fa72f, type: 3}
+  m_PrefabInstance: {fileID: 74203914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7f4e280c2b81544bd996ffc14b466c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &815101442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneManager: {fileID: 291134271}
+  audio: {fileID: 663431544}
+  sound: Click
 --- !u!1 &1120690992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2245,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1716681475
 GameObject:
@@ -2218,10 +2300,10 @@ MonoBehaviour:
   password: {fileID: 1973718236}
   sceneManager: {fileID: 291134271}
   userManager: {fileID: 604860743}
-  signInErrorIndicator: {fileID: 1161783816}
   signInButton: {fileID: 104933873}
-  tempUser: stu123
-  tempPass: asdf123
+  audio: {fileID: 663431544}
+  sound: Click
+  signInErrorIndicator: {fileID: 1161783816}
 --- !u!1 &1727592794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,7 +2459,7 @@ RectTransform:
   - {fileID: 1161783815}
   - {fileID: 815101443}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

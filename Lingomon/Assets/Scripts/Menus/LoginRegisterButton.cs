@@ -11,9 +11,15 @@ public class LoginRegisterButton : MonoBehaviour
     // init scenemanagement reference
     public SceneManagement sceneManager;
 
+    // init audiomanager reference;
+    public string sound = "Click";
+
     // called when button clicked
     public void LoginRegisterButtonClicked()
     {
+        // play button click sound
+        AudioManager.instance.Play(sound);
+
         // transition to the account creation scene
         sceneManager.TransitionToCreateAccScene();
     }
