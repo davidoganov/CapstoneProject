@@ -35,7 +35,7 @@ public class RegisterButton : MonoBehaviour
         confPass.onValueChanged.AddListener(delegate { UserInputDetected(); });
         roles.onValueChanged.AddListener(delegate { UserInputDetected(); });
         classID.onValueChanged.AddListener(delegate { UserInputDetected(); });
-
+        userManager = GameObject.FindWithTag("backend").GetComponent<UserManager>();
         Debug.Log("Listeners added...");
 
         // validate input fields
@@ -166,9 +166,9 @@ public class RegisterButton : MonoBehaviour
                 double conjugationPercentage = 0.0;
 
                 // call database controller to save the newly created user
-             //   DatabaseController dbController = GetComponent<DatabaseController>();
-               // dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
-                //    dictionPercentage, conjugationPercentage);
+                  DatabaseController dbController = GameObject.FindWithTag("backend").GetComponent<DatabaseController>();
+                  dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
+                        dictionPercentage, conjugationPercentage);
                 Debug.Log("A new user has been added to the database.");
             }
             else // database saving disabled

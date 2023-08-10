@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     // store the local & db save states
     private bool isLocalSaveEnabled = true;
-    private bool isDBSaveEnabled = false;
+    private bool isDBSaveEnabled = true;
 
     // local save states
 
