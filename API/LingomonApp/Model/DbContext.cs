@@ -94,21 +94,21 @@ public partial class TheDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("enduser_pkey");
 
             // config table
-            entity.ToTable("enduser");
+            entity.ToTable("EndUser");
 
             //config properties
             entity.Property(e => e.Id)
                 .HasMaxLength(30)
-                .HasColumnName("id");
-            entity.Property(e => e.Classid).HasColumnName("classid");
-            entity.Property(e => e.Conjugation).HasColumnName("conjugation");
-            entity.Property(e => e.Diction).HasColumnName("diction");
-            entity.Property(e => e.Grammar).HasColumnName("grammar");
+                .HasColumnName("UserID");
+            entity.Property(e => e.Classid).HasColumnName("ClassID");
+            entity.Property(e => e.Conjugation).HasColumnName("ConjugationPercentage");
+            entity.Property(e => e.Diction).HasColumnName("DictionPercentage");
+            entity.Property(e => e.Grammar).HasColumnName("GrammarPercentage");
             entity.Property(e => e.Lingomon).HasColumnName("lingomon");
             entity.Property(e => e.Password)
                 .HasMaxLength(30)
-                .HasColumnName("password");
-            entity.Property(e => e.Spelling).HasColumnName("spelling");
+                .HasColumnName("Password");
+            entity.Property(e => e.Spelling).HasColumnName("SpellingPercentage");
 
             // config foreign keys
             entity.HasOne(d => d.Class).WithMany(p => p.Endusers)

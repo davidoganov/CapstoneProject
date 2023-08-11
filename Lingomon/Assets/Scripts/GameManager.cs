@@ -79,4 +79,54 @@ public class GameManager : MonoBehaviour
     {
         return isDBSaveEnabled;
     }
+
+    // update the user id
+    public void UpdateUserID(string newUserID)
+    {
+        userID = newUserID;
+        Debug.Log("UserID updated to: " + newUserID);
+    }
+
+    // update the classid
+    public void UpdateClassID(string newClassID)
+    {
+        classID = newClassID;
+        Debug.Log("ClassID updated to: " + newClassID);
+    }
+
+    // update the password
+    public void UpdatePassword(string newPassword)
+    {
+        password = newPassword;
+        Debug.Log("Password updated.");
+    }
+
+    // update the spellingPercentage
+    public void UpdateSpellingPercentage(double newPercentage)
+    {
+        spellingPercentage = newPercentage;
+        Debug.Log("Spelling Percentage updated to: " + newPercentage + "%");
+    }
+
+    // update the grammarPercentage
+    public void UpdateGrammarPercentage(double newPercentage)
+    {
+        GrammarPercentage = newPercentage;
+        Debug.Log("Grammar Percentage updated to: " + newPercentage + "%");
+    }
+
+    // update the dictionPercentage
+    public void UpdateDictionPercentage(double newPercentage)
+    {
+        DictionPercentage = newPercentage;
+        Debug.Log("Diction Percentage updated to: " + newPercentage + "%");
+    }
+
+    // update the conjugationPercentage
+    public void UpdateConjugationPercentage(double newPercentage)
+    {
+        ConjugationPercentage = newPercentage;
+        Debug.Log("Conjugation Percentage updated to: " + newPercentage + "%");
+    }
+
 }

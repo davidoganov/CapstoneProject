@@ -16,55 +16,18 @@ public class DatabaseController : MonoBehaviour
     }
 
     // coroutine to send POST request
-    /*
-    private IEnumerator SaveGameDataToDatabase(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
-    {
-        // API endpoint for saving game data for specific user
-        string url = baseURL + "api/EndUser"; // replace the enduser with the api endpoint for it
-        Debug.Log("before form");
-        // enduser:
-            // userId: 
-            //ad
-        // create a WWWForm to collect data for the POST request
-        WWWForm form = new WWWForm();
-        form.AddField("UserID", userID);
-        form.AddField("Password", password);
-        form.AddField("ClassID", classID);
-        form.AddField("SpellingPercentage", spellingPercentage.ToString());
-        form.AddField("GrammarPercentage", grammarPercentage.ToString());
-        form.AddField("DictionPercentage", dictionPercentage.ToString());
-        form.AddField("ConjugationPercentage", conjugationPercentage.ToString());
-        Debug.Log("after form");
-        // send the POST request
-        using (UnityWebRequest www = UnityWebRequest.Post(url, form))
-        {
 
-            Debug.Log("entered using");
-            www.SetRequestHeader("Content-Type", "application/json");
-            yield return www.SendWebRequest();
-            Debug.Log("Response code: " + www.responseCode);
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Failed to save game data: " + www.error);
-            }
-            else
-            {
-                Debug.Log("Game data saved successfully for user: " + userID);
-            }
-        }
-    }
-    */
-    
+
     [System.Serializable]
     public class GameData
     {
-        public string UserID;
+        public string Id;
         public string Password;
-        public string ClassID;
-        public double SpellingPercentage;
-        public double GrammarPercentage;
-        public double DictionPercentage;
-        public double ConjugationPercentage;
+        public int Classid;
+        public decimal Spelling;
+        public decimal Grammar;
+        public decimal Diction;
+        public decimal Conjugation;
     }
 
     private IEnumerator SaveGameDataToDatabase(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
@@ -75,14 +38,15 @@ public class DatabaseController : MonoBehaviour
         // Create a GameData object and fill it with the data
         GameData gameData = new GameData
         {
-            UserID = userID,
+            Id = userID,
             Password = password,
-            ClassID = classID,
-            SpellingPercentage = spellingPercentage,
-            GrammarPercentage = grammarPercentage,
-            DictionPercentage = dictionPercentage,
-            ConjugationPercentage = conjugationPercentage
+            Classid = int.Parse(classID), // Assuming classID is an integer as a string
+            Spelling = (decimal)spellingPercentage,
+            Grammar = (decimal)grammarPercentage,
+            Diction = (decimal)dictionPercentage,
+            Conjugation = (decimal)conjugationPercentage
         };
+
 
         // Convert the GameData object to a JSON string
         string jsonData = JsonUtility.ToJson(gameData);
@@ -102,6 +66,7 @@ public class DatabaseController : MonoBehaviour
             if (www.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log("Failed to save game data: " + www.error);
+                Debug.Log("Response: " + www.downloadHandler.text);
             }
             else
             {

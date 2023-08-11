@@ -144,6 +144,11 @@ public class RegisterButton : MonoBehaviour
         {
             Debug.Log("User already exists. Registration with provided credentials is not possible.");
 
+            // update userid, classid, and password in GameManager
+            GameManager.Instance.UpdateUserID(userID.text);
+            GameManager.Instance.UpdateClassID(classID.text);
+            GameManager.Instance.UpdatePassword(password.text);
+
             // display an error message to the user 
             if (ErrorAccountManager.instance != null)
             {
@@ -166,9 +171,9 @@ public class RegisterButton : MonoBehaviour
                 double conjugationPercentage = 0.0;
 
                 // call database controller to save the newly created user
-                  DatabaseController dbController = GameObject.FindWithTag("backend").GetComponent<DatabaseController>();
-                  dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
-                        dictionPercentage, conjugationPercentage);
+                DatabaseController dbController = GameObject.FindWithTag("backend").GetComponent<DatabaseController>();
+                dbController.SaveGameData(userID.text, password.text, classID.text, spellingPercentage, grammarPercentage,
+                      dictionPercentage, conjugationPercentage);
                 Debug.Log("A new user has been added to the database.");
             }
             else // database saving disabled

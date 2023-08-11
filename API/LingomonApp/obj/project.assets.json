@@ -10815,19 +10815,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\caveb\\.nuget\\packages\\": {}
+    "C:\\Users\\David\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caveb\\Desktop\\Capstone\\CapstoneProject\\API\\LingomonApp\\LingomonApp.csproj",
+      "projectUniqueName": "C:\\Users\\David\\OneDrive\\Documents\\GitHub\\CapstoneProject\\API\\LingomonApp\\LingomonApp.csproj",
       "projectName": "LingomonApp",
-      "projectPath": "C:\\Users\\caveb\\Desktop\\Capstone\\CapstoneProject\\API\\LingomonApp\\LingomonApp.csproj",
-      "packagesPath": "C:\\Users\\caveb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caveb\\Desktop\\Capstone\\CapstoneProject\\API\\LingomonApp\\obj\\",
+      "projectPath": "C:\\Users\\David\\OneDrive\\Documents\\GitHub\\CapstoneProject\\API\\LingomonApp\\LingomonApp.csproj",
+      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\David\\OneDrive\\Documents\\GitHub\\CapstoneProject\\API\\LingomonApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\caveb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10884,6 +10889,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.20, 6.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.20, 6.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.20, 6.0.20]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.20, 6.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
