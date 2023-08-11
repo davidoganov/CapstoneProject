@@ -9,5 +9,5 @@ public partial class Class
 
     public int Level { get; set; }
 
-    public virtual ICollection<Enduser> Endusers { get; set; } = new List<Enduser>();
+    public virtual ICollection<EndUser> Endusers { get; set; } = new List<EndUser>();
 }

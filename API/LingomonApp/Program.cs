@@ -1,9 +1,14 @@
+using LingomonApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
 builder.Services.AddCors();
+builder.Services.AddDbContext<TheDbContext>(options =>
+    options.UseNpgsql("Server=lingomonserver.postgres.database.azure.com;Port=5432;Database=postgres;User Id=postgres;Password=LingoMon2023Summer;"));
 
 var app = builder.Build();
 

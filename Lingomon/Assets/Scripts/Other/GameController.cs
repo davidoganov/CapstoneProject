@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public bool ranAway;
     BattleType currentBattle;
     GameState state;
+    public string sound = "EnvTheme";
 
     GameState stateBeforePause;
 
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
+        AudioManager.instance.Play(sound);
         DialogManager.Instance.OnDialogOpen += () => 
         {
             if (state != GameState.Cutscene)

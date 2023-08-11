@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace LingomonApp.Data;
@@ -18,7 +19,7 @@ public partial class TheDbContext : DbContext
 
     public virtual DbSet<Class> Classes { get; set; }
 
-    public virtual DbSet<Enduser> Endusers { get; set; }
+    public virtual DbSet<EndUser> Endusers { get; set; }
 
     public virtual DbSet<Language> Languages { get; set; }
 
@@ -32,8 +33,16 @@ public partial class TheDbContext : DbContext
 
     public virtual DbSet<Type> Types { get; set; }
 
+    /*public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddDbContext<TheDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("LingoString")));
+
+        // Other service registrations go here
+    }*/
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql("Server=lingomon.postgres.database.azure.com;Port=5432;Database=postgres;User Id=postgres;Password=LingoMon2023Summer;");
+        => optionsBuilder.UseNpgsql("Server=lingomonserver.postgres.database.azure.com;Port=5432;Database=postgres;User Id=postgres;Password=LingoMon2023Summer;");
 
     // config all entities
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -89,26 +98,26 @@ public partial class TheDbContext : DbContext
         });
 
         // config EndUser entity
-        modelBuilder.Entity<Enduser>(entity =>
+        modelBuilder.Entity<EndUser>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("enduser_pkey");
 
             // config table
-            entity.ToTable("EndUser");
+            entity.ToTable("enduser");
 
             //config properties
             entity.Property(e => e.Id)
                 .HasMaxLength(30)
-                .HasColumnName("UserID");
-            entity.Property(e => e.Classid).HasColumnName("ClassID");
-            entity.Property(e => e.Conjugation).HasColumnName("ConjugationPercentage");
-            entity.Property(e => e.Diction).HasColumnName("DictionPercentage");
-            entity.Property(e => e.Grammar).HasColumnName("GrammarPercentage");
+                .HasColumnName("id");
+            entity.Property(e => e.Classid).HasColumnName("classid");
+            entity.Property(e => e.Conjugation).HasColumnName("conjugation");
+            entity.Property(e => e.Diction).HasColumnName("diction");
+            entity.Property(e => e.Grammar).HasColumnName("grammar");
             entity.Property(e => e.Lingomon).HasColumnName("lingomon");
             entity.Property(e => e.Password)
                 .HasMaxLength(30)
-                .HasColumnName("Password");
-            entity.Property(e => e.Spelling).HasColumnName("SpellingPercentage");
+                .HasColumnName("password");
+            entity.Property(e => e.Spelling).HasColumnName("spelling");
 
             // config foreign keys
             entity.HasOne(d => d.Class).WithMany(p => p.Endusers)

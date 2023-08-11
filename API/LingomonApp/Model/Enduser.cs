@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LingomonApp.Data;
 
-public partial class Enduser
+public partial class EndUser
 {
     public string Id { get; set; } = null!;
 

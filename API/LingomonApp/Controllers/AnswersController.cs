@@ -19,7 +19,6 @@ namespace LingomonApp.Controllers
         {
             _context = context;
         }
-
         // GET: api/Answers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()

@@ -11,7 +11,7 @@ public partial class Lingomon
 
     public virtual Lingodex Dex { get; set; } = null!;
 
-    public virtual ICollection<Enduser> Endusers { get; set; } = new List<Enduser>();
+    public virtual ICollection<EndUser> Endusers { get; set; } = new List<EndUser>();
 
     public virtual ICollection<Npc> Npcs { get; set; } = new List<Npc>();
 }

@@ -33,7 +33,7 @@ public class DatabaseController : MonoBehaviour
     private IEnumerator SaveGameDataToDatabase(string userID, string password, string classID, double spellingPercentage, double grammarPercentage, double dictionPercentage, double conjugationPercentage)
     {
         // API endpoint for saving game data for a specific user
-        string url = baseURL + "api/EndUser";
+        string url = baseURL + "api/EndUsers";
         Debug.Log("before form");
         // Create a GameData object and fill it with the data
         GameData gameData = new GameData
@@ -46,7 +46,6 @@ public class DatabaseController : MonoBehaviour
             Diction = (decimal)dictionPercentage,
             Conjugation = (decimal)conjugationPercentage
         };
-
 
         // Convert the GameData object to a JSON string
         string jsonData = JsonUtility.ToJson(gameData);
@@ -111,6 +110,7 @@ public class DatabaseController : MonoBehaviour
     // get all already created users from the database
     public IEnumerator GetAllUsers(Action<List<UserManager.UserData>> callback)
     {
+        Debug.Log("in db controller");
         yield return StartCoroutine(GetAllUsersFromDB(callback));
     }
 
@@ -118,7 +118,7 @@ public class DatabaseController : MonoBehaviour
     private IEnumerator GetAllUsersFromDB(Action<List<UserManager.UserData>> callback)
     {
         // replace the endusers with the api endpoint for it
-        string url = baseURL + "EndUser";
+        string url = baseURL + "api/EndUsers";
 
         // perform Unity web request
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -133,6 +133,7 @@ public class DatabaseController : MonoBehaviour
             }
             else
             {
+                Debug.Log("poggers");
                 string jsonResponse = www.downloadHandler.text;
                 // parse the JSON response
                 // deserialize the JSON response into a list of UserData objects

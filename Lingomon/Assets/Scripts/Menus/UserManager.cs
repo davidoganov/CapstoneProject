@@ -81,6 +81,7 @@ public class UserManager : MonoBehaviour
     private void GetDBUsers()
     {
         // call the coroutine 
+        Debug.Log("in user manager");
         StartCoroutine(GetDBUsersCoroutine());
     }
 
@@ -88,7 +89,7 @@ public class UserManager : MonoBehaviour
     private IEnumerator GetDBUsersCoroutine()
     {
         // get all the users from the database
-        dbController.GetAllUsers(dbUsers =>
+        yield return dbController.GetAllUsers(dbUsers =>
         {
             // add them to the user list
             users.AddRange(dbUsers);
