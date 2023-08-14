@@ -17861,22 +17861,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: -2037496253, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: 1267771744, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -56532584, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -1479085482, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -1283324521, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkUpSprites:
-  - {fileID: 1656525698, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -1251557552, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -308706672, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -353226270, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 1942820827, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkRightSprites:
-  - {fileID: -981074941, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: 566943289, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 150715663, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -2038402242, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 1691508188, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   walkLeftSprites:
-  - {fileID: 984161966, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  - {fileID: -836400588, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: -2107298163, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 663550172, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   - {fileID: 2026209642, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
@@ -17922,7 +17922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Lingomon Specialist
-  sprite: {fileID: 246582300, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  sprite: {fileID: -1695860564, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   dialog:
   - lines:
     - I've been expecting you...
@@ -17968,7 +17968,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.3125}
+    oldSize: {x: 1, y: 1.25}
     newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18045,7 +18045,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2037496253, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
+  m_Sprite: {fileID: 1267771744, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

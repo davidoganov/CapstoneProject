@@ -30164,7 +30164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lingomons:
-  - _base: {fileID: 11400000, guid: 8228badf8f7ff1840b2bc1adf1be8cd2, type: 2}
+  - _base: {fileID: 11400000, guid: cfddd363aefda7c44939ab73a8fb14bf, type: 2}
+  - _base: {fileID: 11400000, guid: cb036f7d057952940b37f00978b8d966, type: 2}
+  - _base: {fileID: 11400000, guid: 541dc6da3645a2c4b898dc5e3bf60536, type: 2}
 --- !u!114 &1230013846
 MonoBehaviour:
   m_ObjectHideFlags: 0

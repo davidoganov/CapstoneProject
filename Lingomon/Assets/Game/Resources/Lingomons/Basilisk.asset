@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Basilisk
   description: 
-  frontSprite: {fileID: 21300000, guid: efb8e2d19ba77f449b37432e638ea253, type: 3}
-  backSprite: {fileID: 21300000, guid: d4d3a00bf6702364c9cab209f720a04d, type: 3}
+  frontSprite: {fileID: 190798889, guid: b6023bd69ef52fa489251a62a29930ed, type: 3}
+  backSprite: {fileID: -891059800, guid: b6023bd69ef52fa489251a62a29930ed, type: 3}
   type: 1
   maxHP: 65
   attack: 0

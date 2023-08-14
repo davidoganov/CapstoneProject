@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zhleepy
   description: 
-  frontSprite: {fileID: 21300000, guid: d87cb4aa4ad7ef3439f4889707e886d9, type: 3}
-  backSprite: {fileID: 21300000, guid: 7011958f291fb114f9aa486a16136606, type: 3}
+  frontSprite: {fileID: 21300000, guid: 28fc79446ad17f14bac7e723b4a5a631, type: 3}
+  backSprite: {fileID: 21300000, guid: 1f92aa7af345875409da2aeea9785d30, type: 3}
   type: 2
   maxHP: 70
   attack: 0
