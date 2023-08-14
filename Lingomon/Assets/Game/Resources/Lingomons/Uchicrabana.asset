@@ -21,5 +21,6 @@ MonoBehaviour:
   attack: 0
   possibleQuestions:
   - questionBase: {fileID: 11400000, guid: 166aedd746c6eeb4d9ac47bdafc3f834, type: 2}
-  - questionBase: {fileID: 11400000, guid: b2b40d68f845bfe4b9f5d5da7f634f5d, type: 2}
+  - questionBase: {fileID: 11400000, guid: 3d19c2a2f348f0641be6935b2dec2148, type: 2}
   - questionBase: {fileID: 11400000, guid: 24652a9301927dc409fa6e79bea264da, type: 2}
+  - questionBase: {fileID: 11400000, guid: 192df38c495a73042a5d35a089e788c7, type: 2}

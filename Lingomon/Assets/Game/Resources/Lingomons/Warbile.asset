@@ -17,7 +17,9 @@ MonoBehaviour:
   frontSprite: {fileID: 21300000, guid: 2267394081213b646a37bb76a20ddcdf, type: 3}
   backSprite: {fileID: 21300000, guid: 75b728a05b59fd0428a78219e373c144, type: 3}
   type: 1
-  maxHP: 40
+  maxHP: 65
   attack: 40
   possibleQuestions:
-  - questionBase: {fileID: 11400000, guid: 884cc5a53bb2b474d88d639edf704709, type: 2}
+  - questionBase: {fileID: 11400000, guid: fe918915b65ec0c408e1d9475c66afb1, type: 2}
+  - questionBase: {fileID: 11400000, guid: 33ab3ce3b6af35f4787fb192c27a050a, type: 2}
+  - questionBase: {fileID: 11400000, guid: 192df38c495a73042a5d35a089e788c7, type: 2}

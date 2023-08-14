@@ -20,6 +20,6 @@ MonoBehaviour:
   maxHP: 65
   attack: 0
   possibleQuestions:
-  - questionBase: {fileID: 11400000, guid: 85dc91f84b3a9e141b58d9fabac47c8a, type: 2}
-  - questionBase: {fileID: 11400000, guid: 275c19c575e182c40b2a46430263adca, type: 2}
-  - questionBase: {fileID: 11400000, guid: 4251f5c338deef642ab057a21266f1a2, type: 2}
+  - questionBase: {fileID: 11400000, guid: e18aa61c739dfde40929a9762e77e1ef, type: 2}
+  - questionBase: {fileID: 11400000, guid: d612d64253439ee46b0e9bed217fa157, type: 2}
+  - questionBase: {fileID: 11400000, guid: 58456febda69c8b478389f4f7de75503, type: 2}
