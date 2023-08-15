@@ -39,7 +39,7 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator ShowDialog(Dialog dialog, Character character=null, Action onFinished = null, bool isCutscene=false) {
         yield return new WaitForEndOfFrame();
-
+        AudioManager.instance.Play("selectSound");
         OnDialogOpen?.Invoke();
         inDialog = true;
         dialogBox.SetActive(true);
@@ -52,11 +52,13 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator TypeDialog(string line) {
         printing = true;
+        AudioManager.instance.Play("dialogueBlip");
         dialogText.text = "";
         foreach(var letter in line.ToCharArray()) {
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+        AudioManager.instance.Stop("dialogueBlip");
         printing = false;
         if (isCutscene)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Intro : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class Intro : MonoBehaviour
     [SerializeField] string[] lines;
     [SerializeField] float textSpeed;
     [SerializeField] GameObject interactBox;
-    
 
     private int index;
     private bool inDialogue;
@@ -21,6 +21,7 @@ public class Intro : MonoBehaviour
     {
         textComponent.text = string.Empty;
         inDialogue = true;
+        AudioManager.instance.Play("introTheme");
         StartDialogue();
     }
 
@@ -96,7 +97,9 @@ public class Intro : MonoBehaviour
     IEnumerator SwitchScene()
     {
         //yield return new WaitForSeconds (0.5f);
+        AudioManager.instance.Stop("introTheme");
         Debug.Log("TRYING TO LOAD SCENE!!");
+
         yield return SceneManager.LoadSceneAsync("Experiment");
     }
 }

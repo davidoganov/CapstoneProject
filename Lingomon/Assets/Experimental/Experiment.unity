@@ -592,7 +592,7 @@ MonoBehaviour:
         waitForCompletion: 1
         dialog:
           lines:
-          - Come back when you're ready
+          - Come back when you're ready.
           isTrainer: 0
           isNurse: 0
     - rid: 5040578580004995086
@@ -30183,9 +30183,9 @@ MonoBehaviour:
   sprite: {fileID: 246582300, guid: fad8d3f13b1c7b04996d1479af3a325c, type: 3}
   dialog:
   - lines:
-    - You got a lot of nerve you know
-    - thinking you can battle with the best!
-    - Lets see if you're training was meaningful...
+    - You got a lot of nerve you know.
+    - Thinking you can battle with the best!
+    - Lets see if your training was meaningful...
     isTrainer: 1
     isNurse: 0
   isSpecialist: 0
@@ -30383,7 +30383,7 @@ MonoBehaviour:
         waitForCompletion: 1
         dialog:
           lines:
-          - I really doubted you going into our battle
+          - I really doubted you going into our battle.
           isTrainer: 0
           isNurse: 0
     - rid: 2192768314956054531
@@ -30403,7 +30403,7 @@ MonoBehaviour:
         waitForCompletion: 1
         dialog:
           lines:
-          - Thats right...I am merely his apprentice
+          - That's right...I am merely their apprentice.
           isTrainer: 0
           isNurse: 0
     - rid: 2192768314956054533
@@ -30413,7 +30413,7 @@ MonoBehaviour:
         waitForCompletion: 1
         dialog:
           lines:
-          - but behind me is where the specialist resides
+          - Behind me is where the specialist resides.
           isTrainer: 0
           isNurse: 0
     - rid: 2192768314956054534
@@ -50472,35 +50472,35 @@ MonoBehaviour:
   dialog:
   - lines:
     - Are you new around here?
-    - I dont think i've seen you before.
-    - Well regardless of that, its nice to meet you!
+    - I don't think I've seen you before.
+    - Well regardless of that, nice to meet you!
     isTrainer: 0
     isNurse: 0
   - lines:
-    - Hi, its nice to see you again
+    - Hi, nice to see you again.
     - Wait you're a trainer now!?
     - We have to battle, you up for it?
     isTrainer: 1
     isNurse: 0
   - lines:
-    - Hows it going dude.
+    - How's it going dude.
     - You've been getting the hang of this battling stuff.
-    - My gran always complain about me doing it.
-    - but its the only way to get the flowers she wants from the island over
-    - anyways, you have time for a battle?
+    - My gran always complains about me doing it.
+    - But it's the only way to get the flowers she wants from the island over.
+    - Anyways, you have time for a battle?
     isTrainer: 1
     isNurse: 0
   - lines:
     - Larry gave you permission to fight the specialist!?
-    - He still hasen't gave me permission...
-    - hopefully one day!
+    - He still hasn't gave me permission...
+    - Hopefully one day!
     - Have time to help me practice?
     isTrainer: 1
     isNurse: 0
   - lines:
-    - I cant believe it...
+    - I can't believe it...
     - You defeated the specialist, congrats dude!!!
-    - You've been inspiring me to keep pushing at a chance to fight him too!
+    - You've been inspiring me to keep pushing for a chance to fight him too!
     - Have time for a quick battle?
     isTrainer: 1
     isNurse: 0
@@ -50882,13 +50882,13 @@ MonoBehaviour:
   dialog:
   - lines:
     - Grandson is that you?
-    - Its so hard to see without my glasses
+    - Its so hard to see without my glasses.
     - Did you go and fetch those flowers from the Island over like I told you to?
-    - Sigh its fine
+    - Sigh its fine.
     isTrainer: 0
     isNurse: 0
   - lines:
-    - Grandson I thought I told you to stay away from lingomon battles!
+    - Grandson I thought I told you to stay away from LingoMon battles!
     - Wait...
     - You're not my grandson!
     - You're an imposter!

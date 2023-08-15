@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Dialog onLossDialog;
     Action onBattleFinished;
     public bool ranAway;
+    bool isApprentice = false;
     BattleType currentBattle;
     GameState state;
     public string sound = "EnvTheme";
@@ -91,6 +92,8 @@ public class GameController : MonoBehaviour
 
     public void StartBattle()
     {
+        AudioManager.instance.Stop("EnvTheme");
+        AudioManager.instance.Play("wildBattle");
         currentBattle = BattleType.wild;
         MapController.Instance.hideMap();
         QuestManager.Instance.hideQuests();
@@ -104,6 +107,15 @@ public class GameController : MonoBehaviour
 
     public void StartTrainerBattle(TrainerController trainer, Action onBattleFinished=null)
     {
+        AudioManager.instance.Stop("EnvTheme");
+        if (trainer.Name.Equals("apprentice"))
+        {
+            isApprentice = true;
+            AudioManager.instance.Play("apprenticeBattle");
+        }
+        else if (trainer.isSpecialist) AudioManager.instance.Play("specialistBattle");
+        else AudioManager.instance.Play("trainerBattle");
+
         currentBattle = trainer.isSpecialist ? BattleType.specialist : BattleType.trainer;
         QuestManager.Instance.hideQuests();
         MapController.Instance.hideMap();
@@ -128,7 +140,26 @@ public class GameController : MonoBehaviour
 
     void EndBattle(bool won)
     {
-
+        if (isApprentice)
+        {
+            AudioManager.instance.Stop("apprenticeBattle");
+            isApprentice = false;
+        }
+        else {
+            switch (currentBattle)
+            {
+                case BattleType.wild:
+                    AudioManager.instance.Stop("wildBattle");
+                    break;
+                case BattleType.trainer:
+                    AudioManager.instance.Stop("trainerBattle");
+                    break;
+                case BattleType.specialist:
+                    AudioManager.instance.Stop("specialistBattle");
+                    break;
+            }
+        }
+        AudioManager.instance.Play("EnvTheme");
         if (!ranAway && won)
         {
             switch (currentBattle)

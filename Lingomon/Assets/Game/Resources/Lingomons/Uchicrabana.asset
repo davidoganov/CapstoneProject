@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Uchicrabana
   description: 
   frontSprite: {fileID: 21300000, guid: fda9417787f08614290e78ca1f665aa0, type: 3}
-  backSprite: {fileID: 21300000, guid: 4e0891744a97ccc46a7a751878e6c1cf, type: 3}
+  backSprite: {fileID: 21300000, guid: c3d25afff49c3b24c85f5bd92cc016eb, type: 3}
   type: 1
   maxHP: 150
   attack: 0

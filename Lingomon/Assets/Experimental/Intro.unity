@@ -720,6 +720,8 @@ MonoBehaviour:
   - Are you ready to catch some Lingomon?
   textSpeed: 20
   interactBox: {fileID: 1688656300}
+  introSr: {fileID: 0}
+  horizontal: {fileID: 2800000, guid: 61dd2d05c5d19654183e39b784617665, type: 3}
 --- !u!1 &1688656300
 GameObject:
   m_ObjectHideFlags: 0

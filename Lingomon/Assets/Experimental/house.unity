@@ -278,55 +278,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
   - lines:
-    - Hi traveler.
-    - Its nice to meet you again after our short talk earlier.
-    - You must have lots of questions about the world of Lingomon.
-    - but worry not.
-    - I can assure you all of that will be answered shortly.
-    - First, I need you to start Lingomon battling!
-    - started from either wild encounters with Lingomon.
-    - which can be triggered by running through tall grass,
-    - or by battling Lingomon trainers.
+    - Hi, traveler.
+    - It's nice to meet you again after our short talk earlier.
+    - You must have lots of questions about the world of LingoMon.
+    - But worry not, I can assure you all of that will be answered shortly.
+    - First, I need you to start battling!
+    - Started from either wild encounters with LingoMon.
+    - Which can be triggered by running through tall grass, or by battling Lingomon
+      trainers.
     - Once you've finished these quests, you'll be ready for some serious work!
     isTrainer: 0
     isNurse: 0
   - lines:
     - Hi again!
     - I hope your battling has been going well.
-    - Since you're here.
-    - I'll give you a little hint of whats next after your quests
-    - theres an island seperated by a gaurded bridge south of here
-    - across that bridge is where the Lingomon specialist is
-    - I'll tell you more about them when you're ready
+    - Since you're here, I'll give you a little hint of what's next after your quests.
+    - There's an island separated by a guarded bridge south of here,
+    - across that bridge is where the LingoMon specialist is.
+    - I'll tell you more about them when you're ready.
     isTrainer: 0
     isNurse: 0
   - lines:
     - Good work with completing those quests!
     - I knew you could do it.
-    - As I promised...
-    - Here is your next task!
-    - Your mission is to defeat the Lingomon specialist.
-    - He is a difficult opponent and should only be fought by skilled trainers
-    - Hence why I had you training up until now
-    - You can reach his island by crossing the bridge south of this lab
-    - Its usually gaurded, but they should let you through now with my permission.
+    - As I promised... Here is your next task!
+    - Your mission is to defeat the LingoMon specialist.
+    - They're a difficult opponent and should only be fought by skilled trainers.
+    - Hence why I had you training up until now.
+    - You can reach their island by crossing the bridge south of this lab.
+    - It's usually guarded, but they should let you through now with my permission.
     - Good luck!
     isTrainer: 0
     isNurse: 0
   - lines:
     - Hi again!
-    - Hows it going with the task I assigned you?
-    - Is he proving to be a challenging opponent?
-    - Remeber you can never be too prepared for a battle!
-    - So dont be scared to train more before battling him.
+    - How's it going with the task I assigned you?
+    - Are they proving to be a challenging opponent?
+    - Remember, you can never be too prepared for a battle!
+    - So don't be scared to train more before battling them.
     isTrainer: 0
     isNurse: 0
   - lines:
     - Oh my, am I glad to see you!
     - Great work defeating the specialist!
-    - You truly are one of my best deciples.
-    - Theres nothing that can stop you now!
-    - You have mastered English and the ways of Lingomon battling.
+    - You truly are one of my best disciples.
+    - There's nothing that can stop you now!
+    - You have mastered English and LingoMon battling.
     - Congrats once again!
     isTrainer: 0
     isNurse: 0
@@ -17927,8 +17924,8 @@ MonoBehaviour:
   - lines:
     - I've been expecting you...
     - You were good enough to make it past my apprentice.
-    - But ill be the test to see if Vocab U. Larry was right about you!
-    - Lets Battle!
+    - But I'll be the test to see if Vocab U. Larry was right about you!
+    - Let's Battle!
     isTrainer: 1
     isNurse: 0
   isSpecialist: 1
@@ -18260,15 +18257,16 @@ MonoBehaviour:
     - Hello there!
     - I am the nurse!
     - If you ever become a trainer I am here
-    - to nurse your lingomon back to health.
+    - to nurse your LingoMon back to health.
     - Safe travels!
     isTrainer: 0
     isNurse: 0
   - lines:
     - I heard the news!
     - You became a trainer!
-    - Congratulations! If your lingomon ever need nursing
-    - I can nurse them back to health right now if you would like.
+    - Congratulations! If your LingoMon ever need nursing,
+    - You can always visit me.
+    - I can nurse them back to health if you would like.
     isTrainer: 0
     isNurse: 1
   - lines:
@@ -18279,14 +18277,16 @@ MonoBehaviour:
     isNurse: 1
   - lines:
     - Have you fought the specialist yet?
-    - Whether or not would you like a heal?
+    - A lot of trainers come back scared to fight them again.
+    - But I've got a feeling you're different.
+    - Would you like me to rest your LingoMon?
     isTrainer: 0
     isNurse: 1
   - lines:
     - I've heard the good news!
     - You defeated the specialist!
     - Congratulations on your journey.
-    - Would you like a heal so you can continue it?
+    - Would you like to rest so you can continue on?
     isTrainer: 0
     isNurse: 1
 --- !u!212 &2125983469

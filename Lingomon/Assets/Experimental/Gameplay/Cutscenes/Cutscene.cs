@@ -12,7 +12,7 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
 
     public IEnumerator Play() {
         Debug.Log("cutscene started");
-        yield return new WaitForSeconds(.5f);
+        //yield return new WaitForSeconds(.5f);
         GameController.Instance.StartCutsceneState();
         foreach (var action in actions)
         {

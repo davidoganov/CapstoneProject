@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Warbile
   description: 
   frontSprite: {fileID: 21300000, guid: 2267394081213b646a37bb76a20ddcdf, type: 3}
-  backSprite: {fileID: 21300000, guid: 75b728a05b59fd0428a78219e373c144, type: 3}
+  backSprite: {fileID: -1604109060, guid: 75b728a05b59fd0428a78219e373c144, type: 3}
   type: 1
   maxHP: 65
   attack: 40
